@@ -12,8 +12,6 @@ import android.widget.TextView;
 import com.example.hermes.test.BuildConfig;
 import com.example.hermes.test.R;
 
-import lombok.data.Book;
-
 public class MainActivity extends BaseSimpleActivity {
 
     private final static String TAG = MainActivity.class.getSimpleName();
@@ -50,11 +48,11 @@ public class MainActivity extends BaseSimpleActivity {
             }
         });
 
-        Book book = new Book();
-        Book book2 = Book.of(2, 4, "Hello");
-        Book book3 = Book.of(4, 4, "");
-        new Book.NoArgsExample();
-        book.
+//        Book book = new Book();
+//        Book book2 = Book.of(2, 4, "Hello");
+//        Book book3 = Book.of(4, 4, "");
+//        new Book.NoArgsExample();
+//        book.
 //        Log.d(BOOK, "Book Id : " + book.getId());
 //        Log.d(BOOK, "Book Name : " + book.getName());
 //        Log.d(BOOK, "Book Date : " + book.getDate());
