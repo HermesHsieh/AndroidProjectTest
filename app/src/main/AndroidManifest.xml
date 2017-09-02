@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name="tw.android.test.AlarmReceiver" />
+
         <receiver
             android:name="tw.android.test.PackageEventReceiver"
             android:label="@string/app_name">

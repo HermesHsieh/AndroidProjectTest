@@ -1,6 +1,10 @@
 package tw.android.test;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
@@ -58,7 +62,20 @@ public class MainActivity extends BaseSimpleActivity {
 //        Log.d(BOOK, "Book Date : " + book.getDate());
 //        Log.d(BOOK, "Book Status : " + book.isStatus());
 //        Log.d(BOOK, "Book toString : " + book.toString());
+
+        alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.setAction(ACTION_REPEAT_ALARM);
+        alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+                90 * 1000, alarmIntent);
     }
+
+    public final static String ACTION_REPEAT_ALARM = "ACTION_REPEAT_ALARM";
+
+    private AlarmManager alarmManager;
+    private PendingIntent alarmIntent;
 
     @Override
     protected void initData() {
@@ -105,5 +122,9 @@ public class MainActivity extends BaseSimpleActivity {
 //            unregisterReceiver(mBroadcastReceiver);
 //        if (mPackageEventReceiver != null)
 //            unregisterReceiver(mPackageEventReceiver);
+
+        if (alarmManager!= null) {
+            alarmManager.cancel(alarmIntent);
+        }
     }
 }

@@ -6,13 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 
 /**
  * Created by hermes on 2017/8/31.
  */
 @Data
-@Log4j
 @NoArgsConstructor
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
