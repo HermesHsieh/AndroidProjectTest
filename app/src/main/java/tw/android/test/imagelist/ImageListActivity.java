@@ -1,8 +1,6 @@
 package tw.android.test.imagelist;
 
 import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -10,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
 
 import com.example.hermes.test.R;
 
@@ -33,25 +30,24 @@ public class ImageListActivity extends AppCompatActivity {
 
         findView();
 
-        mPackageEventReceiver = new PackageEventReceiver();
-        mBroadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {
-                    String packageName = intent.getData().getSchemeSpecificPart();
-                    Toast.makeText(context, "m安装成功 " + packageName, Toast.LENGTH_LONG).show();
-                }
-                if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
-                    String packageName = intent.getData().getSchemeSpecificPart();
-                    Toast.makeText(context, "m移除成功 " + packageName, Toast.LENGTH_LONG).show();
-                }
-                if (intent.getAction().equals(Intent.ACTION_PACKAGE_REPLACED)) {
-                    String packageName = intent.getData().getSchemeSpecificPart();
-                    Toast.makeText(context, "m替換成功 " + packageName, Toast.LENGTH_LONG).show();
-                }
-            }
-        };
-
+//        mPackageEventReceiver = new PackageEventReceiver();
+//        mBroadcastReceiver = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+//                if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {
+//                    String packageName = intent.getData().getSchemeSpecificPart();
+//                    Toast.makeText(context, "m安装成功 " + packageName, Toast.LENGTH_LONG).show();
+//                }
+//                if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
+//                    String packageName = intent.getData().getSchemeSpecificPart();
+//                    Toast.makeText(context, "m移除成功 " + packageName, Toast.LENGTH_LONG).show();
+//                }
+//                if (intent.getAction().equals(Intent.ACTION_PACKAGE_REPLACED)) {
+//                    String packageName = intent.getData().getSchemeSpecificPart();
+//                    Toast.makeText(context, "m替換成功 " + packageName, Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        };
 //        IntentFilter mFilter = new IntentFilter();
 //        mFilter.addDataScheme("package");
 //        mFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
@@ -82,9 +78,9 @@ public class ImageListActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (mBroadcastReceiver != null)
-            unregisterReceiver(mBroadcastReceiver);
-        if (mPackageEventReceiver != null)
-            unregisterReceiver(mPackageEventReceiver);
+//        if (mBroadcastReceiver != null)
+//            unregisterReceiver(mBroadcastReceiver);
+//        if (mPackageEventReceiver != null)
+//            unregisterReceiver(mPackageEventReceiver);
     }
 }
