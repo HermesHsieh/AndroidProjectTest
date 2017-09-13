@@ -9,7 +9,11 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.hermes.test.R;
 
+import java.util.ArrayList;
+
 import tw.android.test.PackageEventReceiver;
+import tw.android.test.ui.FormView;
+import tw.android.test.ui.SpinnerItem;
 
 
 /**
@@ -20,6 +24,7 @@ public class ImageListActivity extends AppCompatActivity {
 
     RecyclerView mRecyclerView;
     ImageListAdapter mAdapter;
+    private FormView.Adapter mFormAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,6 +58,11 @@ public class ImageListActivity extends AppCompatActivity {
 //        mFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
 //        registerReceiver(mBroadcastReceiver, mFilter);
 //        registerReceiver(mPackageEventReceiver, mFilter);
+        mFormAdapter = new FormView.Adapter();
+        mFormAdapter.add(new SpinnerItem(this, "Title", new ArrayList<String>()));
+        mFormAdapter.add(new SpinnerItem(this, "Title", new ArrayList<String>()));
+
+        ((SpinnerItem) mFormAdapter.getItemView(0)).getSelectedValue();
     }
 
     private PackageEventReceiver mPackageEventReceiver;

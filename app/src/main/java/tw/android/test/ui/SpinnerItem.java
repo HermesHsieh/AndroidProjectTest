@@ -15,6 +15,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by hermes.hsieh on 2017/9/13.
@@ -31,10 +33,32 @@ public class SpinnerItem extends FormView.ItemView {
 
     private ArrayAdapter<String> mAdapter;
 
+    @Setter
+    private OnSpinnerSelectedListener selectedListener;
+    @Getter
+    private int selectedPosition = 0;
+    @Getter
+    private String selectedValue = "";
+
     public SpinnerItem(@NonNull Context context) {
         super(context);
         ButterKnife.bind(this, getView());
         this.mContext = context;
+        this.mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedPosition = position;
+                selectedValue = mAdapter.getItem(position);
+                if (selectedListener != null) {
+                    selectedListener.onItemSelected(selectedPosition, selectedValue);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     public SpinnerItem(@NonNull Context context, String title) {
@@ -70,17 +94,7 @@ public class SpinnerItem extends FormView.ItemView {
     }
 
     public void setSpinnerListener(final OnSpinnerSelectedListener listener) {
-        mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                listener.onItemSelected(position, mAdapter.getItem(position));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        selectedListener = listener;
     }
 
     public interface OnSpinnerSelectedListener {
