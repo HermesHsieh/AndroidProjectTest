@@ -1,11 +1,15 @@
 package tw.android.test.imagelist;
 
 import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.hermes.test.R;
 
@@ -63,6 +67,7 @@ public class ImageListActivity extends AppCompatActivity {
         mFormAdapter.add(new SpinnerItem(this, "Title", new ArrayList<String>()));
 
         ((SpinnerItem) mFormAdapter.getItemView(0)).getSelectedValue();
+
     }
 
     private PackageEventReceiver mPackageEventReceiver;
@@ -86,9 +91,9 @@ public class ImageListActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-//        if (mBroadcastReceiver != null)
-//            unregisterReceiver(mBroadcastReceiver);
-//        if (mPackageEventReceiver != null)
-//            unregisterReceiver(mPackageEventReceiver);
+        if (mBroadcastReceiver != null)
+            unregisterReceiver(mBroadcastReceiver);
+        if (mPackageEventReceiver != null)
+            unregisterReceiver(mPackageEventReceiver);
     }
 }
