@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="tw.android.test.numberpicker.NumberPickerActivity"
+            android:name="tw.android.test.imagelist.ImageListActivity"
             android:theme="@style/AppTheme"
             >
             <intent-filter>

@@ -34,9 +34,9 @@ public class NumberPickerActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         NumberPicker numberPicker = (NumberPicker) findViewById(R.id.number_picker);
-        numberPicker.setValue(4);
-        numberPicker.setMaxValue(1000);
         numberPicker.setMinValue(1);
+        numberPicker.setMaxValue(1000);
+        numberPicker.setValue(10);
         numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
