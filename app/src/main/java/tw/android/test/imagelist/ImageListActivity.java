@@ -1,23 +1,16 @@
 package tw.android.test.imagelist;
 
 import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.example.hermes.test.R;
 
-import java.util.ArrayList;
-
 import tw.android.test.PackageEventReceiver;
 import tw.android.test.ui.FormView;
-import tw.android.test.ui.SpinnerItem;
 
 
 /**
@@ -43,15 +36,15 @@ public class ImageListActivity extends AppCompatActivity {
 //            public void onReceive(Context context, Intent intent) {
 //                if (intent.getAction().equals(Intent.ACTION_PACKAGE_ADDED)) {
 //                    String packageName = intent.getData().getSchemeSpecificPart();
-//                    Toast.makeText(context, "m安装成功 " + packageName, Toast.LENGTH_LONG).show();
+////                    Toast.makeText(context, ">> 安装成功 <<" + packageName, Toast.LENGTH_LONG).show();
 //                }
 //                if (intent.getAction().equals(Intent.ACTION_PACKAGE_REMOVED)) {
 //                    String packageName = intent.getData().getSchemeSpecificPart();
-//                    Toast.makeText(context, "m移除成功 " + packageName, Toast.LENGTH_LONG).show();
+////                    Toast.makeText(context, ">> 移除成功 <<" + packageName, Toast.LENGTH_LONG).show();
 //                }
 //                if (intent.getAction().equals(Intent.ACTION_PACKAGE_REPLACED)) {
 //                    String packageName = intent.getData().getSchemeSpecificPart();
-//                    Toast.makeText(context, "m替換成功 " + packageName, Toast.LENGTH_LONG).show();
+////                    Toast.makeText(context, ">> 替換成功 <<" + packageName, Toast.LENGTH_LONG).show();
 //                }
 //            }
 //        };
@@ -62,11 +55,6 @@ public class ImageListActivity extends AppCompatActivity {
 //        mFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
 //        registerReceiver(mBroadcastReceiver, mFilter);
 //        registerReceiver(mPackageEventReceiver, mFilter);
-        mFormAdapter = new FormView.Adapter();
-        mFormAdapter.add(new SpinnerItem(this, "Title", new ArrayList<String>()));
-        mFormAdapter.add(new SpinnerItem(this, "Title", new ArrayList<String>()));
-
-        ((SpinnerItem) mFormAdapter.getItemView(0)).getSelectedValue();
 
     }
 
@@ -91,9 +79,9 @@ public class ImageListActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (mBroadcastReceiver != null)
-            unregisterReceiver(mBroadcastReceiver);
-        if (mPackageEventReceiver != null)
-            unregisterReceiver(mPackageEventReceiver);
+//        if (mBroadcastReceiver != null)
+//            unregisterReceiver(mBroadcastReceiver);
+//        if (mPackageEventReceiver != null)
+//            unregisterReceiver(mPackageEventReceiver);
     }
 }
