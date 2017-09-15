@@ -32,6 +32,22 @@
             app:layout_scrollFlags="scroll"
             >
 
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".3"
+                />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".5"
+                />
+
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
@@ -50,8 +66,8 @@
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 app:layout_constraintDimensionRatio="16:9"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_vertical"
                 app:layout_constraintTop_toBottomOf="@+id/button3"
                 />
 
