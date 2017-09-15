@@ -22,9 +22,9 @@ public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     private List<String> mData = new ArrayList<>();
 
-    public ImageListAdapter(Context context,int dataCount) {
+    public ImageListAdapter(Context context) {
         mContext = context;
-        onCreateData(dataCount);
+        onCreateData(30);
     }
 
     private void onCreateData(int count) {
