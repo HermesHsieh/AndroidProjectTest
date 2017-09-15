@@ -22,9 +22,14 @@ public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     private List<String> mData = new ArrayList<>();
 
-    public ImageListAdapter(Context context) {
+    public ImageListAdapter(Context context,int dataCount) {
         mContext = context;
-        for (int i = 0; i < 50; i++) {
+        onCreateData(dataCount);
+    }
+
+    private void onCreateData(int count) {
+        mData.clear();
+        for (int i = 0; i < count; i++) {
             mData.add("[ " + i + " ]");
         }
     }

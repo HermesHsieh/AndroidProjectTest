@@ -3,12 +3,16 @@ package tw.android.test.imagelist;
 import android.content.BroadcastReceiver;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.hermes.test.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import tw.android.test.PackageEventReceiver;
 import tw.android.test.ui.FormView;
 
@@ -23,12 +27,19 @@ public class ImageListActivity extends AppCompatActivity {
     ImageListAdapter mAdapter;
     private FormView.Adapter mFormAdapter;
 
+    @BindView(R.id.app_bar)
+    AppBarLayout mAppBarLayout;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_list);
+        ButterKnife.bind(this);
 
         findView();
+
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mAppBarLayout.getLayoutParams();
+        layoutParams.setBehavior(new AppBarLayoutNoEmptyScrollBehavior(mAppBarLayout, mRecyclerView));
 
 //        mPackageEventReceiver = new PackageEventReceiver();
 //        mBroadcastReceiver = new BroadcastReceiver() {
@@ -63,7 +74,7 @@ public class ImageListActivity extends AppCompatActivity {
 
     private void findView() {
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mAdapter = new ImageListAdapter(this);
+        mAdapter = new ImageListAdapter(this, 0);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
