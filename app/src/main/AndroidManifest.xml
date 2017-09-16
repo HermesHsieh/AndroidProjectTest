@@ -18,19 +18,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable"/>
         </activity>
 
-        <activity android:name="tw.android.test.activity.collapsing.CollapsingActivity"
-                  android:theme="@style/AppTheme"
+        <activity
+            android:name="tw.android.test.activity.collapsing.CollapsingActivity"
+            android:theme="@style/AppTheme"
             />
 
         <activity android:name="tw.android.test.activity.numberpicker.NumberPickerActivity"
             />
 
+        <activity android:name="tw.android.test.activity.search.SearchActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>
         <activity android:name="tw.android.test.activity.search.SearchResultsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>

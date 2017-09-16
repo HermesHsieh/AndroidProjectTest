@@ -36,6 +36,7 @@ public class NumberPickerActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
+        setTitle(this.getClass().getSimpleName());
         mNumberPicker.setMinValue(1);
         mNumberPicker.setMaxValue(1000);
         mNumberPicker.setValue(10);

@@ -41,6 +41,7 @@ public class CollapsingActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
+        setTitle(this.getClass().getSimpleName());
 
         mAdapter = new ListDataAdapter(this);
 

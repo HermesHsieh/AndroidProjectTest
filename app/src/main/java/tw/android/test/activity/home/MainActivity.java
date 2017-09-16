@@ -11,6 +11,7 @@ import butterknife.OnClick;
 import tw.android.test.BaseSimpleActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
+import tw.android.test.activity.search.SearchActivity;
 
 public class MainActivity extends BaseSimpleActivity {
 
@@ -60,6 +61,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.number_picker)
     public void onClickNumberPickerButton() {
         NumberPickerActivity.launch(this);
+    }
+
+    @OnClick(R.id.menu_action_search)
+    public void onClickSearchButton() {
+        SearchActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
