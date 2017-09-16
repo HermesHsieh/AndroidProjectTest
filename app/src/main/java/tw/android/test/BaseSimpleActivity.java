@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+
+import butterknife.ButterKnife;
 
 /**
  * Created by hermes on 2017/6/17.
@@ -16,9 +19,29 @@ public abstract class BaseSimpleActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(initContentView());
+        ButterKnife.bind(this);
+        displayHomeButton(true);
         mContext = this;
         initView();
         initData();
+    }
+
+    public void displayHomeButton(boolean isDisplay) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(isDisplay);
+            getSupportActionBar().setHomeButtonEnabled(isDisplay);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

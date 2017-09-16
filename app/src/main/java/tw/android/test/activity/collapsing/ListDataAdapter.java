@@ -1,4 +1,4 @@
-package tw.android.test.imagelist;
+package tw.android.test.activity.collapsing;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -16,13 +16,13 @@ import java.util.List;
  * Created by hermes on 2017/9/12.
  */
 
-public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ListDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final Context mContext;
 
     private List<String> mData = new ArrayList<>();
 
-    public ImageListAdapter(Context context) {
+    public ListDataAdapter(Context context) {
         mContext = context;
         onCreateData(30);
     }
@@ -30,7 +30,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     private void onCreateData(int count) {
         mData.clear();
         for (int i = 0; i < count; i++) {
-            mData.add("[ " + i + " ]");
+            mData.add("[ " + i + " ] ListView Data");
         }
     }
 

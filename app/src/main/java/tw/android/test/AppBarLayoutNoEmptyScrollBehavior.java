@@ -1,4 +1,4 @@
-package tw.android.test.imagelist;
+package tw.android.test;
 
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;

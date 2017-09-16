@@ -1,12 +1,11 @@
-package tw.android.test.imagelist;
+package tw.android.test.activity.collapsing;
 
+import android.app.Activity;
 import android.app.SearchManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -17,35 +16,37 @@ import android.view.MenuInflater;
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+import tw.android.test.BaseSimpleActivity;
 import tw.android.test.PackageEventReceiver;
-import tw.android.test.ui.FormView;
+import tw.android.test.ui.form.FormView;
 
 
 /**
  * Created by hermes on 2017/9/12.
  */
 
-public class ImageListActivity extends AppCompatActivity {
+public class CollapsingActivity extends BaseSimpleActivity {
 
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
-    ImageListAdapter mAdapter;
+    ListDataAdapter mAdapter;
     private FormView.Adapter mFormAdapter;
 
     @BindView(R.id.app_bar)
     AppBarLayout mAppBarLayout;
 
-//    @BindView(R.id.toolbar)
-//    Toolbar mToolbar;
+    @Override
+    protected int initContentView() {
+        return R.layout.activity_collapsing;
+    }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_list);
-        ButterKnife.bind(this);
-//        setSupportActionBar(mToolbar);
-        findView();
+    protected void initView() {
+
+        mAdapter = new ListDataAdapter(this);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setAdapter(mAdapter);
 
 //        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mAppBarLayout.getLayoutParams();
 //        layoutParams.setBehavior(new AppBarLayoutNoEmptyScrollBehavior(mAppBarLayout, mRecyclerView));
@@ -75,6 +76,10 @@ public class ImageListActivity extends AppCompatActivity {
 //        mFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
 //        registerReceiver(mBroadcastReceiver, mFilter);
 //        registerReceiver(mPackageEventReceiver, mFilter);
+    }
+
+    @Override
+    protected void initData() {
 
     }
 
@@ -82,10 +87,6 @@ public class ImageListActivity extends AppCompatActivity {
     private BroadcastReceiver mBroadcastReceiver;
 
     private void findView() {
-        mAdapter = new ImageListAdapter(this);
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mAdapter);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -131,6 +132,7 @@ public class ImageListActivity extends AppCompatActivity {
         } else {
             Log.e("testtt", "searchView == null");
         }
+
         return true;
     }
 
@@ -144,4 +146,9 @@ public class ImageListActivity extends AppCompatActivity {
 //        }
 //        return super.onOptionsItemSelected(item);
 //    }
+
+    public static void launch(Activity activity) {
+        Intent intent = new Intent(activity, CollapsingActivity.class);
+        activity.startActivity(intent);
+    }
 }

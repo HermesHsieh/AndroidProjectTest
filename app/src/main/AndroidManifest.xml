@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="tw.android.test.imagelist.ImageListActivity"
+            android:name="tw.android.test.activity.home.MainActivity"
             android:theme="@style/AppTheme"
             >
             <intent-filter>
@@ -24,7 +24,13 @@
                 android:resource="@xml/searchable"/>
         </activity>
 
-        <activity android:name="tw.android.test.search.SearchResultsActivity">
+        <activity android:name="tw.android.test.activity.collapsing.CollapsingActivity"
+            />
+
+        <activity android:name="tw.android.test.activity.numberpicker.NumberPickerActivity"
+            />
+
+        <activity android:name="tw.android.test.activity.search.SearchResultsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>

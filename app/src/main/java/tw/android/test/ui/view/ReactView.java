@@ -1,4 +1,4 @@
-package tw.android.test;
+package tw.android.test.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
