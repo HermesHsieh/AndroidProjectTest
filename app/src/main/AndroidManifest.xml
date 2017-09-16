@@ -25,6 +25,7 @@
         </activity>
 
         <activity android:name="tw.android.test.activity.collapsing.CollapsingActivity"
+                  android:theme="@style/AppTheme.NoActionBar"
             />
 
         <activity android:name="tw.android.test.activity.numberpicker.NumberPickerActivity"

@@ -26,6 +26,9 @@ public class NumberPickerActivity extends BaseSimpleActivity {
     @BindView(R.id.my_button)
     Button mButton;
 
+    @BindView(R.id.number_picker)
+    NumberPicker mNumberPicker;
+
     @Override
     protected int initContentView() {
         return R.layout.activity_number_picker;
@@ -33,11 +36,10 @@ public class NumberPickerActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
-        NumberPicker numberPicker = (NumberPicker) findViewById(R.id.number_picker);
-        numberPicker.setMinValue(1);
-        numberPicker.setMaxValue(1000);
-        numberPicker.setValue(10);
-        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        mNumberPicker.setMinValue(1);
+        mNumberPicker.setMaxValue(1000);
+        mNumberPicker.setValue(10);
+        mNumberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                 Log.d("NumberPickerActivity", "Value : " + newVal);

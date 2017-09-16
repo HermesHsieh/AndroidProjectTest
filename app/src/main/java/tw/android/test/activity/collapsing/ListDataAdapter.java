@@ -24,10 +24,9 @@ public class ListDataAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     public ListDataAdapter(Context context) {
         mContext = context;
-        onCreateData(30);
     }
 
-    private void onCreateData(int count) {
+    public void onCreateData(int count) {
         mData.clear();
         for (int i = 0; i < count; i++) {
             mData.add("[ " + i + " ] ListView Data");

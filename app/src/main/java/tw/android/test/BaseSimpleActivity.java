@@ -20,10 +20,10 @@ public abstract class BaseSimpleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(initContentView());
         ButterKnife.bind(this);
-        displayHomeButton(true);
         mContext = this;
         initView();
         initData();
+        displayHomeButton(true);
     }
 
     public void displayHomeButton(boolean isDisplay) {

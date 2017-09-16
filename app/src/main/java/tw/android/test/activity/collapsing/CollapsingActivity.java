@@ -1,17 +1,12 @@
 package tw.android.test.activity.collapsing;
 
 import android.app.Activity;
-import android.app.SearchManager;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.support.v7.widget.Toolbar;
 
 import com.example.hermes.test.R;
 
@@ -30,10 +25,14 @@ public class CollapsingActivity extends BaseSimpleActivity {
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
     ListDataAdapter mAdapter;
+
     private FormView.Adapter mFormAdapter;
 
     @BindView(R.id.app_bar)
     AppBarLayout mAppBarLayout;
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @Override
     protected int initContentView() {
@@ -47,6 +46,8 @@ public class CollapsingActivity extends BaseSimpleActivity {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
+
+        setSupportActionBar(mToolbar);
 
 //        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mAppBarLayout.getLayoutParams();
 //        layoutParams.setBehavior(new AppBarLayoutNoEmptyScrollBehavior(mAppBarLayout, mRecyclerView));
@@ -80,7 +81,8 @@ public class CollapsingActivity extends BaseSimpleActivity {
 
     @Override
     protected void initData() {
-
+        mAdapter.onCreateData(50);
+        mAdapter.notifyDataSetChanged();
     }
 
     private PackageEventReceiver mPackageEventReceiver;
@@ -103,49 +105,8 @@ public class CollapsingActivity extends BaseSimpleActivity {
 //            unregisterReceiver(mBroadcastReceiver);
 //        if (mPackageEventReceiver != null)
 //            unregisterReceiver(mPackageEventReceiver);
-
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_search, menu);
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_search, menu);
-//        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-//        //Get the ID for the search bar LinearLayout
-//        int searchBarId = searchView.getContext().getResources().getIdentifier("android:id/search_bar", null, null);
-//        //Get the search bar Linearlayout
-//        LinearLayout searchBar = (LinearLayout)
-//                searchView.findViewById(searchBarId);
-//        //Give the Linearlayout a transition animation.
-//        searchBar.setLayoutTransition(new LayoutTransition());
-
-        // Associate searchable configuration with the SearchView
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.search).getActionView();
-        if (searchView != null) {
-            searchView.setSearchableInfo(
-                    searchManager.getSearchableInfo(getComponentName()));
-        } else {
-            Log.e("testtt", "searchView == null");
-        }
-
-        return true;
-    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(final MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.action_search:
-//                TransitionManager.beginDelayedTransition((ViewGroup) this.findViewById(R.id.toolbar));
-//                MenuItemCompat.expandActionView(item);
-//                return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, CollapsingActivity.class);
