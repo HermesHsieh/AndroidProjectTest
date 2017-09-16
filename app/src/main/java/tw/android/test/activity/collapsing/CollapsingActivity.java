@@ -31,7 +31,7 @@ public class CollapsingActivity extends BaseSimpleActivity {
     @BindView(R.id.app_bar)
     AppBarLayout mAppBarLayout;
 
-    @BindView(R.id.toolbar)
+//    @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
     @Override
@@ -47,7 +47,9 @@ public class CollapsingActivity extends BaseSimpleActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
 
-        setSupportActionBar(mToolbar);
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+        }
 
 //        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mAppBarLayout.getLayoutParams();
 //        layoutParams.setBehavior(new AppBarLayoutNoEmptyScrollBehavior(mAppBarLayout, mRecyclerView));
