@@ -33,6 +33,8 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
     compile "com.marshalchen.ultimaterecyclerview:library:$rootProject.ultimaterecyclerviewVersion"
+    compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.baseRecyclerViewAdapterHelperVersion"
+
 
     //test
     androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {

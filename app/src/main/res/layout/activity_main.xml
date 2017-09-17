@@ -48,6 +48,12 @@
                 android:layout_height="wrap_content"
                 android:text="UltimateRecyclerView"/>
 
+            <Button
+                android:id="@+id/base_recycler_view_adapter_helper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BaseRecyclerViewAdapterHelper"
+                />
         </LinearLayout>
     </ScrollView>
 

@@ -9,6 +9,7 @@ import com.example.hermes.test.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.BaseSimpleActivity;
+import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.search.SearchActivity;
@@ -72,6 +73,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.ultimate_recycler_view)
     public void onClickUltimateRecyclerViewButton() {
         UltimaterecyclerviewActivity.launch(this);
+    }
+
+    @OnClick(R.id.base_recycler_view_adapter_helper)
+    public void onClickBaseRecyclerViewAdapterHelperButton() {
+        BaseRecyclerViewAdapterHelperActivity.launch(this);
     }
 
     public static void launch(Activity activity) {

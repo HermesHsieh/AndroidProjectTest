@@ -15,6 +15,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -36,6 +37,7 @@ ext {
     butterKnifeVersion = '8.8.1'
     lomBokVersion = '1.16.18'
     ultimaterecyclerviewVersion = '0.7.2'
+    baseRecyclerViewAdapterHelperVersion = '2.9.28'
 
     junitVersion = '4.12'
     espressoVersion = '2.2.2'

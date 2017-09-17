@@ -42,6 +42,9 @@
         <activity android:name="tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity"
             />
 
+        <activity android:name="tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity"
+            />
+
         <receiver android:name="tw.android.test.AlarmReceiver"/>
 
         <receiver
