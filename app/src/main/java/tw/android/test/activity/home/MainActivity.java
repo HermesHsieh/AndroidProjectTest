@@ -12,6 +12,7 @@ import tw.android.test.BaseSimpleActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.search.SearchActivity;
+import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
 
 public class MainActivity extends BaseSimpleActivity {
 
@@ -66,6 +67,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.menu_action_search)
     public void onClickSearchButton() {
         SearchActivity.launch(this);
+    }
+
+    @OnClick(R.id.ultimate_recycler_view)
+    public void onClickUltimateRecyclerViewButton() {
+        UltimaterecyclerviewActivity.launch(this);
     }
 
     public static void launch(Activity activity) {

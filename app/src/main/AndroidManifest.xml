@@ -39,6 +39,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity"
+            />
+
         <receiver android:name="tw.android.test.AlarmReceiver"/>
 
         <receiver

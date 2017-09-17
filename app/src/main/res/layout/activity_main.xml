@@ -42,6 +42,12 @@
                 android:layout_height="wrap_content"
                 android:text="Search"/>
 
+            <Button
+                android:id="@+id/ultimate_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UltimateRecyclerView"/>
+
         </LinearLayout>
     </ScrollView>
 
