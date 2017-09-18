@@ -2,6 +2,6 @@
     <string name="app_name">Test</string>
     <string name="app_label">TestActivity</string>
 
-    <string name="action_search">Search</string>
+    <string name="action_search">SearchAction</string>
     <string name="search_hint">Search keyword</string>
 </resources>
