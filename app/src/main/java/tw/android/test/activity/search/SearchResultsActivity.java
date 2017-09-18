@@ -30,15 +30,9 @@ public class SearchResultsActivity extends BaseSimpleActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        handleIntent(getIntent());
-//        getData();
-//        setTitle("Search : " + keyWord);
+        getData();
+        setTitle("Search : " + keyWord);
         handleIntent(getIntent());
-//        Intent intent = getIntent();
-//        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-//            String query = intent.getStringExtra(SearchManager.QUERY);
-//            Log.d("searchViewResult", "from intent search text : " + query);
-//        }
     }
 
     private void getData() {

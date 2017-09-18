@@ -74,25 +74,25 @@ public class SearchActivity extends BaseSimpleActivity {
 //        MenuItemCompat.expandActionView(searchItem);
         final SearchView searchView = (SearchView) searchItem.getActionView();
         if (searchView != null) {
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-//            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//                @Override
-//                public boolean onQueryTextSubmit(String query) {
-//                    Log.d("searchView", "Submit text : " + query);
-////                    searchView.setQuery("", false);
-////                    searchView.clearFocus();
-////                    searchView.onActionViewCollapsed();
-////                    searchItem.collapseActionView();
-////                    SearchResultsActivity.launch(SearchActivity.this, query);
-//                    return true;
-//                }
-//
-//                @Override
-//                public boolean onQueryTextChange(String newText) {
-//                    Log.d("searchView", "Change text : " + newText);
-//                    return false;
-//                }
-//            });
+//            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Log.d("searchView", "Submit text : " + query);
+                    searchView.setQuery("", false);
+                    searchView.clearFocus();
+//                    searchView.onActionViewCollapsed();
+                    searchItem.collapseActionView();
+                    SearchResultsActivity.launch(SearchActivity.this, query);
+                    return true;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    Log.d("searchView", "Change text : " + newText);
+                    return false;
+                }
+            });
 
 //            MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
 //                @Override
