@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.example.hermes.test.R;
 
@@ -18,6 +21,18 @@ import tw.android.test.BaseSimpleActivity;
  */
 
 public class SearchActivity extends BaseSimpleActivity {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Get the intent, verify the action and get the query
+        Intent intent = getIntent();
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            Log.d("searchView", "from intent search text : " + query);
+        }
+    }
+
     @Override
     protected int initContentView() {
         return R.layout.activity_search;
@@ -31,6 +46,11 @@ public class SearchActivity extends BaseSimpleActivity {
     @Override
     protected void initData() {
 
+    }
+
+    @Override
+    public boolean onSearchRequested() {
+        return super.onSearchRequested();
     }
 
     @Override
@@ -49,15 +69,45 @@ public class SearchActivity extends BaseSimpleActivity {
 //        searchBar.setLayoutTransition(new LayoutTransition());
 
         // Associate searchable configuration with the SearchView
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView =
-                (SearchView) menu.findItem(R.id.menu_action_search).getActionView();
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        final MenuItem searchItem = menu.findItem(R.id.menu_action_search);
+//        MenuItemCompat.expandActionView(searchItem);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
         if (searchView != null) {
-            searchView.setSearchableInfo(
-                    searchManager.getSearchableInfo(getComponentName()));
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//                @Override
+//                public boolean onQueryTextSubmit(String query) {
+//                    Log.d("searchView", "Submit text : " + query);
+////                    searchView.setQuery("", false);
+////                    searchView.clearFocus();
+////                    searchView.onActionViewCollapsed();
+////                    searchItem.collapseActionView();
+////                    SearchResultsActivity.launch(SearchActivity.this, query);
+//                    return true;
+//                }
+//
+//                @Override
+//                public boolean onQueryTextChange(String newText) {
+//                    Log.d("searchView", "Change text : " + newText);
+//                    return false;
+//                }
+//            });
+
+//            MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
+//                @Override
+//                public boolean onMenuItemActionExpand(MenuItem item) {
+//                    return false;
+//                }
+//
+//                @Override
+//                public boolean onMenuItemActionCollapse(MenuItem item) {
+//                    finish();
+//                    return false;
+//                }
+//            });
         } else {
-            Log.e("testtt", "searchView == null");
+            Log.e("searchView", "searchView == null");
         }
 
         return true;
