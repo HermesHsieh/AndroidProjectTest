@@ -2,6 +2,7 @@ package tw.android.test.activity.home;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import com.example.hermes.test.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.BaseSimpleActivity;
+import tw.android.test.LocaleChangedReceiver;
 import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
@@ -36,6 +38,7 @@ public class MainActivity extends BaseSimpleActivity {
 
     @BindView(R.id.amount)
     TextView amount;
+    private LocaleChangedReceiver mReceiver;
 
     @Override
     protected int initContentView() {
@@ -84,6 +87,19 @@ public class MainActivity extends BaseSimpleActivity {
 //                Toast.makeText(MainActivity.this, "Click amount", Toast.LENGTH_SHORT).show();
 //            }
 //        });
+
+        IntentFilter filter = new IntentFilter(Intent.ACTION_LOCALE_CHANGED);
+        mReceiver = new LocaleChangedReceiver();
+        registerReceiver(mReceiver, filter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mReceiver != null) {
+            unregisterReceiver(mReceiver);
+            mReceiver = null;
+        }
     }
 
     @Override
