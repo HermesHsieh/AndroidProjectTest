@@ -2,7 +2,12 @@ package tw.android.test.activity.home;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.constraint.ConstraintLayout;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hermes.test.R;
 
@@ -22,6 +27,15 @@ public class MainActivity extends BaseSimpleActivity {
 
     @BindView(R.id.number_picker)
     Button numberPicker;
+
+    @BindView(R.id.constrain_layout)
+    ConstraintLayout mConstraintLayout;
+
+    @BindView(R.id.icon)
+    ImageView icon;
+
+    @BindView(R.id.amount)
+    TextView amount;
 
     @Override
     protected int initContentView() {
@@ -49,6 +63,27 @@ public class MainActivity extends BaseSimpleActivity {
 //
 //        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
 //                90 * 1000, alarmIntent);
+
+        mConstraintLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Click layout", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Click icon", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        amount.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(MainActivity.this, "Click amount", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     @Override

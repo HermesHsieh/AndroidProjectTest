@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
@@ -54,6 +55,43 @@
                 android:layout_height="wrap_content"
                 android:text="BaseRecyclerViewAdapterHelper"
                 />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/constrain_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:clickable="true"
+                        android:src="@mipmap/ic_launcher"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:padding="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="-3dp"
+                        android:background="@android:color/holo_red_dark"
+                        android:gravity="center"
+                        android:text="100"
+                        app:layout_constraintRight_toRightOf="@+id/icon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="100"
+                        tools:visibility="visible"
+                        />
+
+            </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 
