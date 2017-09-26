@@ -27,4 +27,8 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="WhiteTextBtn.Red.Transparent" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@drawable/btn_red_transparent</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 </resources>
