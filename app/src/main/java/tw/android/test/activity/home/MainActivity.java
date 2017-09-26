@@ -15,6 +15,7 @@ import com.example.hermes.test.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.BaseSimpleActivity;
+import tw.android.test.GlobalConstant;
 import tw.android.test.LocaleChangedReceiver;
 import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
@@ -40,6 +41,18 @@ public class MainActivity extends BaseSimpleActivity {
     TextView amount;
     private LocaleChangedReceiver mReceiver;
 
+    @GlobalConstant.WeekDays
+    int currentDay;
+
+    public void setCurrentDay(@GlobalConstant.WeekDays int currentDay) {
+        this.currentDay = currentDay;
+    }
+
+    @GlobalConstant.WeekDays
+    public int getCurrentDay() {
+        return currentDay;
+    }
+
     @Override
     protected int initContentView() {
         return R.layout.activity_main;
@@ -48,6 +61,7 @@ public class MainActivity extends BaseSimpleActivity {
     @Override
     protected void initView() {
         displayHomeButton(false);
+
 //        Book book = new Book();
 //        Book book2 = Book.of(2, 4, "Hello");
 //        Book book3 = Book.of(4, 4, "");
