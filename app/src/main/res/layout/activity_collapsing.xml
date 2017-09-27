@@ -44,12 +44,28 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         />
 
-    <Button
-        android:id="@+id/bottom_button"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:text="Button"
+        android:orientation="horizontal"
         app:layout_behavior="tw.android.test.activity.collapsing.FooterBehavior"
-        />
+        >
+
+        <Button
+            android:id="@+id/bottom_button_left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Main"
+            />
+
+        <Button
+            android:id="@+id/bottom_button_right"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="NumberPicker"
+            />
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

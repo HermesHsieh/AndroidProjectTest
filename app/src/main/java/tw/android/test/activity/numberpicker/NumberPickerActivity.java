@@ -12,6 +12,8 @@ import com.example.hermes.test.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.BaseSimpleActivity;
+import tw.android.test.activity.collapsing.CollapsingActivity;
+import tw.android.test.activity.home.MainActivity;
 import tw.android.test.ui.form.EditTextItem;
 
 /**
@@ -23,7 +25,7 @@ public class NumberPickerActivity extends BaseSimpleActivity {
     @BindView(R.id.layout_content)
     LinearLayout layoutContent;
 
-    @BindView(R.id.my_button)
+    @BindView(R.id.button_left)
     Button mButton;
 
     @BindView(R.id.number_picker)
@@ -55,9 +57,15 @@ public class NumberPickerActivity extends BaseSimpleActivity {
         }
     }
 
-    @OnClick(R.id.my_button)
-    public void onClickButtonEvent() {
+    @OnClick(R.id.button_left)
+    public void onClickButtonLeft() {
         Log.d("tester", "Child Count : " + layoutContent.getChildCount());
+        MainActivity.launch(this);
+    }
+
+    @OnClick(R.id.button_right)
+    public void onClickButtonRight() {
+        CollapsingActivity.launch(this);
     }
 
     public static void launch(Activity activity) {

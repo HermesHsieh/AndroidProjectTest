@@ -10,7 +10,10 @@ import android.support.v7.widget.Toolbar;
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import tw.android.test.BaseSimpleActivity;
+import tw.android.test.activity.home.MainActivity;
+import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.ui.form.FormView;
 
 
@@ -58,6 +61,17 @@ public class CollapsingActivity extends BaseSimpleActivity {
 
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, CollapsingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         activity.startActivity(intent);
+    }
+
+    @OnClick(R.id.bottom_button_left)
+    public void onClickBottomButtonLeft() {
+        MainActivity.launch(this);
+    }
+
+    @OnClick(R.id.bottom_button_right)
+    public void onClickBottomButtonRight() {
+        NumberPickerActivity.launch(this);
     }
 }
