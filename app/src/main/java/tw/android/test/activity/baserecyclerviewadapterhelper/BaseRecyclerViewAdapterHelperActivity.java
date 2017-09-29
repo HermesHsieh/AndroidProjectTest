@@ -34,6 +34,7 @@ public class BaseRecyclerViewAdapterHelperActivity extends BaseSimpleActivity im
 
     private int mCurrentCounter = 0;
     private View notDataView;
+    private View loadingView;
 
     @Override
     protected int initContentView() {
@@ -54,6 +55,8 @@ public class BaseRecyclerViewAdapterHelperActivity extends BaseSimpleActivity im
                 onRefresh();
             }
         });
+
+        loadingView = getLayoutInflater().inflate(R.layout.view_item_loading, (ViewGroup) mRecyclerView.getParent(), false);
 
         mLoadMoreAdapter.setEmptyView(notDataView);
 
@@ -92,7 +95,7 @@ public class BaseRecyclerViewAdapterHelperActivity extends BaseSimpleActivity im
     @Override
     public void onRefresh() {
         Log.d("BaseRecyclerView", "onRefresh");
-        mLoadMoreAdapter.setEmptyView(R.layout.view_item_loading, (ViewGroup) mRecyclerView.getParent());
+        mLoadMoreAdapter.setEmptyView(loadingView);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
