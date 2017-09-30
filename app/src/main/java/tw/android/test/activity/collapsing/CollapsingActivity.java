@@ -39,8 +39,8 @@ public class CollapsingActivity extends BaseSimpleActivity {
     Toolbar mToolbar;
 
     @Override
-    protected int initContentView() {
-        return R.layout.activity_collapsing;
+    protected void setContentView() {
+        setContentView(R.layout.activity_collapsing);
     }
 
     @Override

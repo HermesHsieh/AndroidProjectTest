@@ -32,8 +32,8 @@ public class NumberPickerActivity extends BaseSimpleActivity {
     NumberPicker mNumberPicker;
 
     @Override
-    protected int initContentView() {
-        return R.layout.activity_number_picker;
+    protected void setContentView() {
+        setContentView(R.layout.activity_number_picker);
     }
 
     @Override

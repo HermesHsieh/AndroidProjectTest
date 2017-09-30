@@ -33,8 +33,8 @@ public class UltimaterecyclerviewActivity extends BaseSimpleActivity {
     Handler mHandler;
 
     @Override
-    protected int initContentView() {
-        return R.layout.activity_ultimaterecyclerview;
+    protected void setContentView() {
+        setContentView(R.layout.activity_ultimaterecyclerview);
     }
 
     @Override

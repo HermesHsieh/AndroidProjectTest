@@ -54,8 +54,9 @@ public class MainActivity extends BaseSimpleActivity {
     }
 
     @Override
-    protected int initContentView() {
-        return R.layout.activity_main;
+    protected void setContentView() {
+        setContentView(R.layout.activity_main);
+//        return R.layout.activity_main;
     }
 
     @Override

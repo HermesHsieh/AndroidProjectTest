@@ -44,8 +44,8 @@ public class SearchResultsActivity extends BaseSimpleActivity {
     }
 
     @Override
-    protected int initContentView() {
-        return R.layout.activity_search_result;
+    protected void setContentView() {
+        setContentView(R.layout.activity_search_result);
     }
 
     @Override
