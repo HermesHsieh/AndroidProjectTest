@@ -3,6 +3,8 @@ package tw.android.test.activity.home;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hermes.test.R;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -23,6 +27,7 @@ import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.search.SearchActivity;
 import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
+import tw.android.test.data.Student;
 
 public class MainActivity extends BaseSimpleActivity {
 
@@ -45,6 +50,9 @@ public class MainActivity extends BaseSimpleActivity {
     @GlobalConstant.WeekDays
     int currentDay;
 
+    @Inject
+    Student mStudent;
+
     public void setCurrentDay(@GlobalConstant.WeekDays int currentDay) {
         this.currentDay = currentDay;
     }
@@ -52,6 +60,16 @@ public class MainActivity extends BaseSimpleActivity {
     @GlobalConstant.WeekDays
     public int getCurrentDay() {
         return currentDay;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        DaggerMainComponent.builder()
+                .mainModule(new MainModule(this))
+                .build()
+                .inject(this);
     }
 
     @Override
