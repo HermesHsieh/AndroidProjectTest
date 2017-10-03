@@ -12,7 +12,7 @@ import com.example.hermes.test.R;
 import com.marshalchen.ultimaterecyclerview.UltimateRecyclerView;
 
 import butterknife.BindView;
-import tw.android.test.BaseSimpleActivity;
+import tw.android.test.base.BaseSimpleActivity;
 
 /**
  * Created by hermes.hsieh on 2017/9/17.

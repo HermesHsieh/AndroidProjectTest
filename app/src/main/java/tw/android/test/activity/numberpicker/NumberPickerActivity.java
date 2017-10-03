@@ -11,7 +11,7 @@ import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import tw.android.test.BaseSimpleActivity;
+import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.home.MainActivity;
 import tw.android.test.ui.form.EditTextItem;

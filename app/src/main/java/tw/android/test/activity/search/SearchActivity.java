@@ -14,7 +14,7 @@ import android.view.MenuItem;
 
 import com.example.hermes.test.R;
 
-import tw.android.test.BaseSimpleActivity;
+import tw.android.test.base.BaseSimpleActivity;
 
 /**
  * Created by hermes.hsieh on 2017/9/16.

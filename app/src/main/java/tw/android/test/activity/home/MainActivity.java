@@ -14,8 +14,8 @@ import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import tw.android.test.BaseSimpleActivity;
-import tw.android.test.GlobalConstant;
+import tw.android.test.base.BaseSimpleActivity;
+import tw.android.test.cache.GlobalConstant;
 import tw.android.test.LocaleChangedReceiver;
 import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;

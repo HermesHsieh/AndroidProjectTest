@@ -14,7 +14,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
-import tw.android.test.BaseSimpleActivity;
+import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.data.DataServer;
 
 /**

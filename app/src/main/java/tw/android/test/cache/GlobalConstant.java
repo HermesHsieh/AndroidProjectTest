@@ -1,4 +1,4 @@
-package tw.android.test;
+package tw.android.test.cache;
 
 import android.support.annotation.IntDef;
 
