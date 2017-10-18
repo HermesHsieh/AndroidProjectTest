@@ -16,6 +16,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.BaseSimpleActivity;
 import tw.android.test.GlobalConstant;
+import tw.android.test.activity.percentlayout.PercentLayoutActivity;
 import tw.android.test.LocaleChangedReceiver;
 import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
@@ -143,6 +144,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.base_recycler_view_adapter_helper)
     public void onClickBaseRecyclerViewAdapterHelperButton() {
         BaseRecyclerViewAdapterHelperActivity.launch(this);
+    }
+
+    @OnClick(R.id.percent_layout)
+    public void onClickPercentLayoutButton() {
+        PercentLayoutActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
