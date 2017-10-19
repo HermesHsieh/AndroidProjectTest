@@ -37,11 +37,6 @@ public class BaseRecyclerViewAdapterHelperActivity extends BaseSimpleActivity im
     private View loadingView;
 
     @Override
-    protected void setContentView() {
-        setContentView(R.layout.activity_base_recycler_view_adapter_helper);
-    }
-
-    @Override
     protected void initView() {
         mLoadMoreAdapter = new LoadMoreAdapter(0);
         mLoadMoreAdapter.setOnLoadMoreListener(this, mRecyclerView);
@@ -70,6 +65,11 @@ public class BaseRecyclerViewAdapterHelperActivity extends BaseSimpleActivity im
     @Override
     protected void initData() {
 
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_base_recycler_view_adapter_helper;
     }
 
     @Override

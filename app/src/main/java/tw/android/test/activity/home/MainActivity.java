@@ -73,12 +73,6 @@ public class MainActivity extends BaseSimpleActivity {
     }
 
     @Override
-    protected void setContentView() {
-        setContentView(R.layout.activity_main);
-//        return R.layout.activity_main;
-    }
-
-    @Override
     protected void initView() {
         displayHomeButton(false);
 
@@ -140,6 +134,11 @@ public class MainActivity extends BaseSimpleActivity {
     protected void initData() {
     }
 
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
     @OnClick(R.id.collapsing)
     public void onClickCollapsingButton() {
         CollapsingActivity.launch(this);
@@ -168,6 +167,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.base_recycler_view_adapter_helper)
     public void onClickBaseRecyclerViewAdapterHelperButton() {
         BaseRecyclerViewAdapterHelperActivity.launch(this);
+    }
+
+    @OnClick(R.id.percent_layout)
+    public void onClickPercentLayoutButton() {
+        PercentLayoutActivity.launch(this);
     }
 
     public static void launch(Activity activity) {

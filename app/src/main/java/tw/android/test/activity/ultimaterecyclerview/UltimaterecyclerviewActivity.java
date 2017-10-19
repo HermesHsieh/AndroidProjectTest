@@ -33,11 +33,6 @@ public class UltimaterecyclerviewActivity extends BaseSimpleActivity {
     Handler mHandler;
 
     @Override
-    protected void setContentView() {
-        setContentView(R.layout.activity_ultimaterecyclerview);
-    }
-
-    @Override
     protected void initView() {
         mHandler = new Handler();
         mAdapter = new UltimateListDataAdapter(this);
@@ -90,6 +85,11 @@ public class UltimaterecyclerviewActivity extends BaseSimpleActivity {
     protected void initData() {
         mAdapter.onCreateData(20);
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_ultimaterecyclerview;
     }
 
     public void enableLoadMore() {

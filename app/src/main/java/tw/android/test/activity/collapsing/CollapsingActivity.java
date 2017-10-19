@@ -39,11 +39,6 @@ public class CollapsingActivity extends BaseSimpleActivity {
     Toolbar mToolbar;
 
     @Override
-    protected void setContentView() {
-        setContentView(R.layout.activity_collapsing);
-    }
-
-    @Override
     protected void initView() {
         setTitle(this.getClass().getSimpleName());
         if (mToolbar != null) {
@@ -60,6 +55,11 @@ public class CollapsingActivity extends BaseSimpleActivity {
     protected void initData() {
         mAdapter.onCreateData(50);
         mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_collapsing;
     }
 
     @Override

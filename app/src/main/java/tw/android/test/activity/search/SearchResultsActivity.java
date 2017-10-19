@@ -44,11 +44,6 @@ public class SearchResultsActivity extends BaseSimpleActivity {
     }
 
     @Override
-    protected void setContentView() {
-        setContentView(R.layout.activity_search_result);
-    }
-
-    @Override
     protected void initView() {
 
     }
@@ -56,6 +51,11 @@ public class SearchResultsActivity extends BaseSimpleActivity {
     @Override
     protected void initData() {
 
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_search_result;
     }
 
     @Override

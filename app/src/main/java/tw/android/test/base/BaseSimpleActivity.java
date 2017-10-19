@@ -18,7 +18,7 @@ public abstract class BaseSimpleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView();
+        setContentView(getLayoutId());
         ButterKnife.bind(this);
         mContext = this;
         initView();
@@ -50,11 +50,11 @@ public abstract class BaseSimpleActivity extends AppCompatActivity {
         mContext = null;
     }
 
+    protected abstract int getLayoutId();
+
     protected abstract void initView();
 
     protected abstract void initData();
-
-    protected abstract void setContentView();
 
 }
 

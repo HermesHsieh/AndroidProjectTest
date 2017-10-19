@@ -32,11 +32,6 @@ public class NumberPickerActivity extends BaseSimpleActivity {
     NumberPicker mNumberPicker;
 
     @Override
-    protected void setContentView() {
-        setContentView(R.layout.activity_number_picker);
-    }
-
-    @Override
     protected void initView() {
         setTitle(this.getClass().getSimpleName());
         mNumberPicker.setMinValue(1);
@@ -55,6 +50,11 @@ public class NumberPickerActivity extends BaseSimpleActivity {
         for (int i = 0; i < 50; i++) {
             layoutContent.addView(new EditTextItem(this, "[ " + i + " ]", "number:" + i + 1).getView());
         }
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_number_picker;
     }
 
     @OnClick(R.id.button_left)
