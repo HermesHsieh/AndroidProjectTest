@@ -14,6 +14,7 @@ import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import tw.android.test.activity.percentlayout.PercentLayoutActivity;
 import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.cache.GlobalConstant;
 import tw.android.test.LocaleChangedReceiver;
@@ -139,6 +140,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.ultimate_recycler_view)
     public void onClickUltimateRecyclerViewButton() {
         UltimaterecyclerviewActivity.launch(this);
+    }
+
+    @OnClick(R.id.percent_layout)
+    public void onClickPercentLayoutButton(){
+        PercentLayoutActivity.launch(this);
     }
 
     @OnClick(R.id.base_recycler_view_adapter_helper)

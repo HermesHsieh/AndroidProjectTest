@@ -45,6 +45,9 @@
         <activity android:name="tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity"
             />
 
+        <activity android:name="tw.android.test.activity.percentlayout.PercentLayoutActivity"
+            />
+
         <receiver android:name="tw.android.test.AlarmReceiver"/>
 
         <receiver
