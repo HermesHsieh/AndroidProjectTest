@@ -8,4 +8,6 @@
     <color name="light_grey_transparent">#BBCCCCCC</color>
     <color name="red">#d0021b</color>
     <color name="red_transparent">#BBD0021B</color>
+
+    <color name="aa_red">#AAFF0000</color>
 </resources>
