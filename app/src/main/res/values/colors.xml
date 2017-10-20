@@ -10,4 +10,6 @@
     <color name="red_transparent">#BBD0021B</color>
 
     <color name="aa_red">#AAFF0000</color>
+    <color name="aa_yellow">#AA00FF00</color>
+    <color name="aa_blue">#AA0000FF</color>
 </resources>

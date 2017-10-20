@@ -5,13 +5,21 @@ import android.content.Intent;
 
 import com.example.hermes.test.R;
 
+import butterknife.BindView;
 import tw.android.test.base.BaseSimpleActivity;
+import tw.android.test.ui.form.FormView;
+import tw.android.test.ui.form.LabelItem;
 
 /**
  * Created by hermes on 2017/10/18.
  */
 
 public class PercentLayoutActivity extends BaseSimpleActivity {
+
+    @BindView(R.id.form_view)
+    FormView mFormView;
+
+    FormView.Adapter mAdapter;
 
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, PercentLayoutActivity.class);
@@ -25,7 +33,13 @@ public class PercentLayoutActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
+        mAdapter = new FormView.Adapter();
 
+        mAdapter.add(new LabelItem(mContext, "Title1", "Value1"));
+        mAdapter.add(new LabelItem(mContext, "Title2", "Value2"));
+        mAdapter.add(new LabelItem(mContext, "Title3", "Value3"));
+
+        mFormView.setAdapter(mAdapter);
     }
 
     @Override
