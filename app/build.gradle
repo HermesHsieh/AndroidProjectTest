@@ -46,6 +46,7 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
     compile "com.marshalchen.ultimaterecyclerview:library:$rootProject.ultimaterecyclerviewVersion"
     compile "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.baseRecyclerViewAdapterHelperVersion"
+    compile 'com.afollestad.material-dialogs:commons:0.9.3.0'
 
     //test
     androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
