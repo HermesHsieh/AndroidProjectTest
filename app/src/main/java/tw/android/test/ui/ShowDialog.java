@@ -20,6 +20,7 @@ public class ShowDialog {
 
     public void show() {
         if (builder != null) {
+            builder.formView.setAdapter(builder.adapter);
             builder.show();
         }
     }
@@ -44,7 +45,7 @@ public class ShowDialog {
         }
 
         public ShowDialog build() {
-
+            adapter = new FormView.Adapter();
             dialog = new MaterialDialog.Builder(context)
                     .customView(R.layout.dialog_show_list, false)
                     .positiveText(R.string.g_ok)
@@ -52,7 +53,8 @@ public class ShowDialog {
                     .onPositive(new MaterialDialog.SingleButtonCallback() {
                         @Override
                         public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                            dialog.dismiss();
+                            adapter.add(new LabelItem(context, "Title add", "Value add"));
+                            adapter.notifyDataSetChanged();
                         }
                     })
                     .negativeText(R.string.g_cancel)
@@ -63,15 +65,12 @@ public class ShowDialog {
                         }
                     })
                     .build();
-            adapter = new FormView.Adapter();
 
             formView = (FormView) dialog.getCustomView().findViewById(R.id.form_view);
 
             adapter.add(new LabelItem(context, "Title1", "Value1"));
             adapter.add(new LabelItem(context, "Title2", "Value2"));
             adapter.add(new LabelItem(context, "Title3", "Value3"));
-
-            formView.setAdapter(adapter);
 
             return new ShowDialog(this);
         }

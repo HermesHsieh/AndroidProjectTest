@@ -52,6 +52,7 @@ public class PercentLayoutActivity extends BaseSimpleActivity {
 
     @OnClick(R.id.button)
     public void onClickShowDialogButton() {
+        if(mShowDialog==null)
         mShowDialog = new ShowDialog.Builder(this).build();
         mShowDialog.show();
     }
