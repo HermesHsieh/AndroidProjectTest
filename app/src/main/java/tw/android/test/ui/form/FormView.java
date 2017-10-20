@@ -29,8 +29,8 @@ public class FormView extends LinearLayout {
         super.onDetachedFromWindow();
         if (this.adapter != null) {
             this.adapter.unregisterDataSetObserver(this.dataSetObserver);
+            this.adapter = null;
         }
-
     }
 
     public FormView(Context context) {
@@ -44,15 +44,18 @@ public class FormView extends LinearLayout {
     }
 
     public void setAdapter(FormView.Adapter adapter) {
-        if (this.adapter != adapter) {
-            this.adapter = adapter;
-            if (adapter != null) {
-                adapter.registerDataSetObserver(this.dataSetObserver);
-            }
-
-            this.reloadChildView();
+        if (this.adapter != null) {
+            this.adapter.unregisterDataSetObserver(this.dataSetObserver);
         }
+
+        this.adapter = adapter;
+        if (adapter != null) {
+            adapter.registerDataSetObserver(this.dataSetObserver);
+        }
+
+        this.reloadChildView();
     }
+
 
     private void reloadChildView() {
         this.removeAllViews();
