@@ -67,8 +67,16 @@
     <tw.android.test.ui.form.FormView
         android:id="@+id/form_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/wechat"
         android:orientation="vertical"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/form_view"
+        android:text="Show Dialog"
         />
 </android.support.percent.PercentRelativeLayout>

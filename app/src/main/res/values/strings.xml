@@ -4,4 +4,7 @@
 
     <string name="action_search">SearchAction</string>
     <string name="search_hint">Search keyword</string>
+
+    <string name="g_ok">確定</string>
+    <string name="g_cancel">取消</string>
 </resources>
