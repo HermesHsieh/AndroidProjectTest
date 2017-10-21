@@ -1,7 +1,8 @@
-package tw.android.test.ui;
+package tw.android.test.ui.dialog;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.UiThread;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -31,19 +32,25 @@ public class ShowDialog {
         }
     }
 
-    public static final class Builder {
+    public static class Builder {
 
-        private Context context;
-        private MaterialDialog dialog;
+        protected final Context context;
 
-        private FormView formView;
+        protected MaterialDialog dialog;
 
-        private FormView.Adapter adapter;
+        protected FormView formView;
+
+        protected FormView.Adapter adapter;
 
         public Builder(Context context) {
             this.context = context;
         }
 
+        public final Context getContext() {
+            return context;
+        }
+
+        @UiThread
         public ShowDialog build() {
             adapter = new FormView.Adapter();
             dialog = new MaterialDialog.Builder(context)
@@ -75,10 +82,11 @@ public class ShowDialog {
             return new ShowDialog(this);
         }
 
-        public void show() {
-            if (dialog != null) {
-                dialog.show();
-            }
+        @UiThread
+        public ShowDialog show() {
+            ShowDialog dialog = build();
+            dialog.show();
+            return dialog;
         }
 
         public void dismiss() {

@@ -3,12 +3,13 @@ package tw.android.test.activity.percentlayout;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.base.BaseSimpleActivity;
-import tw.android.test.ui.ShowDialog;
+import tw.android.test.ui.dialog.ShowDialog;
 import tw.android.test.ui.form.FormView;
 import tw.android.test.ui.form.LabelItem;
 
@@ -46,14 +47,19 @@ public class PercentLayoutActivity extends BaseSimpleActivity {
 
     @Override
     protected void initData() {
+
+        new MaterialDialog.Builder(this)
+                .customView(R.layout.dialog_demo, false)
+                .build();
+
     }
 
     ShowDialog mShowDialog;
 
     @OnClick(R.id.button)
     public void onClickShowDialogButton() {
-        if(mShowDialog==null)
-        mShowDialog = new ShowDialog.Builder(this).build();
+        if (mShowDialog == null)
+            mShowDialog = new ShowDialog.Builder(this).build();
         mShowDialog.show();
     }
 }
