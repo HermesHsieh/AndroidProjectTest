@@ -48,6 +48,9 @@
         <activity android:name="tw.android.test.activity.percentlayout.PercentLayoutActivity"
             />
 
+        <activity android:name="tw.android.test.activity.databinding.DataBindingActivity"
+            />
+
         <receiver android:name="tw.android.test.AlarmReceiver"/>
 
         <receiver

@@ -65,6 +65,13 @@
                 android:text="PercentLayout"
                 />
 
+            <Button
+                android:id="@+id/data_binding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DataBinding"
+                />
+
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/constrain_layout"
                 android:layout_width="wrap_content"

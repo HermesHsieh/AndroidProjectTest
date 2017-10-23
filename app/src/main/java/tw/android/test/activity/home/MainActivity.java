@@ -14,6 +14,7 @@ import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import tw.android.test.activity.databinding.DataBindingActivity;
 import tw.android.test.activity.percentlayout.PercentLayoutActivity;
 import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.cache.GlobalConstant;
@@ -143,13 +144,18 @@ public class MainActivity extends BaseSimpleActivity {
     }
 
     @OnClick(R.id.percent_layout)
-    public void onClickPercentLayoutButton(){
+    public void onClickPercentLayoutButton() {
         PercentLayoutActivity.launch(this);
     }
 
     @OnClick(R.id.base_recycler_view_adapter_helper)
     public void onClickBaseRecyclerViewAdapterHelperButton() {
         BaseRecyclerViewAdapterHelperActivity.launch(this);
+    }
+
+    @OnClick(R.id.data_binding)
+    public void onClickDataBindingButton() {
+        DataBindingActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
