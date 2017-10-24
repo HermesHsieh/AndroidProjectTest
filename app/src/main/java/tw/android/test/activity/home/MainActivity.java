@@ -14,16 +14,16 @@ import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import tw.android.test.activity.databinding.DataBindingActivity;
-import tw.android.test.activity.percentlayout.PercentLayoutActivity;
-import tw.android.test.base.BaseSimpleActivity;
-import tw.android.test.cache.GlobalConstant;
 import tw.android.test.LocaleChangedReceiver;
 import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
+import tw.android.test.activity.databinding.DataBindingActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
+import tw.android.test.activity.percentlayout.PercentLayoutActivity;
 import tw.android.test.activity.search.SearchActivity;
 import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
+import tw.android.test.base.BaseSimpleActivity;
+import tw.android.test.cache.GlobalConstant;
 
 public class MainActivity extends BaseSimpleActivity {
 
