@@ -6,6 +6,11 @@
         <variable
             name="user"
             type="tw.android.test.data.User"/>
+
+        <variable
+            name="handlers"
+            type="tw.android.test.activity.databinding.DataBindingActivity"
+            />
     </data>
 
     <LinearLayout
@@ -16,13 +21,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
-            android:text="@{user.firstName}"/>
+            android:text="@{user.firstName}"
+            android:textSize="26sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@{user.lastName}"/>
+            android:text="@{user.lastName}"
+            android:textSize="20sp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> handlers.onClickShowToastButton(user)}"
+            android:text="Click Button"
+            />
     </LinearLayout>
 </layout>
