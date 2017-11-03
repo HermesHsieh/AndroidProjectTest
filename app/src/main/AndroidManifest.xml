@@ -51,6 +51,9 @@
         <activity android:name="tw.android.test.activity.databinding.DataBindingActivity"
             />
 
+        <activity android:name="tw.android.test.activity.login.LoginActivity"
+            />
+
         <receiver android:name="tw.android.test.AlarmReceiver"/>
 
         <receiver
