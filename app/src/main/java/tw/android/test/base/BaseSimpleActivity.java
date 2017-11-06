@@ -119,6 +119,7 @@ public abstract class BaseSimpleActivity extends AppCompatActivity implements Ba
                 .autoDismiss(true)
                 .content(msg)
                 .positiveText(R.string.g_ok)
+                .onPositive(callback)
                 .show();
     }
 
