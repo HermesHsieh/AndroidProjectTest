@@ -1,10 +1,17 @@
 package tw.android.test.base;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.Window;
+
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.example.hermes.test.R;
 
 import butterknife.ButterKnife;
 
@@ -12,8 +19,21 @@ import butterknife.ButterKnife;
  * Created by hermes on 2017/6/17.
  */
 
-public abstract class BaseSimpleActivity extends AppCompatActivity {
+public abstract class BaseSimpleActivity extends AppCompatActivity implements BaseView {
+
     protected Context mContext;
+
+    private ProgressDialog progressDialog;
+
+    public static ProgressDialog newProgressDialog(Context context) {
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        progressDialog.setCancelable(true);
+        progressDialog.setMessage(context.getString(R.string.g_loading));
+
+        return progressDialog;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,6 +44,8 @@ public abstract class BaseSimpleActivity extends AppCompatActivity {
         initView();
         initData();
         displayHomeButton(true);
+
+        progressDialog = newProgressDialog(this);
     }
 
     public void displayHomeButton(boolean isDisplay) {
@@ -47,7 +69,9 @@ public abstract class BaseSimpleActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        dismissLoading();
         mContext = null;
+        progressDialog = null;
     }
 
     protected abstract void initView();
@@ -55,6 +79,74 @@ public abstract class BaseSimpleActivity extends AppCompatActivity {
     protected abstract void initData();
 
     protected abstract void setContentView();
+
+    @Override
+    public void showLoading() {
+        if (progressDialog != null && !progressDialog.isShowing()) {
+            progressDialog.show();
+        }
+    }
+
+    @Override
+    public void dismissLoading() {
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
+    }
+
+    @Override
+    public void showMsgDialog(String msg) {
+        new MaterialDialog.Builder(this)
+                .autoDismiss(true)
+                .content(msg)
+                .positiveText(R.string.g_ok)
+                .show();
+    }
+
+    @Override
+    public void showMsgDialog(String title, String msg) {
+        new MaterialDialog.Builder(this)
+                .autoDismiss(true)
+                .title(title)
+                .content(msg)
+                .positiveText(R.string.g_ok)
+                .show();
+    }
+
+    @Override
+    public void showMsgDialog(String msg, MaterialDialog.SingleButtonCallback callback) {
+        new MaterialDialog.Builder(this)
+                .autoDismiss(true)
+                .content(msg)
+                .positiveText(R.string.g_ok)
+                .show();
+    }
+
+    @Override
+    public void showMsgDialog(String title, String msg, MaterialDialog.SingleButtonCallback callback) {
+        new MaterialDialog.Builder(this)
+                .autoDismiss(true)
+                .title(title)
+                .content(msg)
+                .positiveText(R.string.g_ok)
+                .onPositive(callback)
+                .show();
+    }
+
+    @Override
+    public void showErrorFinishDialog(String msg) {
+        new MaterialDialog.Builder(this)
+                .autoDismiss(true)
+                .content(msg)
+                .positiveText(R.string.g_ok)
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        BaseSimpleActivity.this.finish();
+                    }
+                })
+                .show();
+    }
 
 }
 
