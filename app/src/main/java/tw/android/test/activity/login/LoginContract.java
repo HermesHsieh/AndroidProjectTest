@@ -16,6 +16,10 @@ public interface LoginContract {
         void setAccountInput(String text);
 
         void setPasswordInput(String text);
+
+        void setAccountInputEnable(boolean enable);
+
+        void setPasswordInputEnable(boolean enable);
     }
 
     interface Presenter extends BasePresenter {

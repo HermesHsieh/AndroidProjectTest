@@ -92,6 +92,16 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         passwordInput.setText(text);
     }
 
+    @Override
+    public void setAccountInputEnable(boolean enable) {
+        accountInput.setEnabled(enable);
+    }
+
+    @Override
+    public void setPasswordInputEnable(boolean enable) {
+        passwordInput.setEnabled(enable);
+    }
+
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, LoginActivity.class);
         activity.startActivity(intent);

@@ -41,6 +41,10 @@ public class LoginPresenter extends BasePresenterImpl implements LoginContract.P
         mView.setStateText(account);
 
         mView.showMsgDialog(mContext.getString(R.string.state_login_succeed));
+
+        mView.setAccountInputEnable(false);
+
+        mView.setPasswordInputEnable(false);
     }
 
     @Override
@@ -51,6 +55,8 @@ public class LoginPresenter extends BasePresenterImpl implements LoginContract.P
                 mView.setAccountInput("");
                 mView.setPasswordInput("");
                 mView.setStateText(mContext.getString(R.string.state_logout_succeed));
+                mView.setAccountInputEnable(true);
+                mView.setPasswordInputEnable(true);
             }
         });
     }
