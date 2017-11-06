@@ -13,24 +13,35 @@ public abstract class BaseMVPActivity<T extends BasePresenter> extends BaseSimpl
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter.onCreate();
+        initPresenter();
+        if (mPresenter != null) {
+            mPresenter.onCreate();
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mPresenter.onResume();
+        if (mPresenter != null) {
+            mPresenter.onResume();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        mPresenter.onPause();
+        if (mPresenter != null) {
+            mPresenter.onPause();
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
+        }
     }
+
+    public abstract void initPresenter();
 }
