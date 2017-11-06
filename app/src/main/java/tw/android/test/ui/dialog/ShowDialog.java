@@ -83,10 +83,10 @@ public class ShowDialog {
         }
 
         @UiThread
-        public ShowDialog show() {
-            ShowDialog dialog = build();
-            dialog.show();
-            return dialog;
+        public void show() {
+            if (dialog != null) {
+                dialog.show();
+            }
         }
 
         public void dismiss() {
