@@ -9,4 +9,16 @@
     <string name="g_submit">確認</string>
     <string name="g_cancel">取消</string>
     <string name="g_loading">讀取中，請稍候</string>
+
+    <string name="e_input_empty">請輸入%s</string>
+
+    <string name="state_login_succeed">登入成功</string>
+    <string name="state_login_failed">登入失敗</string>
+    <string name="state_logout_succeed">登出成功</string>
+    <string name="state_logout_failed">登出失敗</string>
+
+    <string name="ask_logout">確定登出？</string>
+
+    <string name="account">帳號</string>
+    <string name="password">密碼</string>
 </resources>

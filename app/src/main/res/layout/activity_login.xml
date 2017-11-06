@@ -17,13 +17,14 @@
         android:id="@+id/account_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/state_text"/>
+        android:layout_below="@+id/state_text" />
 
     <EditText
         android:id="@+id/password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/account_input" />
+        android:layout_below="@+id/account_input"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/login_action"
@@ -33,10 +34,17 @@
         android:text="Login" />
 
     <Button
-        android:id="@+id/register_action"
+        android:id="@+id/logout_action"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_action"
+        android:text="Logout" />
+
+    <Button
+        android:id="@+id/register_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logout_action"
         android:text="Register" />
 
     <Button

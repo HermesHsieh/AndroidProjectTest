@@ -2,6 +2,7 @@ package tw.android.test.activity.login;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.hermes.test.R;
@@ -25,6 +26,12 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     @BindView(R.id.state_text)
     TextView stateText;
 
+    @BindView(R.id.account_input)
+    EditText accountInput;
+
+    @BindView(R.id.password_input)
+    EditText passwordInput;
+
     @Override
     protected void initView() {
 
@@ -47,7 +54,7 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
     @OnClick(R.id.login_action)
     public void onClickLoginAction() {
-        mPresenter.onClickLoginButton();
+        mPresenter.onClickLoginButton(accountInput.getText().toString(), passwordInput.getText().toString());
     }
 
     @OnClick(R.id.register_action)
@@ -60,6 +67,11 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
         mPresenter.onClickForgetPasswordButton();
     }
 
+    @OnClick(R.id.logout_action)
+    public void onClickLogoutAction() {
+        mPresenter.onClickLogoutButton();
+    }
+
     @Override
     public void setPresenter(LoginContract.Presenter presenter) {
         mPresenter = presenter;
@@ -68,6 +80,16 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     @Override
     public void setStateText(String text) {
         stateText.setText(text);
+    }
+
+    @Override
+    public void setAccountInput(String text) {
+        accountInput.setText(text);
+    }
+
+    @Override
+    public void setPasswordInput(String text) {
+        passwordInput.setText(text);
     }
 
     public static void launch(Activity activity) {
