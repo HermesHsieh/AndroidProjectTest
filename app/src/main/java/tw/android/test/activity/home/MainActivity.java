@@ -18,6 +18,7 @@ import tw.android.test.LocaleChangedReceiver;
 import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.databinding.DataBindingActivity;
+import tw.android.test.activity.login.LoginActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.percentlayout.PercentLayoutActivity;
 import tw.android.test.activity.search.SearchActivity;
@@ -156,6 +157,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.data_binding)
     public void onClickDataBindingButton() {
         DataBindingActivity.launch(this);
+    }
+
+    @OnClick(R.id.login)
+    public void onClickLoginButton() {
+        LoginActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
