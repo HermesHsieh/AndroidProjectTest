@@ -11,9 +11,15 @@ public interface LoginContract {
 
     interface View extends BaseMVPView<Presenter> {
 
+        void setStateText(String text);
     }
 
     interface Presenter extends BasePresenter {
 
+        void onClickLoginButton();
+
+        void onClickRegisterButton();
+
+        void onClickForgetPasswordButton();
     }
 }

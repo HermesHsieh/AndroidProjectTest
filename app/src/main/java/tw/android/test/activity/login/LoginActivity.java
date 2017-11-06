@@ -1,5 +1,7 @@
 package tw.android.test.activity.login;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.widget.TextView;
 
 import com.example.hermes.test.R;
@@ -45,21 +47,31 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
     @OnClick(R.id.login_action)
     public void onClickLoginAction() {
-        stateText.setText(LOGIN_ACTION);
+        mPresenter.onClickLoginButton();
     }
 
     @OnClick(R.id.register_action)
     public void onClickRegisterAction() {
-        stateText.setText(REGISTER_ACTION);
+        mPresenter.onClickRegisterButton();
     }
 
     @OnClick(R.id.forget_password_action)
     public void onClickForgetPasswordAction() {
-        stateText.setText(FORGET_PASSWORD_ACTION);
+        mPresenter.onClickForgetPasswordButton();
     }
 
     @Override
     public void setPresenter(LoginContract.Presenter presenter) {
         mPresenter = presenter;
+    }
+
+    @Override
+    public void setStateText(String text) {
+        stateText.setText(text);
+    }
+
+    public static void launch(Activity activity) {
+        Intent intent = new Intent(activity, LoginActivity.class);
+        activity.startActivity(intent);
     }
 }
