@@ -16,7 +16,8 @@
     <EditText
         android:id="@+id/account_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/state_text"/>
 
     <EditText
         android:id="@+id/password_input"
