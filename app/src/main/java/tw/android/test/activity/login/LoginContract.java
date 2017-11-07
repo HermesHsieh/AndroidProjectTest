@@ -1,5 +1,7 @@
 package tw.android.test.activity.login;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+
 import tw.android.test.base.BaseMVPView;
 import tw.android.test.base.BasePresenter;
 
@@ -20,6 +22,10 @@ public interface LoginContract {
         void setAccountInputEnable(boolean enable);
 
         void setPasswordInputEnable(boolean enable);
+
+        void testCallback(MaterialDialog.SingleButtonCallback callback);
+
+        void testCallback(String string);
     }
 
     interface Presenter extends BasePresenter {
@@ -31,5 +37,9 @@ public interface LoginContract {
         void onClickRegisterButton();
 
         void onClickForgetPasswordButton();
+
+        void onClickTestMaterialDesignCallback();
+
+        void onClickTestCallbackString();
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
@@ -100,6 +101,16 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
     @Override
     public void setPasswordInputEnable(boolean enable) {
         passwordInput.setEnabled(enable);
+    }
+
+    @Override
+    public void testCallback(MaterialDialog.SingleButtonCallback callback) {
+
+    }
+
+    @Override
+    public void testCallback(String string) {
+
     }
 
     public static void launch(Activity activity) {

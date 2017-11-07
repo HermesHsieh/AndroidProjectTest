@@ -103,15 +103,15 @@ public abstract class BaseSimpleActivity extends AppCompatActivity implements Ba
                 .show();
     }
 
-    @Override
-    public void showMsgDialog(String title, String msg) {
-        new MaterialDialog.Builder(this)
-                .autoDismiss(true)
-                .title(title)
-                .content(msg)
-                .positiveText(R.string.g_ok)
-                .show();
-    }
+//    @Override
+//    public void showMsgDialog(String title, String msg) {
+//        new MaterialDialog.Builder(this)
+//                .autoDismiss(true)
+//                .title(title)
+//                .content(msg)
+//                .positiveText(R.string.g_ok)
+//                .show();
+//    }
 
     @Override
     public void showMsgDialog(String msg, MaterialDialog.SingleButtonCallback callback) {

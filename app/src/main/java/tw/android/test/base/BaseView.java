@@ -14,7 +14,7 @@ public interface BaseView {
 
     void showMsgDialog(String msg);
 
-    void showMsgDialog(String title, String msg);
+//    void showMsgDialog(String title, String msg);
 
     void showMsgDialog(String msg, MaterialDialog.SingleButtonCallback callback);
 
