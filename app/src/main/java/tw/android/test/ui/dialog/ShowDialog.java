@@ -94,6 +94,5 @@ public class ShowDialog {
                 dialog.dismiss();
             }
         }
-
     }
 }
