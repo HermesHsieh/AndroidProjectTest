@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,6 +26,7 @@ import tw.android.test.activity.search.SearchActivity;
 import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
 import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.cache.GlobalConstant;
+import tw.android.test.ui.CurrencyInputEditText;
 
 public class MainActivity extends BaseSimpleActivity {
 
@@ -43,6 +45,12 @@ public class MainActivity extends BaseSimpleActivity {
     @BindView(R.id.amount)
     TextView amount;
     private LocaleChangedReceiver mReceiver;
+
+    @BindView(R.id.currency_input)
+    CurrencyInputEditText currencyInputEditText;
+
+    @BindView(R.id.currency_input_layout)
+    TextInputLayout currency_input_layout;
 
     @GlobalConstant.WeekDays
     int currentDay;
@@ -122,6 +130,7 @@ public class MainActivity extends BaseSimpleActivity {
 
     @Override
     protected void initData() {
+//        currencyInputEditText.setText("1245.623");
     }
 
     @OnClick(R.id.collapsing)
