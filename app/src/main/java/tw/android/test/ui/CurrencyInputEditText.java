@@ -7,6 +7,9 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 import java.text.DecimalFormat;
 import java.text.ParseException;
@@ -19,7 +22,7 @@ public class CurrencyInputEditText extends TextInputEditText {
 
     private final static String TAG = CurrencyInputEditText.class.getSimpleName();
 
-    private final static Integer MAX_FLOAT_NUMBER = 8;
+    private final static Integer MAX_FLOAT_NUMBER = 4;
 
     private DecimalFormat dollarFormat;
 
@@ -87,8 +90,25 @@ public class CurrencyInputEditText extends TextInputEditText {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+                    setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.ic_notification_clear_all, 0);
+                } else {
+                    setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                 }
                 addTextChangedListener(this);
+            }
+        });
+
+        setOnTouchListener(new OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    Log.d(TAG, "View : " + v.getWidth() + "," + v.getHeight());
+                    Log.d(TAG, "Touch Down : " + event.getX() + "," + event.getY());
+                    if (event.getX() >= v.getWidth() * 0.85) {
+                        setText("");
+                    }
+                }
+                return false;
             }
         });
     }

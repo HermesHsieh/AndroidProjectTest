@@ -30,10 +30,14 @@
                 <tw.android.test.ui.CurrencyInputEditText
                     android:id="@+id/currency_input"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    />
 
             </android.support.design.widget.TextInputLayout>
 
+            <tw.android.test.ui.ClearEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/collapsing"
