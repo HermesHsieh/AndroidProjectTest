@@ -24,6 +24,8 @@ public class CurrencyInputEditText extends TextInputEditText {
 
     private final static Integer MAX_FLOAT_NUMBER = 4;
 
+    private final static boolean isClearEnable = false;
+
     private DecimalFormat dollarFormat;
 
     public CurrencyInputEditText(Context context) {
@@ -90,33 +92,41 @@ public class CurrencyInputEditText extends TextInputEditText {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.ic_notification_clear_all, 0);
+                    if (isClearEnable) {
+                        setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.ic_notification_clear_all, 0);
+                    }
                 } else {
-                    setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                    if (isClearEnable) {
+                        setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+                    }
                 }
                 addTextChangedListener(this);
             }
         });
-
-        setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    Log.d(TAG, "View : " + v.getWidth() + "," + v.getHeight());
-                    Log.d(TAG, "Touch Down : " + event.getX() + "," + event.getY());
-                    if (event.getX() >= v.getWidth() * 0.85) {
-                        setText("");
+        if (isClearEnable) {
+            setOnTouchListener(new OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        Log.d(TAG, "View : " + v.getWidth() + "," + v.getHeight());
+                        Log.d(TAG, "Touch Down : " + event.getX() + "," + event.getY());
+                        if (event.getX() >= v.getWidth() * 0.85) {
+                            setText("");
+                        }
                     }
+                    return false;
                 }
-                return false;
-            }
-        });
+            });
+        }
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.addTextChangedListener(null);
+        if (isClearEnable) {
+            setOnTouchListener(null);
+        }
     }
 
     public Double getCurrency() {
