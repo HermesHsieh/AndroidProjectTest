@@ -2,6 +2,7 @@ package com.example.hermes.test.activity.login;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.res.Resources;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
@@ -40,6 +41,9 @@ public class LoginPresenterTest {
     ApplicationInfo mApplicationInfo;
 
     @Mock
+    Resources resources;
+
+    @Mock
     private MaterialDialog.SingleButtonCallback mSingleButtonCallback;
 
     @Captor
@@ -74,16 +78,7 @@ public class LoginPresenterTest {
 
         mLoginPresenter.onClickLoginButton("", TEST_PASSWORD);
 
-//        doReturn("請輸入帳號")
-                when(mMockContext.getString(R.string.e_input_empty, mMockContext.getString(R.string.account)))
-                .thenReturn("請輸入帳號");
-
-        String result = mMockContext.getString(R.string.e_input_empty, mMockContext.getString(R.string.account));
-        assertEquals(result, "請輸入帳號");
-
-//        verify(mLoginView).showMsgDialog(result);
-//        assertEquals("請輸入帳號", mMockContext.getString(R.string.e_input_empty, mMockContext.getString(account)));
-//        verify(mLoginView).showMsgDialog("請輸入帳號");
+        verify(mLoginView).showMsgDialog(mMockContext.getString(R.string.e_input_empty, mMockContext.getString(account)));
     }
 
     @Test
@@ -189,5 +184,32 @@ public class LoginPresenterTest {
         verify(mLoginView).setAccountInputEnable(true);
         verify(mLoginView).setPasswordInputEnable(true);
 
+    }
+
+    @Test
+    public void testStringResources() {
+        when(mMockContext.getString(R.string.account)).thenReturn("帳號");
+        when(mMockContext.getString(R.string.password)).thenReturn("密碼");
+
+        String account = mMockContext.getString(R.string.account);
+        String password = mMockContext.getString(R.string.password);
+
+        assertEquals("帳號", account);
+        assertEquals("密碼", password);
+    }
+
+    @Test
+    public void testEmptyStringResources() {
+        // two string also == 請輸入密碼
+        when(mMockContext.getString(R.string.e_input_empty, mMockContext.getString(R.string.account))).thenReturn("請輸入帳號");
+        when(mMockContext.getString(R.string.e_input_empty, mMockContext.getString(R.string.password))).thenReturn("請輸入密碼");
+
+        String emptyAccount = mMockContext.getString(R.string.e_input_empty, mMockContext.getString(R.string.account));
+        String emptyPassword = mMockContext.getString(R.string.e_input_empty, mMockContext.getString(R.string.password));
+
+        assertEquals("請輸入密碼", emptyAccount);
+        assertEquals("請輸入密碼", emptyPassword);
+
+//        assertEquals("請輸入密碼", emptyPassword);
     }
 }
