@@ -7,7 +7,6 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -20,13 +19,21 @@ import java.text.ParseException;
 
 public class CurrencyInputEditText extends TextInputEditText {
 
-    private final static String TAG = CurrencyInputEditText.class.getSimpleName();
-
     private final static Integer MAX_FLOAT_NUMBER = 4;
 
-    private final static boolean isClearEnable = false;
+    private final static boolean isEnableClear = false;
+
+    private final static boolean isEnableFormat = false;
 
     private DecimalFormat dollarFormat;
+
+    private TextWatcher mTextWatcher;
+
+    private OnAfterTextChangedListener onAfterTextChangedListener;
+
+    public interface OnAfterTextChangedListener {
+        void onAfterTextChanged(String text);
+    }
 
     public CurrencyInputEditText(Context context) {
         super(context);
@@ -46,7 +53,7 @@ public class CurrencyInputEditText extends TextInputEditText {
     public void init() {
         dollarFormat = new DecimalFormat("#,###");
         setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-        addTextChangedListener(new TextWatcher() {
+        mTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -59,6 +66,7 @@ public class CurrencyInputEditText extends TextInputEditText {
             public void afterTextChanged(Editable s) {
                 removeTextChangedListener(this);
                 if (!TextUtils.isEmpty(s)) {
+                    int sec = getSelectionStart();
                     try {
                         String mInputString = s.toString().replace(String.valueOf(dollarFormat.getDecimalFormatSymbols().getGroupingSeparator()), "");
                         String mInteger = null;
@@ -82,34 +90,48 @@ public class CurrencyInputEditText extends TextInputEditText {
                             Number n = dollarFormat.parse(mInteger);
 
                             if (mInteger != null && mFloat != null) {
-                                setText(dollarFormat.format(n) + "." + mFloat);
+                                if (isEnableFormat) {
+                                    setText(dollarFormat.format(n) + "." + mFloat);
+                                }
+                                if (onAfterTextChangedListener != null) {
+                                    onAfterTextChangedListener.onAfterTextChanged(getCurrency().toString());
+                                }
                             }
                         } else {
                             Number n = dollarFormat.parse(mInputString);
-                            setText(dollarFormat.format(n));
+                            if (isEnableFormat) {
+                                setText(dollarFormat.format(n));
+                            }
+                            if (onAfterTextChangedListener != null) {
+                                onAfterTextChangedListener.onAfterTextChanged(getCurrency().toString());
+                            }
                         }
-                        setSelection(getText().length());
+                        if (isEnableFormat) {
+                            setSelection(sec);
+                        }
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    if (isClearEnable) {
+
+                    if (isEnableClear) {
                         setCompoundDrawablesWithIntrinsicBounds(0, 0, android.R.drawable.ic_notification_clear_all, 0);
                     }
                 } else {
-                    if (isClearEnable) {
+                    if (isEnableClear) {
                         setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                     }
                 }
                 addTextChangedListener(this);
             }
-        });
-        if (isClearEnable) {
+        };
+
+        addTextChangedListener(mTextWatcher);
+
+        if (isEnableClear) {
             setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        Log.d(TAG, "View : " + v.getWidth() + "," + v.getHeight());
-                        Log.d(TAG, "Touch Down : " + event.getX() + "," + event.getY());
                         if (event.getX() >= v.getWidth() * 0.85) {
                             setText("");
                         }
@@ -120,16 +142,27 @@ public class CurrencyInputEditText extends TextInputEditText {
         }
     }
 
+    public void setOnAfterTextChangedListener(OnAfterTextChangedListener listener) {
+        this.onAfterTextChangedListener = listener;
+    }
+
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.addTextChangedListener(null);
-        if (isClearEnable) {
+        if (isEnableClear) {
             setOnTouchListener(null);
         }
+        mTextWatcher = null;
+        onAfterTextChangedListener = null;
     }
 
     public Double getCurrency() {
-        return Double.valueOf(getText().toString());
+        return Double.valueOf(getText().toString().replace(String.valueOf(dollarFormat.getDecimalFormatSymbols().getGroupingSeparator()), ""));
     }
+
+    public TextWatcher getTextWatcher() {
+        return mTextWatcher;
+    }
+
 }

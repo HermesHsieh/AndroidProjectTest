@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -104,6 +105,13 @@ public class MainActivity extends BaseSimpleActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Click icon", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        currencyInputEditText.setOnAfterTextChangedListener(new CurrencyInputEditText.OnAfterTextChangedListener() {
+            @Override
+            public void onAfterTextChanged(String text) {
+                Log.d("MainActivity", "text : " + text);
             }
         });
 
