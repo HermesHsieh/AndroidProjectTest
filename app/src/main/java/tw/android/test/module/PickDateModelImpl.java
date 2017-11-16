@@ -7,18 +7,18 @@ import java.util.GregorianCalendar;
 /**
  * Created by hermes.hsieh on 2017/11/15.
  */
-
 public class PickDateModelImpl implements PickDateModel {
 
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-    private static final SimpleDateFormat DATE_TIME_MIN_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    private static final SimpleDateFormat DATE_TIME_SEC_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+    public static final SimpleDateFormat DATE_TIME_MIN_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    public static final SimpleDateFormat DATE_TIME_SEC_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private static final int PICK_MAX_DATE_OF_MONTH_FROM_START_DATE = 1;
 
     private Calendar startCalendar;
     private Calendar endCalendar;
 
+    @Override
     public Calendar getDefaultStartCalendar() {
         Calendar calendar = new GregorianCalendar();
         calendar.add(Calendar.MONTH, -1);
@@ -28,6 +28,7 @@ public class PickDateModelImpl implements PickDateModel {
         return calendar;
     }
 
+    @Override
     public Calendar getDefaultEndCalendar() {
         Calendar calendar = new GregorianCalendar();
         calendar.set(Calendar.HOUR_OF_DAY, 23);
@@ -36,22 +37,27 @@ public class PickDateModelImpl implements PickDateModel {
         return calendar;
     }
 
+    @Override
     public Calendar getStartCalendar() {
         return startCalendar != null ? startCalendar : getDefaultStartCalendar();
     }
 
+    @Override
     public Calendar getEndCalendar() {
         return endCalendar != null ? endCalendar : getDefaultEndCalendar();
     }
 
+    @Override
     public void setStartCalendar(Calendar calendar) {
         this.startCalendar = calendar;
     }
 
+    @Override
     public void setEndCalendar(Calendar calendar) {
         this.endCalendar = calendar;
     }
 
+    @Override
     public void setStartDate(int year, int monthOfYear, int dayOfMonth) {
         startCalendar = new GregorianCalendar();
         startCalendar.set(Calendar.YEAR, year);
@@ -62,6 +68,7 @@ public class PickDateModelImpl implements PickDateModel {
         startCalendar.set(Calendar.SECOND, 0);
     }
 
+    @Override
     public void setEndDate(int year, int monthOfYear, int dayOfMonth) {
         endCalendar = new GregorianCalendar();
         endCalendar.set(Calendar.YEAR, year);
@@ -72,6 +79,7 @@ public class PickDateModelImpl implements PickDateModel {
         endCalendar.set(Calendar.SECOND, 59);
     }
 
+    @Override
     public long getPickMinDate() {
         if (startCalendar != null) {
             return startCalendar.getTimeInMillis();
@@ -80,37 +88,28 @@ public class PickDateModelImpl implements PickDateModel {
         }
     }
 
+    @Override
     public long getPickMaxDate() {
-        if (startCalendar != null) {
-            Calendar max = new GregorianCalendar();
-            max.setTime(startCalendar.getTime());
-            max.add(Calendar.MONTH, PICK_MAX_DATE_OF_MONTH_FROM_START_DATE);
-            max.set(Calendar.HOUR_OF_DAY, 23);
-            max.set(Calendar.MINUTE, 59);
-            max.set(Calendar.SECOND, 59);
-            return max.getTimeInMillis();
-        } else {
-            return -1;
-        }
+        Calendar max = new GregorianCalendar();
+//        max.set(Calendar.HOUR_OF_DAY, 23);
+//        max.set(Calendar.MINUTE, 59);
+//        max.set(Calendar.SECOND, 59);
+        max.set(Calendar.MILLISECOND, 0);
+        return max.getTimeInMillis();
     }
 
+    @Override
     public boolean isValidPickDate() {
         return getEndCalendar().after(getStartCalendar());
     }
 
+    @Override
     public String getStartDateFormat() {
-        if (startCalendar != null) {
-            return DATE_FORMAT.format(startCalendar.getTime());
-        } else {
-            return "";
-        }
+        return DATE_FORMAT.format(getStartCalendar().getTime());
     }
 
+    @Override
     public String getEndDateFormat() {
-        if (endCalendar != null) {
-            return DATE_FORMAT.format(endCalendar.getTime());
-        } else {
-            return "";
-        }
+        return DATE_FORMAT.format(getEndCalendar().getTime());
     }
 }
