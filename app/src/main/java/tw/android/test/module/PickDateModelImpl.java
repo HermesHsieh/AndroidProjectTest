@@ -90,11 +90,13 @@ public class PickDateModelImpl implements PickDateModel {
 
     @Override
     public long getPickMaxDate() {
-        Calendar max = new GregorianCalendar();
-//        max.set(Calendar.HOUR_OF_DAY, 23);
-//        max.set(Calendar.MINUTE, 59);
-//        max.set(Calendar.SECOND, 59);
-        max.set(Calendar.MILLISECOND, 0);
+        Calendar max = getEndCalendar();
+        return max.getTimeInMillis();
+    }
+
+    @Override
+    public long getDefaultPickMaxDate() {
+        Calendar max = getDefaultEndCalendar();
         return max.getTimeInMillis();
     }
 

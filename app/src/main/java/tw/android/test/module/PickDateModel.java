@@ -27,6 +27,8 @@ public interface PickDateModel {
 
     long getPickMaxDate();
 
+    long getDefaultPickMaxDate();
+
     boolean isValidPickDate();
 
     String getStartDateFormat();
