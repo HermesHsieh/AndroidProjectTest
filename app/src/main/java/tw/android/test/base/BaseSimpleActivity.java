@@ -25,15 +25,11 @@ public abstract class BaseSimpleActivity extends AppCompatActivity implements Ba
 
     private ProgressDialog progressDialog;
 
-    public static ProgressDialog newProgressDialog(Context context) {
-        ProgressDialog progressDialog = new ProgressDialog(context);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        progressDialog.setCancelable(true);
-        progressDialog.setMessage(context.getString(R.string.g_loading));
+    protected abstract void setContentView();
 
-        return progressDialog;
-    }
+    protected abstract void initView();
+
+    protected abstract void initData();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,11 +70,15 @@ public abstract class BaseSimpleActivity extends AppCompatActivity implements Ba
         progressDialog = null;
     }
 
-    protected abstract void initView();
+    public static ProgressDialog newProgressDialog(Context context) {
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        progressDialog.setCancelable(true);
+        progressDialog.setMessage(context.getString(R.string.g_loading));
 
-    protected abstract void initData();
-
-    protected abstract void setContentView();
+        return progressDialog;
+    }
 
     @Override
     public void showLoading() {

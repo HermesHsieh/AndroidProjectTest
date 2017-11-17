@@ -23,6 +23,7 @@ import tw.android.test.activity.databinding.DataBindingActivity;
 import tw.android.test.activity.login.LoginActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.percentlayout.PercentLayoutActivity;
+import tw.android.test.activity.pickdate.PickDateActivity;
 import tw.android.test.activity.search.SearchActivity;
 import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
 import tw.android.test.base.BaseSimpleActivity;
@@ -179,6 +180,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.login)
     public void onClickLoginButton() {
         LoginActivity.launch(this);
+    }
+
+    @OnClick(R.id.pick_date)
+    public void onClickPickDateButton() {
+        PickDateActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
