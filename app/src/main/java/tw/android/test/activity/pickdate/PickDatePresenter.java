@@ -13,10 +13,11 @@ public class PickDatePresenter implements PickDateContract.Presenter {
 
     PickDateContract.View mView;
 
-    PickDateModel mModel = new PickDateModelImpl();
+    PickDateModel mModel;
 
     public PickDatePresenter(PickDateContract.View view) {
         mView = view;
+        mModel = new PickDateModelImpl();
     }
 
     @Override
