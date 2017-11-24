@@ -14,7 +14,8 @@
         <activity
             android:name="tw.android.test.activity.home.MainActivity"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,22 +28,37 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name="tw.android.test.activity.numberpicker.NumberPickerActivity" />
-        <activity android:name="tw.android.test.activity.search.SearchActivity"></activity>
+        <activity
+            android:name="tw.android.test.activity.search.SearchActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="tw.android.test.activity.search.SearchResultsActivity"
-            android:launchMode="singleTop"></activity>
+            android:launchMode="singleTop"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <activity android:name="tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity" />
+        <activity
+            android:name="tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <activity android:name="tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity" />
+        <activity
+            android:name="tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <activity android:name="tw.android.test.activity.percentlayout.PercentLayoutActivity" />
+        <activity
+            android:name="tw.android.test.activity.percentlayout.PercentLayoutActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <activity android:name="tw.android.test.activity.databinding.DataBindingActivity" />
+        <activity
+            android:name="tw.android.test.activity.databinding.DataBindingActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <activity android:name="tw.android.test.activity.login.LoginActivity" />
+        <activity
+            android:name="tw.android.test.activity.login.LoginActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
-        <activity android:name="tw.android.test.activity.pickdate.PickDateActivity" />
+        <activity
+            android:name="tw.android.test.activity.pickdate.PickDateActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
         <receiver android:name="tw.android.test.AlarmReceiver" />
 
