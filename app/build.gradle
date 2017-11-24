@@ -117,4 +117,7 @@ dependencies {
     testCompile "junit:junit:${junitVersion}"
     testCompile "org.mockito:mockito-all:${mockitoVersion}"
     testCompile "org.hamcrest:hamcrest-all:${hamcrestVersion}"
+
+    // Support OffsetDateTime
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
 }
