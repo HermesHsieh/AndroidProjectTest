@@ -9,7 +9,11 @@ public interface PickDateContract {
     interface View {
         void setStartDateText(String startDateText);
 
+        void setStartDateHintText(String startDateHintText);
+
         void setEndDateText(String endDateText);
+
+        void setEndDateHintText(String endDateHintText);
 
         void setStartDateError(String msg);
 
@@ -21,6 +25,8 @@ public interface PickDateContract {
     }
 
     interface Presenter {
+        void initDateText();
+
         void onClickPickStartDate();
 
         void onClickPickEndDate();

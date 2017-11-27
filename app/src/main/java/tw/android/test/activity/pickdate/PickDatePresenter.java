@@ -21,6 +21,12 @@ public class PickDatePresenter implements PickDateContract.Presenter {
     }
 
     @Override
+    public void initDateText() {
+        mView.setStartDateText(mModel.getStartDateFormat());
+        mView.setEndDateText(mModel.getEndDateFormat());
+    }
+
+    @Override
     public void onClickPickStartDate() {
         Calendar calendar = mModel.getStartCalendar();
         mView.showStartDatePickerDialog(

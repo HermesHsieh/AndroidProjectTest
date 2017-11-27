@@ -129,8 +129,18 @@ public class PickDateActivity extends BaseSimpleActivity implements PickDateCont
     }
 
     @Override
+    public void setStartDateHintText(String startDateHintText) {
+
+    }
+
+    @Override
     public void setEndDateText(String endDateText) {
         this.endDate.setText(endDateText);
+    }
+
+    @Override
+    public void setEndDateHintText(String endDateHintText) {
+
     }
 
     @Override
