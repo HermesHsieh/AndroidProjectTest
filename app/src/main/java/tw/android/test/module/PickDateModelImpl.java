@@ -106,6 +106,16 @@ public class PickDateModelImpl implements PickDateModel {
     }
 
     @Override
+    public boolean isSetStartDate() {
+        return startCalendar != null;
+    }
+
+    @Override
+    public boolean isSetEndDate() {
+        return endCalendar != null;
+    }
+
+    @Override
     public String getStartDateFormat() {
         return DATE_FORMAT.format(getStartCalendar().getTime());
     }

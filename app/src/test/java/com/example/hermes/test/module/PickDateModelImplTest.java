@@ -128,4 +128,30 @@ public class PickDateModelImplTest {
         model.setStartDate(2017, 10, 21);
         assertEquals(false, model.isValidPickDate());
     }
+
+    @Test
+    public void user_set_start_date() {
+        PickDateModel model = new PickDateModelImpl();
+        model.setStartCalendar(new GregorianCalendar());
+        assertEquals(true, model.isSetStartDate());
+    }
+
+    @Test
+    public void user_not_set_start_date() {
+        PickDateModel model = new PickDateModelImpl();
+        assertEquals(false, model.isSetStartDate());
+    }
+
+    @Test
+    public void user_set_end_date() {
+        PickDateModel model = new PickDateModelImpl();
+        model.setStartCalendar(new GregorianCalendar());
+        assertEquals(true, model.isSetEndDate());
+    }
+
+    @Test
+    public void user_not_set_end_date() {
+        PickDateModel model = new PickDateModelImpl();
+        assertEquals(false, model.isSetEndDate());
+    }
 }

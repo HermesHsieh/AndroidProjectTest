@@ -31,6 +31,10 @@ public interface PickDateModel {
 
     boolean isValidPickDate();
 
+    boolean isSetStartDate();
+
+    boolean isSetEndDate();
+
     String getStartDateFormat();
 
     String getEndDateFormat();
