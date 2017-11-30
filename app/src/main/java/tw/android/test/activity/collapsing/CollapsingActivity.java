@@ -7,16 +7,15 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.activity.home.MainActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
+import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.ui.form.FormView;
 
 
@@ -35,8 +34,8 @@ public class CollapsingActivity extends BaseSimpleActivity {
     @BindView(R.id.app_bar)
     AppBarLayout mAppBarLayout;
 
-    @BindView(R.id.toolbar)
-    Toolbar mToolbar;
+//    @BindView(R.id.toolbar)
+//    Toolbar mToolbar;
 
     @Override
     protected void setContentView() {
@@ -46,9 +45,9 @@ public class CollapsingActivity extends BaseSimpleActivity {
     @Override
     protected void initView() {
         setTitle(this.getClass().getSimpleName());
-        if (mToolbar != null) {
-            setSupportActionBar(mToolbar);
-        }
+//        if (mToolbar != null) {
+//            setSupportActionBar(mToolbar);
+//        }
 
         mAdapter = new ListDataAdapter(this);
 
