@@ -3,6 +3,7 @@ package tw.android.test.activity.home;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.ColorDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
@@ -20,6 +22,7 @@ import tw.android.test.LocaleChangedReceiver;
 import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.databinding.DataBindingActivity;
+import tw.android.test.activity.dialog.DialogActivity;
 import tw.android.test.activity.login.LoginActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.percentlayout.PercentLayoutActivity;
@@ -187,9 +190,15 @@ public class MainActivity extends BaseSimpleActivity {
         PickDateActivity.launch(this);
     }
 
+    @OnClick(R.id.dialog)
+    public void onClickDialogButton() {
+        DialogActivity.launch(this);
+    }
+
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
     }
+
 }
