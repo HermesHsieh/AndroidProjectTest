@@ -12,7 +12,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.base.BaseSimpleActivity;
-import tw.android.test.ui.dialog.ShowDialog;
 import tw.android.test.ui.form.FormView;
 import tw.android.test.ui.form.LabelItem;
 
@@ -52,25 +51,13 @@ public class PercentLayoutActivity extends BaseSimpleActivity {
 
     @Override
     protected void initData() {
-
-        new MaterialDialog.Builder(this)
-                .customView(R.layout.dialog_demo, false)
-                .build();
-
         for (int i = 0; i < 20; i++) {
             mListData.add("Position[" + i + "]");
         }
-
     }
-
-    ShowDialog mShowDialog;
 
     @OnClick(R.id.button)
     public void onClickShowDialogButton() {
-//        if (mShowDialog == null)
-//            mShowDialog = new ShowDialog.Builder(this).build();
-//        mShowDialog.show();
-
         new MaterialDialog.Builder(this)
                 .title("本次重消购买月份")
                 .content("您本次重消的总金额为 1000.0000，系统将自动分配至以下月份，以下是分配后的信息，请确认")
