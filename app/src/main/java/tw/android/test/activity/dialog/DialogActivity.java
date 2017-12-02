@@ -9,6 +9,7 @@ import com.example.hermes.test.R;
 
 import butterknife.OnClick;
 import tw.android.test.base.BaseSimpleActivity;
+import tw.android.test.ui.dialog.ShowDialog;
 
 /**
  * Created by hermes.hsieh on 2017/12/2.
@@ -36,21 +37,22 @@ public class DialogActivity extends BaseSimpleActivity {
 
     }
 
+    ShowDialog mShowDialog;
+
     @OnClick(R.id.show_dialog)
     public void onClickShowDialogButton() {
-//        ShowDialog mShowDialog;
+        if (mShowDialog == null)
+            mShowDialog = new ShowDialog.Builder(this).build();
+        mShowDialog.show();
+    }
 
-//        if (mShowDialog == null)
-//            mShowDialog = new ShowDialog.Builder(this).build();
-//        mShowDialog.show();
-
+    @OnClick(R.id.transparent_dialog)
+    public void onClickTransparentDialogButton() {
         MaterialDialog dialog = new MaterialDialog.Builder(this)
                 .customView(R.layout.dialog_transparent, false)
-                .positiveText("testttt")
                 .build();
         dialog.show();
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
     }
 }
