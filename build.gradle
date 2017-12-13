@@ -30,14 +30,4 @@ ext {
     buildToolsVersion = '25.0.2'
     minSdkVersion = 16
     targetSdkVersion = 25
-
-    // App dependencies
-    supportLibraryVersion = '25.3.1'
-    constraintVersion = '1.0.2'
-    butterKnifeVersion = '8.8.1'
-    lomBokVersion = '1.16.18'
-    ultimaterecyclerviewVersion = '0.7.2'
-    baseRecyclerViewAdapterHelperVersion = '2.9.28'
-    flexboxVersion = '0.3.0'
-
 }
