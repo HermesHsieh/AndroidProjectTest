@@ -3,7 +3,6 @@ package tw.android.test.activity.home;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.drawable.ColorDrawable;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputLayout;
 import android.util.Log;
@@ -13,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
@@ -56,6 +54,9 @@ public class MainActivity extends BaseSimpleActivity {
 
     @BindView(R.id.currency_input_layout)
     TextInputLayout currency_input_layout;
+
+    @BindView(R.id.image_view)
+    ImageView imageView;
 
     @GlobalConstant.WeekDays
     int currentDay;
@@ -147,7 +148,7 @@ public class MainActivity extends BaseSimpleActivity {
 
     @OnClick(R.id.collapsing)
     public void onClickCollapsingButton() {
-        CollapsingActivity.launch(this);
+        CollapsingActivity.launch(this, imageView);
     }
 
     @OnClick(R.id.number_picker)
