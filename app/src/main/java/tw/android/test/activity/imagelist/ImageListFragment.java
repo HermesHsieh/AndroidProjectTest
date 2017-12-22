@@ -4,12 +4,15 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.hermes.test.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -17,6 +20,11 @@ import butterknife.ButterKnife;
  */
 
 public class ImageListFragment extends Fragment {
+
+    @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
+
+    ImageListAdapter mAdapter;
 
     public static ImageListFragment newInstance() {
         return new ImageListFragment();
@@ -41,13 +49,24 @@ public class ImageListFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mAdapter = new ImageListAdapter(getActivity());
+
+        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        mRecyclerView.setAdapter(mAdapter);
+
+        mAdapter.setOnClickListener(v -> {
+        });
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mAdapter.onCreateData(50);
+        mAdapter.notifyDataSetChanged();
     }
 
     @Override
