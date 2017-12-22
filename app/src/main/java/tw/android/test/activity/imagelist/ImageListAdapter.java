@@ -79,13 +79,16 @@ public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             this.itemView.setOnClickListener(view -> {
                 if (onClickListener != null) {
-                    onClickListener.onClick(view);
-                    Log.d(TAG, "click position : " + this.position);
+                    onClickListener.onItemClick(view, this.position, mData.get(this.position));
                 }
             });
         }
     }
 
     @Setter
-    View.OnClickListener onClickListener;
+    OnItemClickListener onClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position, String name);
+    }
 }

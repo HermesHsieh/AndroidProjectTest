@@ -68,6 +68,10 @@
             android:name="tw.android.test.activity.imagelist.ImageListActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
+        <activity
+            android:name="tw.android.test.activity.imagelist.detail.ImageDetailActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
         <receiver android:name="tw.android.test.AlarmReceiver" />
 
         <receiver

@@ -1,4 +1,4 @@
-package tw.android.test.activity.imagelist;
+package tw.android.test.activity.imagelist.detail;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,13 +11,17 @@ import tw.android.test.base.BaseSimpleActivity;
  * Created by hermes.hsieh on 2017/12/22.
  */
 
-public class ImageListActivity extends BaseSimpleActivity {
+public class ImageDetailActivity extends BaseSimpleActivity {
 
-    private ImageListFragment fragment;
+    private final static String NAME = "name";
+    private String mName;
 
-    public static void launch(Activity activity) {
+    private ImageDetailFragment fragment;
+
+    public static void launch(Activity activity, String name) {
         Intent intent = new Intent();
-        intent.setClass(activity, ImageListActivity.class);
+        intent.setClass(activity, ImageDetailActivity.class);
+        intent.putExtra(NAME, name);
         activity.startActivity(intent);
     }
 
@@ -28,11 +32,13 @@ public class ImageListActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
-        fragment = (ImageListFragment) getSupportFragmentManager()
+        mName = getIntent().getStringExtra(NAME);
+
+        fragment = (ImageDetailFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.content_view);
 
         if (fragment == null) {
-            fragment = ImageListFragment.newInstance();
+            fragment = ImageDetailFragment.newInstance(mName);
 
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_view, fragment)

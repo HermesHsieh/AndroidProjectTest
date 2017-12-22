@@ -1,34 +1,42 @@
-package tw.android.test.activity.imagelist;
+package tw.android.test.activity.imagelist.detail;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import tw.android.test.activity.imagelist.detail.ImageDetailActivity;
 
 /**
  * Created by hermes.hsieh on 2017/12/22.
  */
 
-public class ImageListFragment extends Fragment {
+public class ImageDetailFragment extends Fragment {
 
-    @BindView(R.id.recycler_view)
-    RecyclerView mRecyclerView;
+    private final static String NAME = "name";
 
-    ImageListAdapter mAdapter;
+    @BindView(R.id.image_view)
+    ImageView mImageView;
 
-    public static ImageListFragment newInstance() {
-        return new ImageListFragment();
+    @BindView(R.id.image_name)
+    TextView mImageName;
+
+    String mName;
+
+    public static ImageDetailFragment newInstance(String name) {
+        ImageDetailFragment f = new ImageDetailFragment();
+        Bundle args = new Bundle();
+        args.putString(NAME, name);
+        f.setArguments(args);
+        return f;
     }
 
     @Override
@@ -39,12 +47,19 @@ public class ImageListFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle args = getArguments();
+        if (args != null) {
+            mName = args.getString(NAME, "");
+        }
+
+        getActivity().setTitle(mName);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_image_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_image_detail, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -53,22 +68,12 @@ public class ImageListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mAdapter = new ImageListAdapter(getActivity());
-
-        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        mRecyclerView.setAdapter(mAdapter);
-
-        mAdapter.setOnClickListener((v, position, name) -> {
-            ImageDetailActivity.launch(getActivity(), name);
-        });
+        mImageName.setText(mName);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        mAdapter.onCreateData(50);
-        mAdapter.notifyDataSetChanged();
     }
 
     @Override
