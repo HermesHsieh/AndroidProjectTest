@@ -43,8 +43,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/android_developer"
-                android:transitionName="android_image"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:transitionName="android_image" />
 
             <Button
                 android:id="@+id/collapsing"
@@ -106,6 +106,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Dialog" />
+
+            <Button
+                android:id="@+id/image_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Image List" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/constrain_layout"

@@ -21,6 +21,7 @@ import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAd
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.databinding.DataBindingActivity;
 import tw.android.test.activity.dialog.DialogActivity;
+import tw.android.test.activity.imagelist.ImageListActivity;
 import tw.android.test.activity.login.LoginActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.percentlayout.PercentLayoutActivity;
@@ -194,6 +195,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.dialog)
     public void onClickDialogButton() {
         DialogActivity.launch(this);
+    }
+
+    @OnClick(R.id.image_list)
+    public void onClickImageListButton() {
+        ImageListActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
