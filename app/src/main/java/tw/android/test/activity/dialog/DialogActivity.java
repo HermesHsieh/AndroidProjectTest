@@ -3,6 +3,8 @@ package tw.android.test.activity.dialog;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.text.InputType;
+import android.util.Log;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
@@ -16,6 +18,8 @@ import tw.android.test.ui.dialog.ShowDialog;
  */
 
 public class DialogActivity extends BaseSimpleActivity {
+
+    public final String TAG = getClass().getSimpleName();
 
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, DialogActivity.class);
@@ -54,5 +58,21 @@ public class DialogActivity extends BaseSimpleActivity {
         dialog.show();
 
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+    }
+
+    @OnClick(R.id.input_dialog)
+    public void onClickInputDialog() {
+        new MaterialDialog.Builder(this)
+                .title(R.string.input_title)
+                .content(R.string.input_content)
+                .inputType(InputType.TYPE_CLASS_NUMBER)
+                .negativeText("Cancel")
+                .input(R.string.input_hint, R.string.input_pre_fill, new MaterialDialog.InputCallback() {
+                    @Override
+                    public void onInput(MaterialDialog dialog, CharSequence input) {
+                        // Do something
+                        Log.d(TAG, "onInput : " + input);
+                    }
+                }).show();
     }
 }

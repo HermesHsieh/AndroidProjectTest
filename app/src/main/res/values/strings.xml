@@ -21,4 +21,9 @@
 
     <string name="account">帳號</string>
     <string name="password">密碼</string>
+
+    <string name="input_title">數量</string>
+    <string name="input_content">請輸入數量</string>
+    <string name="input_hint">請輸入...</string>
+    <string name="input_pre_fill">Pre-fill</string>
 </resources>
