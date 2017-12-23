@@ -43,7 +43,10 @@ public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_image_list, parent, false));
+        return new ViewHolder(
+                LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.item_image_list, parent, false)
+        );
     }
 
     @Override
@@ -79,7 +82,7 @@ public class ImageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             this.itemView.setOnClickListener(view -> {
                 if (onClickListener != null) {
-                    onClickListener.onItemClick(view, this.position, mData.get(this.position));
+                    onClickListener.onItemClick(this.itemView, this.position, mData.get(this.position));
                 }
             });
         }

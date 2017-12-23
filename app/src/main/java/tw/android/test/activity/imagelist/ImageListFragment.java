@@ -59,7 +59,13 @@ public class ImageListFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
 
         mAdapter.setOnClickListener((v, position, name) -> {
-            ImageDetailActivity.launch(getActivity(), name);
+//            ImageDetailActivity.launch(getActivity(), name);
+            ImageDetailActivity.launch(
+                    getActivity(),
+                    name,
+                    v.findViewById(R.id.image_view),
+                    v.findViewById(R.id.image_name)
+            );
         });
     }
 
