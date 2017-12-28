@@ -47,6 +47,13 @@
                 android:scaleType="centerCrop" />
 
             <Button
+                android:id="@+id/rxjava"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RxJava"
+                android:theme="@style/WhiteTextBtn.Red.Transparent" />
+
+            <Button
                 android:id="@+id/collapsing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
