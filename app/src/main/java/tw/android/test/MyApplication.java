@@ -1,18 +1,20 @@
 package tw.android.test;
 
-import android.app.Application;
-
-import com.jakewharton.threetenabp.AndroidThreeTen;
+import android.support.multidex.MultiDexApplication;
 
 /**
  * Created by hermes.hsieh on 2017/11/24.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        AndroidThreeTen.init(this);
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
     }
 }
