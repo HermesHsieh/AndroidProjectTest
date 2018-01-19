@@ -16,6 +16,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/image_view3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/sort_like"
+                android:transitionName="android_image"
+                tools:background="#BB33FF23" />
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="360dp"
+                android:layout_height="270dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/android_developer"
+                android:transitionName="android_image"
+                tools:background="#BBFF7878" />
+
+            <ImageView
+                android:id="@+id/image_view2"
+                android:layout_width="360dp"
+                android:layout_height="270dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/android_oreo"
+                android:transitionName="android_image"
+                tools:background="#BB33FF23" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,14 +64,6 @@
             <tw.android.test.ui.ClearEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-            <ImageView
-                android:id="@+id/image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/android_developer"
-                android:transitionName="android_image"
-                android:scaleType="centerCrop" />
 
             <Button
                 android:id="@+id/rxjava"
