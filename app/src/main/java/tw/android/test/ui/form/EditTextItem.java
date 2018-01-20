@@ -19,7 +19,8 @@ public class EditTextItem extends FormView.ItemView {
     public enum INPUT_TYPE {
         NORMAL(0),
         EMAIL(1),
-        NUMBER(2);
+        NUMBER(2),
+        PASSWORD(3);
 
         private int value;
 
@@ -61,6 +62,10 @@ public class EditTextItem extends FormView.ItemView {
             case NUMBER:
                 editText.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 break;
+
+            case PASSWORD:
+                editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                break;
         }
     }
 
@@ -91,7 +96,6 @@ public class EditTextItem extends FormView.ItemView {
     }
 
     public void setPasswordToggleEnabled(boolean enable) {
-        editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         inputLayout.setPasswordVisibilityToggleEnabled(enable);
     }
 
