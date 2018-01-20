@@ -23,6 +23,7 @@
                 android:scaleType="centerCrop"
                 android:src="@mipmap/sort_like"
                 android:transitionName="android_image"
+                android:visibility="gone"
                 tools:background="#BB33FF23" />
 
             <ImageView
@@ -32,6 +33,7 @@
                 android:scaleType="centerCrop"
                 android:src="@mipmap/android_developer"
                 android:transitionName="android_image"
+                android:visibility="gone"
                 tools:background="#BBFF7878" />
 
             <ImageView
@@ -41,6 +43,7 @@
                 android:scaleType="centerCrop"
                 android:src="@mipmap/android_oreo"
                 android:transitionName="android_image"
+                android:visibility="gone"
                 tools:background="#BB33FF23" />
 
             <TextView
@@ -66,11 +69,16 @@
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextInputLayout" />
+
+            <Button
                 android:id="@+id/rxjava"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RxJava"
-                android:theme="@style/WhiteTextBtn.Red.Transparent" />
+                android:text="RxJava" />
 
             <Button
                 android:id="@+id/collapsing"
