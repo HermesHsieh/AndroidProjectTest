@@ -16,6 +16,22 @@ import butterknife.ButterKnife;
 
 public class EditTextItem extends FormView.ItemView {
 
+    public enum INPUT_TYPE {
+        NORMAL(0),
+        EMAIL(1),
+        NUMBER(2);
+
+        private int value;
+
+        INPUT_TYPE(int value) {
+            this.value = value;
+        }
+
+        public Integer getValue() {
+            return value;
+        }
+    }
+
     @BindView(R.id.layout)
     FrameLayout layout;
 
@@ -25,6 +41,28 @@ public class EditTextItem extends FormView.ItemView {
     TextInputEditText editText;
 
     private Context context;
+    private INPUT_TYPE type = INPUT_TYPE.NORMAL;
+
+    public void setInputType(INPUT_TYPE type) {
+        if (editText == null) {
+            return;
+        }
+
+        switch (type) {
+            default:
+            case NORMAL:
+                editText.setInputType(InputType.TYPE_CLASS_TEXT);
+                break;
+            case EMAIL:
+                editText.setInputType(InputType.TYPE_CLASS_TEXT |
+                        InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS |
+                        InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                break;
+            case NUMBER:
+                editText.setInputType(InputType.TYPE_NUMBER_FLAG_DECIMAL);
+                break;
+        }
+    }
 
     @Override
     public int getLayoutId() {
@@ -35,13 +73,13 @@ public class EditTextItem extends FormView.ItemView {
         super(context);
         ButterKnife.bind(this, getView());
         this.context = context;
+        setInputType(this.type);
     }
 
     public EditTextItem(Context context, final String hintStr) {
         this(context);
 
         editText.setInputType(InputType.TYPE_CLASS_TEXT);
-        editText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         inputLayout.setHint(hintStr);
     }
 
