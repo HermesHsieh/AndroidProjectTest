@@ -2,6 +2,9 @@ package tw.android.test.activity.inputtextlayout;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.text.InputType;
+import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.hermes.test.R;
@@ -25,6 +28,9 @@ public class InputTextLayoutActivity extends BaseSimpleActivity {
     FormView.Adapter adapter;
 
     EditTextItem userNameItem;
+    EditTextItem emailItem;
+
+    boolean hasFocusUserNameItem = false;
 
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, InputTextLayoutActivity.class);
@@ -43,8 +49,61 @@ public class InputTextLayoutActivity extends BaseSimpleActivity {
         adapter = new FormView.Adapter();
 
         userNameItem = new EditTextItem(this, getString(R.string.register_p_account));
+        emailItem = new EditTextItem(this, getString(R.string.register_p_email));
+
         adapter.add(userNameItem);
+        adapter.add(emailItem);
+
         formView.setAdapter(adapter);
+
+        userNameItem.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    userNameItem.getInputLayout().setHint(getString(R.string.register_account));
+                } else {
+                    if (TextUtils.isEmpty(userNameItem.getEditTextStr())) {
+                        userNameItem.getInputLayout().setHint(getString(R.string.register_p_account));
+                    }
+                }
+            }
+        });
+
+//        userNameItem.getEditText().addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//                if (!TextUtils.isEmpty(s.toString())) {
+//                    userNameItem.getInputLayout().setHint(getString(R.string.register_account));
+//                } else {
+//                    userNameItem.getInputLayout().setHint(getString(R.string.register_p_account));
+//                }
+//            }
+//        });
+
+        emailItem.getEditText().setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    emailItem.getInputLayout().setHint(getString(R.string.register_email));
+                } else {
+                    if (TextUtils.isEmpty(emailItem.getEditTextStr())) {
+                        emailItem.getInputLayout().setHint(getString(R.string.register_p_email));
+                    }
+                }
+            }
+        });
+
+        emailItem.getEditText().setInputType((InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS));
     }
 
     @Override

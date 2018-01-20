@@ -41,6 +41,7 @@ public class EditTextItem extends FormView.ItemView {
         this(context);
 
         editText.setInputType(InputType.TYPE_CLASS_TEXT);
+        editText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         inputLayout.setHint(hintStr);
     }
 
@@ -78,6 +79,10 @@ public class EditTextItem extends FormView.ItemView {
 
     public TextInputEditText getEditText() {
         return editText;
+    }
+
+    public TextInputLayout getInputLayout() {
+        return inputLayout;
     }
 
     public void setEditTextStr(String editTextStr) {

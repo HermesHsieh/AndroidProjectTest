@@ -30,5 +30,7 @@
     <!-- for gmall -->
     <string name="register_account">会员帐号</string>
     <string name="register_p_account">请输入会员帐号</string>
+    <string name="register_email">电子邮箱账号</string>
+    <string name="register_p_email">请输入电子邮箱账号</string>
 
 </resources>
