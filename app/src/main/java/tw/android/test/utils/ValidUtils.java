@@ -14,6 +14,10 @@ public class ValidUtils {
     }
 
     protected static class Patterns {
+        // rule : length 6-20, first must be a letter that a-zA-Z0-9_, others just be a-zA-Z0-9_@.! letters
+        private static final String USER_NAME_PATTERN = "^[\\w][\\w@.!]{6,20}$";
+        private static final Pattern USER_NAME = Pattern.compile(USER_NAME_PATTERN);
+
         private static final String EMAIL_PATTERN =
                 "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                         "\\@" +
