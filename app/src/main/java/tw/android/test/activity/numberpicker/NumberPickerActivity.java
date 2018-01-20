@@ -11,10 +11,10 @@ import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.home.MainActivity;
-import tw.android.test.ui.form.EditTextItem;
+import tw.android.test.base.BaseSimpleActivity;
+import tw.android.test.ui.form.MyEditTextItem;
 
 /**
  * Created by hermes.hsieh on 2017/9/14.
@@ -53,7 +53,7 @@ public class NumberPickerActivity extends BaseSimpleActivity {
     @Override
     protected void initData() {
         for (int i = 0; i < 50; i++) {
-            layoutContent.addView(new EditTextItem(this, "[ " + i + " ]", "number:" + i + 1).getView());
+            layoutContent.addView(new MyEditTextItem(this, "[ " + i + " ]", "number:" + i + 1).getView());
         }
     }
 

@@ -13,24 +13,24 @@ import butterknife.ButterKnife;
  * Created by hermes on 2017/9/14.
  */
 
-public class EditTextItem extends BaseItem {
+public class MyEditTextItem extends BaseItem {
 
     @BindView(R.id.edt_title)
     TextView mEdtTitle;
     @BindView(R.id.edt_text)
     EditText mEdtText;
 
-    public EditTextItem(Context context) {
+    public MyEditTextItem(Context context) {
         super(context);
         ButterKnife.bind(this, getView());
     }
 
-    public EditTextItem(Context context, String title) {
+    public MyEditTextItem(Context context, String title) {
         this(context);
         setTitle(title);
     }
 
-    public EditTextItem(Context context, String title, String hintText) {
+    public MyEditTextItem(Context context, String title, String hintText) {
         this(context, title);
         setHintText(hintText);
     }
