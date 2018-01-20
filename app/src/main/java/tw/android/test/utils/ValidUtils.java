@@ -28,7 +28,7 @@ public class ValidUtils {
                         ")+";
         private static final Pattern EMAIL_ADDRESS = Pattern.compile(EMAIL_PATTERN);
 
-        private static final String PASSWORD_PATTERN = "^(?=.*[a-zA-z]+)(?=.*[0-9]+)(?!(?=.*[^a-zA-Z0-9]+))(?=\\S+$).{6,20}$";
+        private static final String PASSWORD_PATTERN = "^[\\w!@#$%&.]{6,20}$";
         private static final Pattern PASSWORD = Pattern.compile(PASSWORD_PATTERN);
     }
 }
