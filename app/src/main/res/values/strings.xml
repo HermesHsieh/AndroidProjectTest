@@ -26,4 +26,9 @@
     <string name="input_content">請輸入數量</string>
     <string name="input_hint">請輸入...</string>
     <string name="input_pre_fill">Pre-fill</string>
+
+    <!-- for gmall -->
+    <string name="register_account">会员帐号</string>
+    <string name="register_p_account">请输入会员帐号</string>
+
 </resources>
