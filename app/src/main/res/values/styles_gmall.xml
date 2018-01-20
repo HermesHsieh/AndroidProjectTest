@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ErrorText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/reddish</item>
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <!--textInputLayout TODO: need to define in values-v21-->
+    <style name="TextInputLayout.LightGrey" parent="Theme.AppCompat.Light">
+        <item name="android:textSize">@dimen/super_small_text</item>
+        <item name="colorControlNormal">@color/light_grey</item>
+        <item name="colorControlActivated">@color/light_grey</item>
+        <item name="colorControlHighlight">@color/light_grey</item>
+    </style>
+
+    <!--night-->
+    <style name="ChNightText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/primary_text</item>
+        <item name="android:textColor">@color/night</item>
+    </style>
+
+    <style name="ChNightText.Big">
+        <item name="android:textSize">@dimen/big_text</item>
+    </style>
+
+    <style name="ChNightText.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
+    <style name="ChNightText.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
+    </style>
+
+    <style name="ChNightText.Huge">
+        <item name="android:textSize">@dimen/huge_text</item>
+    </style>
+
+    <style name="ChNightText.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="ChNightText.ExtraSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <!-- dark_gray_blue -->
+    <style name="ChDarkGrayBlueText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/primary_text</item>
+        <item name="android:textColor">@color/dark_gray_blue</item>
+    </style>
+
+    <style name="ChDarkGrayBlueText.Big">
+        <item name="android:textSize">@dimen/big_text</item>
+    </style>
+
+    <style name="ChDarkGrayBlueText.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
+    <style name="ChDarkGrayBlueText.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
+    </style>
+
+    <style name="ChDarkGrayBlueText.Huge">
+        <item name="android:textSize">@dimen/huge_text</item>
+    </style>
+
+    <style name="ChDarkGrayBlueText.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="ChDarkGrayBlueText.ExtraSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+</resources>

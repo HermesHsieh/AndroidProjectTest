@@ -12,4 +12,10 @@
     <color name="aa_red">#AAFF0000</color>
     <color name="aa_yellow">#AA00FF00</color>
     <color name="aa_blue">#AA0000FF</color>
+
+    <!-- gmall -->
+    <color name="beige">#f5caca</color>
+    <color name="dark_gray_blue">#2E305A</color>
+    <color name="reddish">#d32f2f</color>
+    <color name="night">#333333</color>
 </resources>
