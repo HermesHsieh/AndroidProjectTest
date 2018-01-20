@@ -41,8 +41,8 @@ public class EditTextItem extends FormView.ItemView {
     @BindView(R.id.edit_text)
     TextInputEditText editText;
 
-    private Context context;
-    private INPUT_TYPE type = INPUT_TYPE.NORMAL;
+    protected Context context;
+    protected INPUT_TYPE type = INPUT_TYPE.NORMAL;
 
     public void setInputType(INPUT_TYPE type) {
         if (editText == null) {
@@ -84,7 +84,6 @@ public class EditTextItem extends FormView.ItemView {
     public EditTextItem(Context context, final String hintStr) {
         this(context);
 
-        editText.setInputType(InputType.TYPE_CLASS_TEXT);
         inputLayout.setHint(hintStr);
     }
 
