@@ -41,7 +41,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_EMALL_ADDRESS_FORMAT_not_match() throws Exception {
+    public void EMALL_ADDRESS_FORMAT_not_match() throws Exception {
         String email = "#@^T@($*GU@Q(&Y";
         Assert.assertEquals("Email : " + email + " is match the email address, please try other strings to dis-match email address.",
                 false,
@@ -50,7 +50,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_EMALL_ADDRESS_FORMAT_not_match_when_input_is_empty() throws Exception {
+    public void EMALL_ADDRESS_FORMAT_not_match_when_input_is_empty() throws Exception {
         String email = "";
         Assert.assertEquals("Email : " + email + " is match the email address verify rule, please try other strings to dis-match email address.",
                 false,
@@ -59,7 +59,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_EMALL_ADDRESS_FORMAT_not_match_when_input_is_null() throws Exception {
+    public void EMALL_ADDRESS_FORMAT_not_match_when_input_is_null() throws Exception {
         String email = null;
         Assert.assertEquals("Email : " + email + " is match the email address verify rule, please try other strings to dis-match email address.",
                 false,
@@ -68,7 +68,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_EMALL_ADDRESS_FORMAT_match() throws Exception {
+    public void EMALL_ADDRESS_FORMAT_match() throws Exception {
         String email = "hello.test@gmail.com";
         Assert.assertEquals("Email : " + email + " is not match the email address verify rule, please try other strings to match email address.",
                 true,
@@ -77,7 +77,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_PASSWORD_FORMAT_not_match_when_input_is_empty() throws Exception {
+    public void PASSWORD_FORMAT_not_match_when_input_is_empty() throws Exception {
         String pwd = "";
         Assert.assertEquals("Password : " + pwd + " length : " + pwd.length() + " is match the password rule [not empty or null], please try other strings to dis-match password rule.",
                 false,
@@ -86,7 +86,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_PASSWORD_FORMAT_not_match_when_input_is_null() throws Exception {
+    public void PASSWORD_FORMAT_not_match_when_input_is_null() throws Exception {
         String pwd = null;
         Assert.assertEquals("Password : " + pwd + " is match the password rule [not empty or null], please try other strings to dis-match password rule.",
                 false,
@@ -95,7 +95,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_PASSWORD_FORMAT_not_match_when_input_is_too_short() throws Exception {
+    public void PASSWORD_FORMAT_not_match_when_input_is_too_short() throws Exception {
         String pwd = "wgre";
         Assert.assertEquals("Password : " + pwd + " length : " + pwd.length() + " is match the password rule [length range 6-20], please try other strings to dis-match password rule.",
                 false,
@@ -104,7 +104,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_PASSWORD_FORMAT_not_match_when_input_is_too_long() throws Exception {
+    public void PASSWORD_FORMAT_not_match_when_input_is_too_long() throws Exception {
         String pwd = "qp3948fjLUVHWEGIUHIEUWHF@0923r97weyf";
         Assert.assertEquals("Password : " + pwd + " length : " + pwd.length() + " is match the password rule [length range 6-20], please try other strings to dis-match password rule.",
                 false,
@@ -113,7 +113,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_PASSWORD_FORMAT_not_match_when_input_is_only_letter() throws Exception {
+    public void PASSWORD_FORMAT_not_match_when_input_is_only_letter() throws Exception {
         String pwd = "qertoEOFIJ";
         Assert.assertEquals("Password : " + pwd + " is match the password rule [combination with letter and number], please try other strings to dis-match password rule.",
                 false,
@@ -122,7 +122,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_PASSWORD_FORMAT_not_match_when_input_is_only_number() throws Exception {
+    public void PASSWORD_FORMAT_not_match_when_input_is_only_number() throws Exception {
         String pwd = "23458976";
         Assert.assertEquals("Password : " + pwd + " is match the password rule [combination with letter and number], please try other strings to dis-match password rule.",
                 false,
@@ -131,7 +131,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_PASSWORD_FORMAT_not_match_when_input_contain_space() throws Exception {
+    public void PASSWORD_FORMAT_not_match_when_input_contain_space() throws Exception {
         String pwd = "OWEF H4576";
         Assert.assertEquals("Password : " + pwd + " is match the password rule [didn't contain space], please try other strings to dis-match password rule.",
                 false,
@@ -140,7 +140,7 @@ public class ValidUtilsTest {
     }
 
     @Test
-    public void is_valid_pattern_for_PASSWORD_FORMAT_match_input() throws Exception {
+    public void PASSWORD_FORMAT_match_input() throws Exception {
         String pwd = "aweoij2397";
         Assert.assertEquals("Password : " + pwd + " is didn't match the password rule [length 6-20, didn't contain space, at least one letter and one number], please try other strings to match password rule.",
                 true,
@@ -148,7 +148,109 @@ public class ValidUtilsTest {
         );
     }
 
+    @Test
+    public void USER_NAME_FORMAT_no_match_when_input_is_empty() {
+        String string = "";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is match the USER_NAME rule [not empty or null], please try other strings to dis-match USER_NAME rule.",
+                false,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_no_match_when_input_is_null() {
+        String string = null;
+        Assert.assertEquals("UsesName : " + string + " is match the USER_NAME rule [not empty or null], please try other strings to dis-match USER_NAME rule.",
+                false,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_no_match_when_input_contain_space() {
+        String string = "aaw h4398";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is match the USER_NAME rule [contain space ' '], please try other strings to dis-match USER_NAME rule.",
+                false,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_no_match_when_input_too_short() {
+        String string = "123";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is match the USER_NAME rule [length 6-20], please try other strings to dis-match USER_NAME rule.",
+                false,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_no_match_when_input_too_long() {
+        String string = "123456789012345678901234567890";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is match the USER_NAME rule [length 6-20], please try other strings to dis-match USER_NAME rule.",
+                false,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_no_match_when_input_first_letter_is_define_sign() {
+        String string = "@12323456890";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is match the USER_NAME rule [first letter must be a letter/number/underline], please try other strings to dis-match USER_NAME rule.",
+                false,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_no_match_when_input_include_undefine_sign() {
+        String string = "aera2345&%890";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is match the USER_NAME rule [didn't include undefine sign (others:@.!)], please try other strings to dis-match USER_NAME rule.",
+                false,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_match_when_input_first_letter_is_lowercase_and_include_define_sign() {
+        String string = "aera2@348.90";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is dis-match the USER_NAME rule [first letter must be a letter/number/underline, others can include define sign:@!._], please try other strings to match USER_NAME rule.",
+                true,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_match_when_input_first_letter_is_underline_and_include_define_sign() {
+        String string = "_aer2d3SDO90";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is dis-match the USER_NAME rule [first letter must be a letter/number/underline, others can include define sign:@!._], please try other strings to match USER_NAME rule.",
+                true,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_match_when_input_first_letter_is_uppercase() {
+        String string = "R253aer90";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is dis-match the USER_NAME rule [first letter must be a letter/number/underline, others can include define sign:@!._], please try other strings to match USER_NAME rule.",
+                true,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
+    @Test
+    public void USER_NAME_FORMAT_match_when_input_first_letter_is_number() {
+        String string = "253aer90";
+        Assert.assertEquals("UsesName : " + string + " length : " + string.length() + " is dis-match the USER_NAME rule [first letter must be a letter/number/underline, others can include define sign:@!._], please try other strings to match USER_NAME rule.",
+                true,
+                ValidUtils.isValidPattern(Patterns.USER_NAME, string)
+        );
+    }
+
     protected static class Patterns {
+        private static final String USER_NAME_PATTERN = "^[\\w][\\w@.!]{6,20}$";
+        private static final Pattern USER_NAME = Pattern.compile(USER_NAME_PATTERN);
+
         private static final String EMAIL_PATTERN =
                 "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                         "\\@" +
