@@ -112,37 +112,73 @@ public class ValidUtilsTest {
         );
     }
 
-    @Test
-    public void PASSWORD_FORMAT_not_match_when_input_is_only_letter() throws Exception {
-        String pwd = "qertoEOFIJ";
-        Assert.assertEquals("Password : " + pwd + " is match the password rule [combination with letter and number], please try other strings to dis-match password rule.",
-                false,
-                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
-        );
-    }
+//    @Test
+//    public void PASSWORD_FORMAT_not_match_when_input_is_only_letter() throws Exception {
+//        String pwd = "qertoEOFIJ";
+//        Assert.assertEquals("Password : " + pwd + " is match the password rule [combination with letter and number], please try other strings to dis-match password rule.",
+//                false,
+//                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
+//        );
+//    }
+//
+//    @Test
+//    public void PASSWORD_FORMAT_not_match_when_input_is_only_number() throws Exception {
+//        String pwd = "23458976";
+//        Assert.assertEquals("Password : " + pwd + " is match the password rule [combination with letter and number], please try other strings to dis-match password rule.",
+//                false,
+//                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
+//        );
+//    }
 
     @Test
-    public void PASSWORD_FORMAT_not_match_when_input_is_only_number() throws Exception {
-        String pwd = "23458976";
-        Assert.assertEquals("Password : " + pwd + " is match the password rule [combination with letter and number], please try other strings to dis-match password rule.",
-                false,
-                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
-        );
-    }
-
-    @Test
-    public void PASSWORD_FORMAT_not_match_when_input_contain_space() throws Exception {
+    public void PASSWORD_FORMAT_not_match_when_input_include_space() throws Exception {
         String pwd = "OWEF H4576";
-        Assert.assertEquals("Password : " + pwd + " is match the password rule [didn't contain space], please try other strings to dis-match password rule.",
+        Assert.assertEquals("Password : " + pwd + " is match the password rule [didn't include space], please try other strings to dis-match password rule.",
                 false,
                 ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
         );
     }
 
     @Test
-    public void PASSWORD_FORMAT_match_input() throws Exception {
-        String pwd = "aweoij2397";
-        Assert.assertEquals("Password : " + pwd + " is didn't match the password rule [length 6-20, didn't contain space, at least one letter and one number], please try other strings to match password rule.",
+    public void PASSWORD_FORMAT_not_match_when_input_include_undefine_sign() throws Exception {
+        String pwd = "~ar576%)*";
+        Assert.assertEquals("Password : " + pwd + " is match the password rule [include undefine sign (except:_!@#$%&.)], please try other strings to dis-match password rule.",
+                false,
+                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
+        );
+    }
+
+    @Test
+    public void PASSWORD_FORMAT_match_when_input_only_number() throws Exception {
+        String pwd = "3405273468";
+        Assert.assertEquals("Password : " + pwd + " is didn't match the password rule [length 6-20, include define sign :_!@#$%&.], please try other strings to match password rule.",
+                true,
+                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
+        );
+    }
+
+    @Test
+    public void PASSWORD_FORMAT_match_when_input_only_letter() throws Exception {
+        String pwd = "aruhWRGHij";
+        Assert.assertEquals("Password : " + pwd + " is didn't match the password rule [length 6-20, include define sign :_!@#$%&.], please try other strings to match password rule.",
+                true,
+                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
+        );
+    }
+
+    @Test
+    public void PASSWORD_FORMAT_match_when_input_only_sign() throws Exception {
+        String pwd = "_!@#$%&.#@!&&";
+        Assert.assertEquals("Password : " + pwd + " is didn't match the password rule [length 6-20, include define sign :_!@#$%&.], please try other strings to match password rule.",
+                true,
+                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
+        );
+    }
+
+    @Test
+    public void PASSWORD_FORMAT_match_when_input_mix_letter_number_sign() throws Exception {
+        String pwd = "_287EGOdh2";
+        Assert.assertEquals("Password : " + pwd + " is didn't match the password rule [length 6-20, include define sign :_!@#$%&.], please try other strings to match password rule.",
                 true,
                 ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
         );
@@ -261,7 +297,8 @@ public class ValidUtilsTest {
                         ")+";
         private static final Pattern EMAIL_ADDRESS = Pattern.compile(EMAIL_PATTERN);
 
-        private static final String PASSWORD_PATTERN = "^(?=.*[a-zA-z]+)(?=.*[0-9]+)(?!(?=.*[^a-zA-Z0-9]+))(?=\\S+$).{6,20}$";
+        //        private static final String PASSWORD_PATTERN = "^(?=.*[a-zA-z]+)(?=.*[0-9]+)(?!(?=.*[^a-zA-Z0-9]+))(?=\\S+$).{6,20}$";
+        private static final String PASSWORD_PATTERN = "^[\\w!@#$%&.]{6,20}$";
         private static final Pattern PASSWORD = Pattern.compile(PASSWORD_PATTERN);
     }
 
