@@ -21,6 +21,7 @@ import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAd
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.databinding.DataBindingActivity;
 import tw.android.test.activity.dialog.DialogActivity;
+import tw.android.test.activity.inputtextlayout.InputTextLayoutActivity;
 import tw.android.test.activity.login.LoginActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.percentlayout.PercentLayoutActivity;
@@ -204,7 +205,7 @@ public class MainActivity extends BaseSimpleActivity {
 
     @OnClick(R.id.text_input_layout)
     public void onClickTextInputLayout() {
-
+        InputTextLayoutActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
