@@ -38,7 +38,9 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/input_layout"
         android:layout_centerVertical="true"
-        android:padding="@dimen/padding_8" />
+        android:padding="@dimen/padding_8"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/action_image"
@@ -46,5 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/input_layout"
         android:layout_centerVertical="true"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:src="@android:drawable/ic_dialog_email"
+        android:visibility="gone"
+        tools:visibility="visible" />
 </RelativeLayout>
