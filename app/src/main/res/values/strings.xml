@@ -34,5 +34,6 @@
     <string name="register_p_email">请输入电子邮箱账号</string>
     <string name="register_pwd">登录密码</string>
     <string name="register_p_pwd">请输入6-20位的登录密码</string>
+    <string name="save_to_album">存到相簿</string>
 
 </resources>
