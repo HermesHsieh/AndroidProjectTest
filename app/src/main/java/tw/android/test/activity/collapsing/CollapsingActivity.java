@@ -106,12 +106,41 @@ public class CollapsingActivity extends BaseSimpleActivity {
         mRecyclerView.scrollToPosition(0);
         mAdapter.onCreateData(30);
         mAdapter.notifyDataSetChanged();
+
+        mBuilder = new Builder().setTitle("title").build();
     }
 
     public static void launch(Activity activity) {
         Intent intent = new Intent(activity, CollapsingActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 //        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        activity.startActivity(intent);
+    }
+
+    private Builder mBuilder;
+
+    public static class Builder {
+
+        String title;
+
+        Builder() {
+
+        }
+
+        public Builder build() {
+            return new Builder();
+        }
+
+        public Builder setTitle(String title) {
+            this.title = title;
+            return this;
+        }
+    }
+
+    public static void launch(Activity activity, Builder builder) {
+        Intent intent = new Intent(activity, CollapsingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        intent.putExtra("BUILDER", builder.toString());
         activity.startActivity(intent);
     }
 
