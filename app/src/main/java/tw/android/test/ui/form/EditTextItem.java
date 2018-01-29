@@ -118,6 +118,10 @@ public class EditTextItem extends FormView.ItemView {
         inputLayout.setError(errorMsg);
     }
 
+    public void setLayoutHintTextStr(String hintStr) {
+        inputLayout.setHint(hintStr);
+    }
+
     public TextInputEditText getEditText() {
         return editText;
     }
