@@ -96,7 +96,7 @@ public class ValidUtilsTest {
 
     @Test
     public void PASSWORD_FORMAT_not_match_when_input_is_too_short() throws Exception {
-        String pwd = "wgre";
+        String pwd = "wgrefv";
         Assert.assertEquals("Password : " + pwd + " length : " + pwd.length() + " is match the password rule [length range 6-20], please try other strings to dis-match password rule.",
                 false,
                 ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
@@ -178,6 +178,15 @@ public class ValidUtilsTest {
     @Test
     public void PASSWORD_FORMAT_match_when_input_mix_letter_number_sign() throws Exception {
         String pwd = "_287EGOdh2";
+        Assert.assertEquals("Password : " + pwd + " is didn't match the password rule [length 6-20, include define sign :_!@#$%&.], please try other strings to match password rule.",
+                true,
+                ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
+        );
+    }
+
+    @Test
+    public void PASSWORD_FORMAT_match_when_input_normal() throws Exception {
+        String pwd = "aaaa1234";
         Assert.assertEquals("Password : " + pwd + " is didn't match the password rule [length 6-20, include define sign :_!@#$%&.], please try other strings to match password rule.",
                 true,
                 ValidUtils.isValidPattern(Patterns.PASSWORD, pwd)
@@ -284,9 +293,11 @@ public class ValidUtilsTest {
     }
 
     protected static class Patterns {
-        private static final String USER_NAME_PATTERN = "^[\\w][\\w@.!]{6,20}$";
+        // rule : length 4-30, first must be a letter that a-zA-Z0-9_, others just be a-zA-Z0-9_@.! letters
+        private static final String USER_NAME_PATTERN = "^[\\w][\\w@.!]{4,30}$";
         private static final Pattern USER_NAME = Pattern.compile(USER_NAME_PATTERN);
 
+        // copy from android.util.Patterns.EMAIL_ADDRESS
         private static final String EMAIL_PATTERN =
                 "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                         "\\@" +
@@ -296,8 +307,7 @@ public class ValidUtilsTest {
                         "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                         ")+";
         private static final Pattern EMAIL_ADDRESS = Pattern.compile(EMAIL_PATTERN);
-
-        //        private static final String PASSWORD_PATTERN = "^(?=.*[a-zA-z]+)(?=.*[0-9]+)(?!(?=.*[^a-zA-Z0-9]+))(?=\\S+$).{6,20}$";
+        // rule : length 6-20, only can be letter/number/underline/!@#$%&. combinations
         private static final String PASSWORD_PATTERN = "^[\\w!@#$%&.]{6,20}$";
         private static final Pattern PASSWORD = Pattern.compile(PASSWORD_PATTERN);
     }
