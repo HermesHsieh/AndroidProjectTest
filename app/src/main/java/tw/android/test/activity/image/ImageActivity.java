@@ -1,5 +1,7 @@
 package tw.android.test.activity.image;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Environment;
@@ -33,6 +35,11 @@ public class ImageActivity extends BaseSimpleActivity {
     Button save;
 
     Bitmap mBitmap;
+
+    public static void launch(Activity activity) {
+        Intent intent = new Intent(activity, ImageActivity.class);
+        activity.startActivity(intent);
+    }
 
     @Override
     protected void setContentView() {

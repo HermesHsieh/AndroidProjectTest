@@ -141,6 +141,12 @@
                 android:layout_height="wrap_content"
                 android:text="Dialog" />
 
+            <Button
+                android:id="@+id/image_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ImageButton" />
+
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/constrain_layout"
                 android:layout_width="wrap_content"

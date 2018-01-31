@@ -18,7 +18,13 @@
             android:name="tw.android.test.activity.home.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name="tw.android.test.activity.collapsing.CollapsingActivity"
@@ -71,12 +77,12 @@
 
         <activity
             android:name="tw.android.test.activity.image.ImageActivity"
+            android:parentActivityName="tw.android.test.activity.home.MainActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tw.android.test.activity.home.MainActivity" />
         </activity>
 
         <receiver android:name="tw.android.test.AlarmReceiver" />
