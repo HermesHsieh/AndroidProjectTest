@@ -47,8 +47,8 @@ public class FooterBehavior extends CoordinatorLayout.Behavior<View> {
             // User scrolled down and the FAB is currently visible -> hide the FAB
             animateOut(child);
         } else if (dyConsumed < 0 && child.getVisibility() != View.VISIBLE) {
-            // User scrolled up and the FAB is currently not visible -> show the FAB
             animateIn(child);
+            // User scrolled up and the FAB is currently not visible -> show the FAB
         }
     }
 

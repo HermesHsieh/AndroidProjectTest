@@ -29,14 +29,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@mipmap/android_developer"
-                    android:transitionName="android_image"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:transitionName="android_image" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="?android:actionBarSize"
-                    android:layout_marginTop="?android:actionBarSize"
                     android:layout_alignParentBottom="true"
+                    android:layout_marginTop="?android:actionBarSize"
                     android:orientation="horizontal">
 
                     <TextView
@@ -68,11 +68,21 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/padding_16"
+        android:src="@android:drawable/arrow_up_float"
+        app:backgroundTint="@android:color/white" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_behavior="tw.android.test.activity.collapsing.FooterBehavior">
 
         <Button

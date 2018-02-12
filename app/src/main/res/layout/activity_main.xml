@@ -23,7 +23,6 @@
                 android:scaleType="centerCrop"
                 android:src="@mipmap/sort_like"
                 android:transitionName="android_image"
-                android:visibility="gone"
                 tools:background="#BB33FF23" />
 
             <ImageView
@@ -33,7 +32,6 @@
                 android:scaleType="centerCrop"
                 android:src="@mipmap/android_developer"
                 android:transitionName="android_image"
-                android:visibility="gone"
                 tools:background="#BBFF7878" />
 
             <ImageView

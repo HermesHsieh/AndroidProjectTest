@@ -82,7 +82,6 @@ public class MainActivity extends BaseSimpleActivity {
     @Override
     protected void initView() {
         displayHomeButton(false);
-        InputTextLayoutActivity.launch(this);
 //        Book book = new Book();
 //        Book book2 = Book.of(2, 4, "Hello");
 //        Book book3 = Book.of(4, 4, "");

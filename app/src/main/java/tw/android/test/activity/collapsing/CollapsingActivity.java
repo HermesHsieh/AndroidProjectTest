@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,8 +16,6 @@ import com.example.hermes.test.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import tw.android.test.activity.home.MainActivity;
-import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.ui.form.FormView;
 
@@ -39,6 +38,10 @@ public class CollapsingActivity extends BaseSimpleActivity {
 //    @BindView(R.id.toolbar)
 //    Toolbar mToolbar;
 
+    @BindView(R.id.fab_scroll)
+    FloatingActionButton fabScroll;
+    private LinearLayoutManager mLayoutManager;
+
     @Override
     protected void setContentView() {
         setContentView(R.layout.activity_collapsing);
@@ -52,9 +55,32 @@ public class CollapsingActivity extends BaseSimpleActivity {
 //        }
 
         mAdapter = new ListDataAdapter(this);
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                Log.d("ttt", "First visible item position : " + mLayoutManager.findFirstVisibleItemPosition());
+
+                if (mLayoutManager.findFirstVisibleItemPosition() < 15) {
+                    if (fabScroll.isShown()) {
+                        fabScroll.hide();
+                    }
+                } else {
+                    if (!fabScroll.isShown()) {
+                        fabScroll.show();
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -154,11 +180,19 @@ public class CollapsingActivity extends BaseSimpleActivity {
 
     @OnClick(R.id.bottom_button_left)
     public void onClickBottomButtonLeft() {
-        MainActivity.launch(this);
+//        MainActivity.launch(this);
+        mRecyclerView.smoothScrollToPosition(0);
     }
 
     @OnClick(R.id.bottom_button_right)
     public void onClickBottomButtonRight() {
-        NumberPickerActivity.launch(this);
+//        NumberPickerActivity.launch(this);
+        ((LinearLayoutManager) mRecyclerView.getLayoutManager()).scrollToPositionWithOffset(0, 0);
+    }
+
+    @OnClick(R.id.fab_scroll)
+    public void onClickFloatActionButton() {
+        mRecyclerView.smoothScrollToPosition(0);
+//        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com.tw/")));
     }
 }
