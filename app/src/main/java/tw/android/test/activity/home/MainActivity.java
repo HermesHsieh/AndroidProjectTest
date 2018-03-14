@@ -133,6 +133,8 @@ public class MainActivity extends BaseSimpleActivity {
         IntentFilter filter = new IntentFilter(Intent.ACTION_LOCALE_CHANGED);
         mReceiver = new LocaleChangedReceiver();
         registerReceiver(mReceiver, filter);
+
+        ThemeActivity.launch(this);
     }
 
     @Override
