@@ -68,15 +68,6 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_scroll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="@dimen/padding_16"
-        android:src="@android:drawable/arrow_up_float"
-        app:backgroundTint="@android:color/white" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

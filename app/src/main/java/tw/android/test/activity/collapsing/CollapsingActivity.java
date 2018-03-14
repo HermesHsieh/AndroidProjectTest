@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.hermes.test.R;
 
@@ -38,9 +39,11 @@ public class CollapsingActivity extends BaseSimpleActivity {
 //    @BindView(R.id.toolbar)
 //    Toolbar mToolbar;
 
-    @BindView(R.id.fab_scroll)
+    //    @BindView(R.id.fab_scroll)
     FloatingActionButton fabScroll;
     private LinearLayoutManager mLayoutManager;
+
+    private ViewGroup mParent;
 
     @Override
     protected void setContentView() {
@@ -50,9 +53,21 @@ public class CollapsingActivity extends BaseSimpleActivity {
     @Override
     protected void initView() {
         setTitle(this.getClass().getSimpleName());
+
 //        if (mToolbar != null) {
 //            setSupportActionBar(mToolbar);
 //        }
+
+        mParent = (ViewGroup) mRecyclerView.getParent();
+        View.inflate(mContext, R.layout.item_float_action_button, mParent);
+        fabScroll = (FloatingActionButton) mParent.findViewById(R.id.float_action_button);
+        fabScroll.setImageResource(android.R.drawable.arrow_down_float);
+        fabScroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickFloatActionButton();
+            }
+        });
 
         mAdapter = new ListDataAdapter(this);
         mLayoutManager = new LinearLayoutManager(this);
@@ -190,7 +205,7 @@ public class CollapsingActivity extends BaseSimpleActivity {
         ((LinearLayoutManager) mRecyclerView.getLayoutManager()).scrollToPositionWithOffset(0, 0);
     }
 
-    @OnClick(R.id.fab_scroll)
+    //    @OnClick(R.id.fab_scroll)
     public void onClickFloatActionButton() {
         mRecyclerView.smoothScrollToPosition(0);
 //        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com.tw/")));
