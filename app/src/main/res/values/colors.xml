@@ -14,8 +14,18 @@
     <color name="aa_blue">#AA0000FF</color>
 
     <!-- gmall -->
+    <color name="reddish">#D32F2F</color>
     <color name="beige">#f5caca</color>
     <color name="dark_gray_blue">#2E305A</color>
-    <color name="reddish">#d32f2f</color>
     <color name="night">#333333</color>
+
+
+    <!-- gmall color -->
+    <color name="pf_mall_color_primary">@color/red_700</color>
+    <color name="pf_mall_color_primary_dark">@color/red_900</color>
+    <color name="pf_mall_color_accent">@color/red_700</color>
+
+    <color name="pf_mall_button_primary">@color/red_700</color>
+    <color name="pf_mall_button_primary_dark">@color/red_900</color>
+
 </resources>
