@@ -87,7 +87,8 @@
 
         <activity
             android:name="tw.android.test.activity.theme.ThemeActivity"
-            android:parentActivityName="tw.android.test.activity.home.MainActivity" />
+            android:parentActivityName="tw.android.test.activity.home.MainActivity"
+            android:theme="@style/MyTheme" />
 
         <receiver android:name="tw.android.test.AlarmReceiver" />
 
