@@ -16,6 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ThemeActivity" />
+
             <ImageView
                 android:id="@+id/image_view3"
                 android:layout_width="100dp"
@@ -65,12 +71,6 @@
             <tw.android.test.ui.ClearEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/theme"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ThemeActivity" />
 
             <Button
                 android:id="@+id/text_input_layout"
