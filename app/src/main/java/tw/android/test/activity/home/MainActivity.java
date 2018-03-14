@@ -29,6 +29,7 @@ import tw.android.test.activity.percentlayout.PercentLayoutActivity;
 import tw.android.test.activity.pickdate.PickDateActivity;
 import tw.android.test.activity.rxjava.RxJavaActivity;
 import tw.android.test.activity.search.SearchActivity;
+import tw.android.test.activity.theme.ThemeActivity;
 import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
 import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.cache.GlobalConstant;
@@ -211,6 +212,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.image_button)
     public void onClickImageButton() {
         ImageActivity.launch(this);
+    }
+
+    @OnClick(R.id.theme)
+    public void onClickThemeButton() {
+        ThemeActivity.launch(this);
     }
 
     public static void launch(Activity activity) {

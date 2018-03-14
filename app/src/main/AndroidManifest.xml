@@ -85,6 +85,10 @@
                 android:value="tw.android.test.activity.home.MainActivity" />
         </activity>
 
+        <activity
+            android:name="tw.android.test.activity.theme.ThemeActivity"
+            android:parentActivityName="tw.android.test.activity.home.MainActivity" />
+
         <receiver android:name="tw.android.test.AlarmReceiver" />
 
         <receiver
