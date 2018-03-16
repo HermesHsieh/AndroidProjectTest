@@ -32,35 +32,141 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="MyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/red_500</item>
-        <item name="colorPrimaryDark">@color/indigo_500</item>
-        <item name="colorAccent">@color/yellow_500</item>
-        <!-- CheckBox and RadioButton -->
-        <item name="buttonTint">@color/orange_500</item>
+    <style name="PrimaryTheme" parent="@style/ThemeRed" />
+
+    <style name="PrimaryButton" parent="@style/ButtonRedLight" />
+
+    <style name="PrimaryButtonTrans" parent="@style/ButtonRedLight.Trans" />
+
+    <style name="PrimaryButtonDeep" parent="@style/ButtonRedDark" />
+
+    <style name="SecondButton" parent="@style/ButtonWhiteLight" />
+
+    <style name="SecondEditText" parent="@style/InputLayoutWhiteLight" />
+
+    <style name="SecondHintText" parent="@style/HintTextWhite" />
+
+    <style name="ThirdButton" parent="@style/ButtonGreyLight" />
+
+    <style name="PrimaryText" parent="@style/TextRed">
+        <item name="android:textSize">@dimen/primary_text</item>
     </style>
 
-    <style name="MyPrimaryButtonLight" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/red_500</item>
-        <item name="colorControlHighlight">@color/grey_300</item>
+    <style name="PrimaryText.SuperSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
     </style>
 
-    <style name="MySecondButtonLight" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/red_700</item>
-        <item name="colorControlHighlight">@color/grey_300</item>
+    <style name="PrimaryText.Small">
+        <item name="android:textSize">@dimen/small_text</item>
     </style>
 
-    <style name="MyPrimaryButtonDark" parent="ThemeOverlay.AppCompat.Dark">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/blue_500</item>
-        <item name="colorControlHighlight">@color/grey_300</item>
+    <style name="PrimaryText.Large">
+        <item name="android:textSize">@dimen/large_text</item>
     </style>
 
-    <style name="MySecondButtonDark" parent="ThemeOverlay.AppCompat.Dark">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/blue_300</item>
-        <item name="colorControlHighlight">@color/grey_300</item>
+    <style name="PrimaryText.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
     </style>
+
+    <style name="PrimaryTextDeep" parent="@style/TextRedDeep" />
+
+    <style name="PrimaryTextDeep.SuperSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="PrimaryTextDeep.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="PrimaryTextDeep.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
+    <style name="PrimaryTextDeep.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
+    </style>
+
+    <style name="TextDisable" parent="@style/TextGreyLight" />
+
+    <style name="TextDisable.SuperSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="TextDisable.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="TextDisable.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
+    <style name="TextDisable.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
+    </style>
+
+    <style name="TextTitle" parent="@style/TextGrey" />
+
+    <style name="TextTitle.SuperSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="TextTitle.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="TextTitle.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
+    <style name="TextTitle.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
+    </style>
+
+    <style name="TextContent" parent="@style/TextBlack" />
+
+    <style name="TextContent.SuperSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="TextContent.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="TextContent.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
+    <style name="TextContent.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
+    </style>
+
+    <style name="PrimaryInputHintAppear" parent="@style/TextRed">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="PrimaryInputErrorAppear" parent="@style/TextRedLight">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="PrimaryInputCounterOverFlowAppear" parent="@style/TextRedLight">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="SecondInputLayout" parent="@style/HintTextWhite">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="SecondInputHintAppear" parent="@style/TextGreyLight">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="SecondInputErrorAppear" parent="@style/TextOrangeLight">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="SecondInputCounterOverFlowAppear" parent="@style/TextOrangeLight">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+
 </resources>
