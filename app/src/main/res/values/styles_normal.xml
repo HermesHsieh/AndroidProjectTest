@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextOrangeLight" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/orange_300</item>
+    </style>
+
+    <style name="TextOrange" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/orange_500</item>
+    </style>
+
+    <style name="TextOrangeDeep" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/orange_700</item>
+    </style>
+
+    <style name="TextGreyLight" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_300</item>
+    </style>
+
+    <style name="TextGrey" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_500</item>
+    </style>
+
+    <style name="TextGreyDeep" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_700</item>
+    </style>
+
+    <style name="TextBlack" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_A200</item>
+    </style>
+
+    <style name="HintTextWhite" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColorHint">@color/grey_300</item>
+    </style>
+
+    <style name="InputLayoutWhiteLight" parent="Widget.Design.TextInputLayout">
+        <item name="colorControlNormal">@color/grey_100</item>
+        <item name="colorControlActivated">@color/grey_300</item>
+    </style>
+</resources>
