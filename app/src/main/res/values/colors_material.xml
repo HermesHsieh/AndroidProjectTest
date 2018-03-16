@@ -85,6 +85,16 @@
     <color name="blue_A400">#2979FF</color>
     <color name="blue_A700">#2962FF</color>
 
+    <color name="deep_blue_500">#2E5EAA</color>
+    <color name="deep_blue_600">#204889</color>
+    <color name="deep_blue_700">#0F1B42</color>
+    <color name="deep_blue_800">#09153e</color>
+    <color name="deep_blue_900">#030d30</color>
+    <color name="deep_blue_A100">#6b89e4</color>
+    <color name="deep_blue_500_trans">#AA2E5EAA</color>
+    <color name="deep_blue_700_trans">#AA0F1B42</color>
+    <color name="deep_blue_900_trans">#AA030c28</color>
+
     <color name="yellow_50">#FFFDE7</color>
     <color name="yellow_100">#FFF9C4</color>
     <color name="yellow_200">#FFF59D</color>
