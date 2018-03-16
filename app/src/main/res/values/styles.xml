@@ -32,23 +32,23 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="PrimaryTheme" parent="@style/ThemeRed" />
+    <style name="PrimaryTheme" parent="@style/ThemeDeepBlue" />
 
-    <style name="PrimaryButton" parent="@style/ButtonRedLight" />
+    <style name="PrimaryButton" parent="@style/ButtonDeepBlueLight" />
 
-    <style name="PrimaryButtonTrans" parent="@style/ButtonRedLight.Trans" />
+    <style name="PrimaryButtonTrans" parent="@style/ButtonDeepBlueLight.Trans" />
 
-    <style name="PrimaryButtonDeep" parent="@style/ButtonRedDark" />
+    <style name="PrimaryButtonDeep" parent="@style/ButtonDeepBlueDark" />
 
-    <style name="SecondButton" parent="@style/ButtonRedWhiteLight" />
+    <style name="SecondButton" parent="@style/ButtonDeepBlueWhiteLight" />
 
     <style name="SecondEditText" parent="@style/InputLayoutWhiteLight" />
 
     <style name="SecondHintText" parent="@style/HintTextWhite" />
 
-    <style name="ThirdButton" parent="@style/ButtonRedGreyLight" />
+    <style name="ThirdButton" parent="@style/ButtonDeepBlueGreyLight" />
 
-    <style name="PrimaryText" parent="@style/TextRed">
+    <style name="PrimaryText" parent="@style/TextDeepBlue">
         <item name="android:textSize">@dimen/primary_text</item>
     </style>
 
@@ -68,7 +68,25 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryTextDeep" parent="@style/TextRedDeep" />
+    <style name="PrimaryTextLight" parent="@style/TextDeepBlueLight" />
+
+    <style name="PrimaryTextLight.SuperSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="PrimaryTextLight.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="PrimaryTextLight.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
+    <style name="PrimaryTextLight.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
+    </style>
+
+    <style name="PrimaryTextDeep" parent="@style/TextDeepBlueDeep" />
 
     <style name="PrimaryTextDeep.SuperSmall">
         <item name="android:textSize">@dimen/super_small_text</item>
@@ -140,7 +158,7 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryInputHintAppear" parent="@style/TextRed">
+    <style name="PrimaryInputHintAppear" parent="@style/TextDeepBlue">
         <item name="android:textSize">@dimen/small_text</item>
     </style>
 
