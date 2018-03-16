@@ -30,21 +30,21 @@
         <item name="colorAccent">@color/red_900_trans</item>
     </style>
 
-    <style name="ButtonWhiteLight" parent="ThemeOverlay.AppCompat.Light">
+    <style name="ButtonRedWhiteLight" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorButtonNormal">@color/grey_500</item>
         <item name="colorAccent">@color/grey_100</item>
         <item name="colorControlHighlight">@color/red_A100</item>
         <item name="android:textColorPrimaryInverse">@color/red_500</item>
     </style>
 
-    <style name="ButtonWhiteDark" parent="ThemeOverlay.AppCompat.Light">
+    <style name="ButtonRedWhiteDark" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorButtonNormal">@color/grey_500</item>
         <item name="colorAccent">@color/grey_300</item>
         <item name="colorControlHighlight">@color/red_A100</item>
         <item name="android:textColorPrimaryInverse">@color/red_500</item>
     </style>
 
-    <style name="ButtonGreyLight" parent="ThemeOverlay.AppCompat.Light">
+    <style name="ButtonRedGreyLight" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorButtonNormal">@color/grey_500</item>
         <item name="colorAccent">@color/grey_700</item>
         <item name="colorControlHighlight">@color/red_A100</item>

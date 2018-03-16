@@ -40,13 +40,13 @@
 
     <style name="PrimaryButtonDeep" parent="@style/ButtonRedDark" />
 
-    <style name="SecondButton" parent="@style/ButtonWhiteLight" />
+    <style name="SecondButton" parent="@style/ButtonRedWhiteLight" />
 
     <style name="SecondEditText" parent="@style/InputLayoutWhiteLight" />
 
     <style name="SecondHintText" parent="@style/HintTextWhite" />
 
-    <style name="ThirdButton" parent="@style/ButtonGreyLight" />
+    <style name="ThirdButton" parent="@style/ButtonRedGreyLight" />
 
     <style name="PrimaryText" parent="@style/TextRed">
         <item name="android:textSize">@dimen/primary_text</item>
