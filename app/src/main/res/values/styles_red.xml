@@ -50,18 +50,6 @@
         <item name="colorControlHighlight">@color/red_A100</item>
     </style>
 
-    <style name="TextOrangeLight" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/orange_300</item>
-    </style>
-
-    <style name="TextOrange" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/orange_500</item>
-    </style>
-
-    <style name="TextOrangeDeep" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/orange_700</item>
-    </style>
-
     <style name="TextRedLight" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/red_500</item>
     </style>
@@ -70,45 +58,12 @@
         <item name="android:textColor">@color/red_700</item>
     </style>
 
-    <style name="TextRed.SuperSmall" parent="TextRed">
-        <item name="android:textSize">@dimen/super_small_text</item>
-    </style>
-
     <style name="TextRedDeep" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/red_900</item>
     </style>
 
-    <style name="TextGreyLight" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/grey_300</item>
-    </style>
-
-    <style name="TextGrey" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/grey_500</item>
-    </style>
-
-    <style name="TextGreyDeep" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/grey_700</item>
-    </style>
-
-    <style name="TextBlack" parent="@android:style/TextAppearance">
-        <item name="android:textColor">@color/grey_A200</item>
-    </style>
-
-    <style name="TextRedLight.SuperSmall" parent="@style/TextRedLight">
-        <item name="android:textSize">@dimen/super_small_text</item>
-    </style>
-
     <style name="HintTextRed" parent="Widget.Design.TextInputLayout">
         <item name="android:textColorHint">@color/red_700</item>
-    </style>
-
-    <style name="HintTextWhite" parent="Widget.Design.TextInputLayout">
-        <item name="android:textColorHint">@color/grey_300</item>
-    </style>
-
-    <style name="InputLayoutWhiteLight" parent="Widget.Design.TextInputLayout">
-        <item name="colorControlNormal">@color/grey_100</item>
-        <item name="colorControlActivated">@color/grey_300</item>
     </style>
 
 </resources>
