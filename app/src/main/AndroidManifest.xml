@@ -88,7 +88,7 @@
         <activity
             android:name="tw.android.test.activity.theme.ThemeActivity"
             android:parentActivityName="tw.android.test.activity.home.MainActivity"
-            android:theme="@style/MyTheme"
+            android:theme="@style/PrimaryTheme"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
         <receiver android:name="tw.android.test.AlarmReceiver" />
