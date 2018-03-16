@@ -9,6 +9,16 @@
     <dimen name="huge_text">56sp</dimen>
     <dimen name="super_huge_text">75sp</dimen>
 
+    <dimen name="super_small_view">8dip</dimen>
+    <dimen name="small_view">16dip</dimen>
+    <dimen name="super_little_view">24dip</dimen>
+    <dimen name="little_view">36dip</dimen>
+    <dimen name="normal_view">48dip</dimen>
+    <dimen name="large_view">76dip</dimen>
+    <dimen name="super_large_view">96dip</dimen>
+    <dimen name="huge_view">144dip</dimen>
+    <dimen name="super_huge_view">192dip</dimen>
+
     <dimen name="padding_1">1dp</dimen>
     <dimen name="padding_2">2dp</dimen>
     <dimen name="padding_4">4dp</dimen>
