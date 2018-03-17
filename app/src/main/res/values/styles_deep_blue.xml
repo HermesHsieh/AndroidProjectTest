@@ -4,8 +4,8 @@
     <style name="ThemeDeepBlue" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/deep_blue_700</item>
         <item name="colorPrimaryDark">@color/deep_blue_900</item>
-        <item name="colorAccent">@color/deep_blue_700</item>
-        <item name="buttonTint">@color/deep_blue_700</item>
+        <item name="colorAccent">@color/deep_blue_500</item>
+        <item name="buttonTint">@color/deep_blue_500</item>
     </style>
 
     <style name="ButtonDeepBlueLight" parent="ThemeOverlay.AppCompat.Light">
@@ -41,24 +41,18 @@
         <item name="colorAccent">@color/deep_blue_900_trans</item>
     </style>
 
-    <style name="ButtonDeepBlueWhiteLight" parent="ThemeOverlay.AppCompat.Light">
+    <style name="ButtonWhiteDeepBlueLight" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorButtonNormal">@color/grey_500</item>
         <item name="colorAccent">@color/grey_100</item>
         <item name="colorControlHighlight">@color/deep_blue_A100</item>
         <item name="android:textColorPrimaryInverse">@color/deep_blue_500</item>
     </style>
 
-    <style name="ButtonDeepBlueWhiteDark" parent="ThemeOverlay.AppCompat.Light">
+    <style name="ButtonWhiteDeepBlue" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorButtonNormal">@color/grey_500</item>
         <item name="colorAccent">@color/grey_300</item>
         <item name="colorControlHighlight">@color/deep_blue_A100</item>
         <item name="android:textColorPrimaryInverse">@color/deep_blue_500</item>
-    </style>
-
-    <style name="ButtonDeepBlueGreyLight" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/grey_700</item>
-        <item name="colorControlHighlight">@color/deep_blue_A100</item>
     </style>
 
     <style name="TextDeepBlueLight" parent="@android:style/TextAppearance">
