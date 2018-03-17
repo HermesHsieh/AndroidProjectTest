@@ -40,13 +40,13 @@
 
     <style name="PrimaryButtonDeep" parent="@style/ButtonDeepBlueDark" />
 
-    <style name="SecondButton" parent="@style/ButtonDeepBlueWhiteLight" />
+    <style name="SecondButton" parent="@style/ButtonWhiteDeepBlueLight" />
 
     <style name="SecondEditText" parent="@style/InputLayoutWhiteLight" />
 
     <style name="SecondHintText" parent="@style/HintTextWhite" />
 
-    <style name="ThirdButton" parent="@style/ButtonDeepBlueGreyLight" />
+    <style name="ThirdButton" parent="@style/ButtonGrey" />
 
     <style name="PrimaryText" parent="@style/TextDeepBlue">
         <item name="android:textSize">@dimen/primary_text</item>
@@ -122,39 +122,39 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="TextTitle" parent="@style/TextGrey" />
+    <style name="PrimaryBlackText" parent="@style/TextBlack" />
 
-    <style name="TextTitle.SuperSmall">
+    <style name="PrimaryBlackText.SuperSmall">
         <item name="android:textSize">@dimen/super_small_text</item>
     </style>
 
-    <style name="TextTitle.Small">
+    <style name="PrimaryBlackText.Small">
         <item name="android:textSize">@dimen/small_text</item>
     </style>
 
-    <style name="TextTitle.Large">
+    <style name="PrimaryBlackText.Large">
         <item name="android:textSize">@dimen/large_text</item>
     </style>
 
-    <style name="TextTitle.SuperLarge">
+    <style name="PrimaryBlackText.SuperLarge">
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="TextContent" parent="@style/TextBlack" />
+    <style name="PrimaryGreyText" parent="@style/TextGrey" />
 
-    <style name="TextContent.SuperSmall">
+    <style name="PrimaryGreyText.SuperSmall">
         <item name="android:textSize">@dimen/super_small_text</item>
     </style>
 
-    <style name="TextContent.Small">
+    <style name="PrimaryGreyText.Small">
         <item name="android:textSize">@dimen/small_text</item>
     </style>
 
-    <style name="TextContent.Large">
+    <style name="PrimaryGreyText.Large">
         <item name="android:textSize">@dimen/large_text</item>
     </style>
 
-    <style name="TextContent.SuperLarge">
+    <style name="PrimaryGreyText.SuperLarge">
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
