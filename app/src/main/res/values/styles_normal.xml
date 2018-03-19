@@ -37,6 +37,18 @@
         <item name="android:textColor">@color/grey_A700</item>
     </style>
 
+    <style name="TextRedLight" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/red_A200</item>
+    </style>
+
+    <style name="TextRed" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/red_A400</item>
+    </style>
+
+    <style name="TextRedDeep" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/red_A700</item>
+    </style>
+
     <style name="HintTextWhite" parent="Widget.Design.TextInputLayout">
         <item name="android:textColorHint">@color/grey_300</item>
     </style>
