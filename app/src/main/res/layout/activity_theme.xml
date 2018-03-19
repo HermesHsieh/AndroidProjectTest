@@ -221,6 +221,7 @@
                 android:orientation="horizontal">
 
                 <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -229,6 +230,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:src="@android:drawable/arrow_down_float" />
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/SecondProgressBar" />
             </LinearLayout>
 
             <Button

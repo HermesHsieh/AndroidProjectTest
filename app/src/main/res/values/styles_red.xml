@@ -5,7 +5,6 @@
         <item name="colorPrimary">@color/red_700</item>
         <item name="colorPrimaryDark">@color/red_900</item>
         <item name="colorAccent">@color/red_700</item>
-        <item name="buttonTint">@color/red_700</item>
     </style>
 
     <style name="ButtonRedLight" parent="ThemeOverlay.AppCompat.Light">
@@ -33,14 +32,14 @@
     <style name="ButtonWhiteRedLight" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorButtonNormal">@color/grey_500</item>
         <item name="colorAccent">@color/grey_100</item>
-        <item name="colorControlHighlight">@color/red_A100</item>
+        <item name="colorControlHighlight">@color/grey_A100</item>
         <item name="android:textColorPrimaryInverse">@color/red_500</item>
     </style>
 
     <style name="ButtonWhiteRedDark" parent="ThemeOverlay.AppCompat.Light">
         <item name="colorButtonNormal">@color/grey_500</item>
         <item name="colorAccent">@color/grey_300</item>
-        <item name="colorControlHighlight">@color/red_A100</item>
+        <item name="colorControlHighlight">@color/grey_A100</item>
         <item name="android:textColorPrimaryInverse">@color/red_500</item>
     </style>
 
