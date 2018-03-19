@@ -15,10 +15,10 @@
     <color name="grey_700">#616161</color>
     <color name="grey_800">#424242</color>
     <color name="grey_900">#212121</color>
-    <color name="grey_A100">#BEBEBE</color>
-    <color name="grey_A200">#383838</color>
-    <color name="grey_A400">#181818</color>
-    <color name="grey_A700">#0D0D0D</color>
+    <color name="grey_A100">#CCCCCC</color>
+    <color name="grey_A200">#666666</color>
+    <color name="grey_A400">#333333</color>
+    <color name="grey_A700">#111111</color>
     <color name="grey_500_trans">#AA9E9E9E</color>
 
     <color name="red_50">#FFEBEE</color>
