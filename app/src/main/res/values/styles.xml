@@ -158,6 +158,24 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
+    <style name="PrimaryPriceText" parent="@style/TextRedDeep" />
+
+    <style name="PrimaryPriceText.SuperSmall">
+        <item name="android:textSize">@dimen/super_small_text</item>
+    </style>
+
+    <style name="PrimaryPriceText.Small">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="PrimaryPriceText.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+    </style>
+
+    <style name="PrimaryPriceText.SuperLarge">
+        <item name="android:textSize">@dimen/super_large_text</item>
+    </style>
+
     <style name="PrimaryInputHintAppear" parent="@style/TextDeepBlue">
         <item name="android:textSize">@dimen/small_text</item>
     </style>
