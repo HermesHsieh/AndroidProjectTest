@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ThemeDeepBlue" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="ThemeDeepBlue" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/deep_blue_700</item>
         <item name="colorPrimaryDark">@color/deep_blue_900</item>
         <item name="colorAccent">@color/deep_blue_500</item>

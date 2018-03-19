@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextOrangeLight" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/orange_300</item>
+    </style>
+
+    <style name="TextOrange" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/orange_500</item>
+    </style>
+
+    <style name="TextOrangeDeep" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/orange_700</item>
+    </style>
+
+    <style name="TextGreyLight" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_300</item>
+    </style>
+
+    <style name="TextGrey" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_500</item>
+    </style>
+
+    <style name="TextGreyDeep" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_700</item>
+    </style>
+
+    <style name="TextBlackLight" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_A200</item>
+    </style>
+
+    <style name="TextBlack" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_A400</item>
+    </style>
+
+    <style name="TextBlackDeep" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/grey_A700</item>
+    </style>
+
+    <style name="HintTextWhite" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColorHint">@color/grey_300</item>
+    </style>
+
+    <style name="InputLayoutWhiteLight" parent="Widget.Design.TextInputLayout">
+        <item name="android:colorControlNormal">@color/grey_100</item>
+        <item name="android:colorControlActivated">@color/grey_300</item>
+    </style>
+
+    <style name="ButtonGrey" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorButtonNormal">@color/grey_500</item>
+        <item name="android:colorAccent">@color/grey_700</item>
+        <item name="android:colorControlHighlight">@color/grey_A100</item>
+    </style>
+
+    <style name="ProgressWhiteLight" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorAccent">@color/grey_100</item>
+    </style>
+
+    <style name="ProgressWhite" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorAccent">@color/grey_300</item>
+    </style>
+
+    <style name="ProgressWhiteDark" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorAccent">@color/grey_500</item>
+    </style>
+
+</resources>
