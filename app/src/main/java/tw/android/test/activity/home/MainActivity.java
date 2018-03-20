@@ -32,6 +32,7 @@ import tw.android.test.activity.rxjava.RxJavaActivity;
 import tw.android.test.activity.search.SearchActivity;
 import tw.android.test.activity.theme.ThemeActivity;
 import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
+import tw.android.test.activity.video.VideoActivity;
 import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.cache.GlobalConstant;
 import tw.android.test.ui.CurrencyInputEditText;
@@ -145,7 +146,7 @@ public class MainActivity extends BaseSimpleActivity {
         mReceiver = new LocaleChangedReceiver();
         registerReceiver(mReceiver, filter);
 
-        ThemeActivity.launch(this);
+//        ThemeActivity.launch(this);
 
 //        Drawable mDrawable = getResources().getDrawable(R.mipmap.sort_like);
 //        mDrawable.setColorFilter(new PorterDuffColorFilter(0xffff00, PorterDuff.Mode.MULTIPLY));
@@ -238,6 +239,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.theme)
     public void onClickThemeButton() {
         ThemeActivity.launch(this);
+    }
+
+    @OnClick(R.id.video)
+    public void onClickVideoButton() {
+        VideoActivity.launch(this);
     }
 
     public static void launch(Activity activity) {

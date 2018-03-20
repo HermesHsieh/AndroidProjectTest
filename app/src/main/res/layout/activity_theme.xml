@@ -14,6 +14,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <VideoView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -221,9 +225,27 @@
                 android:orientation="horizontal">
 
                 <ProgressBar
+                    style="?android:attr/progressBarStyleInverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <ProgressBar
                     style="?android:attr/progressBarStyleLarge"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
 
                 <android.support.design.widget.FloatingActionButton
                     android:layout_width="wrap_content"
@@ -234,6 +256,7 @@
                 <ProgressBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:theme="@style/SecondProgressBar" />
             </LinearLayout>
 
