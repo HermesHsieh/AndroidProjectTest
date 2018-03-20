@@ -31,6 +31,15 @@
                 android:transitionName="android_image"
                 tools:background="#BB33FF23" />
 
+            <tw.android.test.ui.view.ImageViewColored
+                android:id="@+id/image_view4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/sort_like"
+                android:transitionName="android_image"
+                app:color_filter="@color/yellow_500" />
+
             <ImageView
                 android:id="@+id/image_view"
                 android:layout_width="360dp"
@@ -51,8 +60,10 @@
                 tools:background="#BB33FF23" />
 
             <TextView
+                android:id="@+id/textViewDrawable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/sort_like"
                 android:text="Activity" />
 
             <android.support.design.widget.TextInputLayout

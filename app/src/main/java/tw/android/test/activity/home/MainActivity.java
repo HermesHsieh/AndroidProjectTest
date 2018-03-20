@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,7 @@ import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivit
 import tw.android.test.base.BaseSimpleActivity;
 import tw.android.test.cache.GlobalConstant;
 import tw.android.test.ui.CurrencyInputEditText;
+import tw.android.test.ui.view.ImageViewColored;
 
 public class MainActivity extends BaseSimpleActivity {
 
@@ -61,6 +63,15 @@ public class MainActivity extends BaseSimpleActivity {
 
     @BindView(R.id.image_view)
     ImageView imageView;
+
+    @BindView(R.id.image_view3)
+    ImageView imageView3;
+
+    @BindView(R.id.image_view4)
+    ImageViewColored imageView4;
+
+    @BindView(R.id.textViewDrawable)
+    TextView textViewDrawable;
 
     @GlobalConstant.WeekDays
     int currentDay;
@@ -135,6 +146,14 @@ public class MainActivity extends BaseSimpleActivity {
         registerReceiver(mReceiver, filter);
 
         ThemeActivity.launch(this);
+
+//        Drawable mDrawable = getResources().getDrawable(R.mipmap.sort_like);
+//        mDrawable.setColorFilter(new PorterDuffColorFilter(0xffff00, PorterDuff.Mode.MULTIPLY));
+//        imageView3.setImageDrawable(mDrawable);
+
+        imageView3.setColorFilter(ContextCompat.getColor(this, R.color.pf_mall_button_primary));
+
+//        imageView4.setColorFilter(ContextCompat.getColor(this, R.color.deep_blue_700));
     }
 
     @Override
@@ -225,6 +244,18 @@ public class MainActivity extends BaseSimpleActivity {
         Intent intent = new Intent(activity, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
+    }
+
+    private boolean isColored = false;
+
+    @OnClick(R.id.image_view4)
+    public void onChangeColored() {
+        if (isColored) {
+            imageView4.setColored(R.color.indigo_800);
+        } else {
+            imageView4.setColored(R.color.yellow_900);
+        }
+        isColored = !isColored;
     }
 
 }

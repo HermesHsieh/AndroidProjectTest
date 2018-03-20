@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ThemeRed" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/red_700</item>
+        <item name="colorPrimaryDark">@color/red_900</item>
+        <item name="colorAccent">@color/red_700</item>
+    </style>
+
+    <style name="ButtonRedLight" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorButtonNormal">@color/grey_500</item>
+        <item name="colorAccent">@color/red_700</item>
+        <item name="colorControlHighlight">@color/red_A100</item>
+    </style>
+
+    <style name="ButtonRedLight.Trans">
+        <item name="colorButtonNormal">@color/grey_500_trans</item>
+        <item name="colorAccent">@color/red_700_trans</item>
+    </style>
+
+    <style name="ButtonRedDark" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorButtonNormal">@color/grey_500</item>
+        <item name="colorAccent">@color/red_900</item>
+        <item name="colorControlHighlight">@color/red_A100</item>
+    </style>
+
+    <style name="ButtonRedDark.Trans">
+        <item name="colorButtonNormal">@color/grey_500_trans</item>
+        <item name="colorAccent">@color/red_900_trans</item>
+    </style>
+
+    <style name="ButtonWhiteRedLight" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorButtonNormal">@color/grey_500</item>
+        <item name="colorAccent">@color/grey_100</item>
+        <item name="colorControlHighlight">@color/grey_A100</item>
+        <item name="android:textColorPrimaryInverse">@color/red_500</item>
+    </style>
+
+    <style name="ButtonWhiteRedDark" parent="ThemeOverlay.AppCompat.Light">
+        <item name="colorButtonNormal">@color/grey_500</item>
+        <item name="colorAccent">@color/grey_300</item>
+        <item name="colorControlHighlight">@color/grey_A100</item>
+        <item name="android:textColorPrimaryInverse">@color/red_500</item>
+    </style>
+
+    <style name="TextRedLight" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/red_500</item>
+    </style>
+
+    <style name="TextRed" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/red_700</item>
+    </style>
+
+    <style name="TextRedDeep" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/red_900</item>
+    </style>
+
+    <style name="HintTextRed" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColorHint">@color/red_700</item>
+    </style>
+
+</resources>

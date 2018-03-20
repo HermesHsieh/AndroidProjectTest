@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="black_trans">#BB000000</color>
+    <color name="white_trans">#BBFFFFFF</color>
 
     <color name="grey_50">#FAFAFA</color>
     <color name="grey_100">#F5F5F5</color>
@@ -13,6 +15,11 @@
     <color name="grey_700">#616161</color>
     <color name="grey_800">#424242</color>
     <color name="grey_900">#212121</color>
+    <color name="grey_A100">#CCCCCC</color>
+    <color name="grey_A200">#666666</color>
+    <color name="grey_A400">#333333</color>
+    <color name="grey_A700">#111111</color>
+    <color name="grey_500_trans">#AA9E9E9E</color>
 
     <color name="red_50">#FFEBEE</color>
     <color name="red_100">#FFCDD2</color>
@@ -28,6 +35,9 @@
     <color name="red_A200">#FF5252</color>
     <color name="red_A400">#FF1744</color>
     <color name="red_A700">#D50000</color>
+    <color name="red_500_trans">#AAF44336</color>
+    <color name="red_700_trans">#AAD32F2F</color>
+    <color name="red_900_trans">#AAB71C1C</color>
 
     <color name="green_50">#E8F5E9</color>
     <color name="green_100">#C8E6C9</color>
@@ -43,6 +53,7 @@
     <color name="green_A200">#69F0AE</color>
     <color name="green_A400">#00E676</color>
     <color name="green_A700">#00C853</color>
+    <color name="green_500_trans">#AA4CAF50</color>
 
     <color name="indigo_50">#E8EAF6</color>
     <color name="indigo_100">#C5CAE9</color>
@@ -73,6 +84,16 @@
     <color name="blue_A200">#448AFF</color>
     <color name="blue_A400">#2979FF</color>
     <color name="blue_A700">#2962FF</color>
+
+    <color name="deep_blue_500">#2E5EAA</color>
+    <color name="deep_blue_600">#204889</color>
+    <color name="deep_blue_700">#0F1B42</color>
+    <color name="deep_blue_800">#09153e</color>
+    <color name="deep_blue_900">#030d30</color>
+    <color name="deep_blue_A100">#6b89e4</color>
+    <color name="deep_blue_500_trans">#AA2E5EAA</color>
+    <color name="deep_blue_700_trans">#AA0F1B42</color>
+    <color name="deep_blue_900_trans">#AA030c28</color>
 
     <color name="yellow_50">#FFFDE7</color>
     <color name="yellow_100">#FFF9C4</color>

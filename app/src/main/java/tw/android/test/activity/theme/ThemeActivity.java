@@ -7,7 +7,6 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatSpinner;
 import android.widget.ArrayAdapter;
 
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
 
 import java.util.ArrayList;
@@ -45,8 +44,6 @@ public class ThemeActivity extends BaseSimpleActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Tab2"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab3"));
 
-        textInputLayout2.setError("Error text!");
-
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             list.add("Item[" + i + "]");
@@ -66,13 +63,25 @@ public class ThemeActivity extends BaseSimpleActivity {
 
     }
 
-    @OnClick(R.id.show_dialog_button)
-    public void onClickShowDialog() {
-        new MaterialDialog.Builder(this)
-                .title("Title")
-                .content("content")
-                .positiveText("OK")
-                .negativeText("Cancel")
-                .show();
+    boolean eventStatus = false;
+
+    @OnClick(R.id.event)
+    public void onClickEvent() {
+        if (eventStatus) {
+            textInputLayout2.setError(null);
+        } else {
+            textInputLayout2.setError("error text!!");
+        }
+        eventStatus = !eventStatus;
     }
+
+//    @OnClick(R.id.show_dialog_button)
+//    public void onClickShowDialog() {
+//        new MaterialDialog.Builder(this)
+//                .title("Title")
+//                .content("content")
+//                .positiveText("OK")
+//                .negativeText("Cancel")
+//                .show();
+//    }
 }
