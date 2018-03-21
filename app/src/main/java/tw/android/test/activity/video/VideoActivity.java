@@ -2,6 +2,7 @@ package tw.android.test.activity.video;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.MediaController;
@@ -13,6 +14,8 @@ import butterknife.BindView;
 import tw.android.test.base.BaseSimpleActivity;
 
 public class VideoActivity extends BaseSimpleActivity {
+
+    private final String TAG = getClass().getSimpleName();
 
     @BindView(R.id.videoView)
     VideoView mVideoView;
@@ -71,5 +74,19 @@ public class VideoActivity extends BaseSimpleActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.v(TAG, "onConfigurationChanged");
+        setContentView();
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            Log.d(TAG, "ORIENTATION_LANDSCAPE");
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Log.d(TAG, "ORIENTATION_PORTRAIT");
+        } else {
+            Log.d(TAG, "ORIENTATION_UNDEFINED");
+        }
     }
 }
