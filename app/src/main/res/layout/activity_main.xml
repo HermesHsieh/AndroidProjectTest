@@ -28,6 +28,12 @@
                 android:layout_height="wrap_content"
                 android:text="VideoActivity" />
 
+            <Button
+                android:id="@+id/anko"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AnkoActivity" />
+
             <ImageView
                 android:id="@+id/image_view3"
                 android:layout_width="100dp"

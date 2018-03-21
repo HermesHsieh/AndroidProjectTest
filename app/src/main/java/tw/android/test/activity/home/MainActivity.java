@@ -18,6 +18,7 @@ import com.example.hermes.test.R;
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.LocaleChangedReceiver;
+import tw.android.test.activity.anko.AnkoActivity;
 import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAdapterHelperActivity;
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.databinding.DataBindingActivity;
@@ -244,6 +245,12 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.video)
     public void onClickVideoButton() {
         VideoActivity.launch(this);
+    }
+
+    @OnClick(R.id.anko)
+    public void onClickAnkoButton() {
+        Intent intent = new Intent(this, AnkoActivity.class);
+        startActivity(intent);
     }
 
     public static void launch(Activity activity) {

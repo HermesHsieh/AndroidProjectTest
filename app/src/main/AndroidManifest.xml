@@ -97,6 +97,11 @@
             android:parentActivityName="tw.android.test.activity.home.MainActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />
 
+        <activity
+            android:name="tw.android.test.activity.anko.AnkoActivity"
+            android:parentActivityName="tw.android.test.activity.home.MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
         <receiver android:name="tw.android.test.AlarmReceiver" />
 
         <receiver
