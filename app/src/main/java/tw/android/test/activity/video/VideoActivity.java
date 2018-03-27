@@ -3,22 +3,21 @@ package tw.android.test.activity.video;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.view.View;
-import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
+import cn.jzvd.JZVideoPlayerStandard;
 import tw.android.test.base.BaseSimpleActivity;
 
 public class VideoActivity extends BaseSimpleActivity {
 
+    public static final String VIDEO_TITLE = "Wowza Demo RTSP Video";
     private final String TAG = getClass().getSimpleName();
 
     @BindView(R.id.videoView)
@@ -31,6 +30,9 @@ public class VideoActivity extends BaseSimpleActivity {
     String videoUrl = "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4";
     String videoUrl2 = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov";
     String videoUrl3 = "http://www.wowza.com/_h264/BigBuckBunny_175k.mov";
+
+    @BindView(R.id.videoPlayer)
+    JZVideoPlayerStandard jzVideoPlayer;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class VideoActivity extends BaseSimpleActivity {
     protected void onPause() {
         Log.i(TAG, "onPause");
         super.onPause();
+        JZVideoPlayerStandard.releaseAllVideos();
     }
 
     @Override
@@ -76,80 +79,90 @@ public class VideoActivity extends BaseSimpleActivity {
     @Override
     protected void initView() {
         Log.d(TAG, "initView");
+
+//        jzVideoPlayer.setUp(videoUrl2, JZVideoPlayer.SCREEN_WINDOW_NORMAL, VIDEO_TITLE);
+//        jzVideoPlayer.thumbImageView.setImageResource(R.mipmap.android_developer);
+
+//        jzVideoPlayer.onEvent(JZUserAction.ON_ENTER_FULLSCREEN);
+//        jzVideoPlayer.startWindowFullscreen();
+
+        // This method will crash...
+        JZVideoPlayerStandard.startFullscreen(this, JZVideoPlayerStandard.class, videoUrl2, VIDEO_TITLE);
+
     }
 
     @Override
     protected void initData() {
         Log.d(TAG, "initData");
-        if (mMediaController == null) {
-            mMediaController = new MediaController(this);
-
-            mVideoView.setMediaController(mMediaController);
-        }
-
-        try {
-            // video file.
-            mVideoView.setVideoPath(videoUrl2);
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
-        }
-
-        mVideoView.requestFocus();
-
-        // When the video file ready for playback.
-        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mVideoView.seekTo(position);
-                if (position == 0) {
-                    mVideoView.start();
-                }
-
-                // When video Screen change size.
-                mediaPlayer.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
-                    @Override
-                    public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
-
-                        // Re-Set the mVideoView that acts as the anchor for the MediaController
-                        mMediaController.setAnchorView(mVideoView);
-                    }
-                });
-            }
-        });
+//        if (mMediaController == null) {
+//            mMediaController = new MediaController(this);
+//
+//            mVideoView.setMediaController(mMediaController);
+//        }
+//
+//        try {
+//            // video file.
+//            mVideoView.setVideoPath(videoUrl2);
+//        } catch (Exception e) {
+//            Log.e("Error", e.getMessage());
+//            e.printStackTrace();
+//        }
+//
+//        mVideoView.requestFocus();
+//
+//        // When the video file ready for playback.
+//        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+//            public void onPrepared(MediaPlayer mediaPlayer) {
+//                mVideoView.seekTo(position);
+//                if (position == 0) {
+//                    mVideoView.start();
+//                }
+//
+//                // When video Screen change size.
+//                mediaPlayer.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
+//                    @Override
+//                    public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
+//
+//                        // Re-Set the mVideoView that acts as the anchor for the MediaController
+//                        mMediaController.setAnchorView(mVideoView);
+//                    }
+//                });
+//            }
+//        });
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         Log.i(TAG, "onConfigurationChanged");
-        setContentView();
-        initView();
-        initData();
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            Log.d(TAG, "ORIENTATION_LANDSCAPE");
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            if (getSupportActionBar() != null) {
-                getSupportActionBar().isShowing();
-                getSupportActionBar().hide();
-            }
-
-            View decorView = getWindow().getDecorView();
-            // Hide both the navigation bar and the status bar.
-            // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
-            // a general rule, you should design your app to hide the status bar whenever you
-            // hide the navigation bar.
-            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_FULLSCREEN;
-            decorView.setSystemUiVisibility(uiOptions);
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Log.d(TAG, "ORIENTATION_PORTRAIT");
-            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-            if (getSupportActionBar() != null) {
-                getSupportActionBar().show();
-            }
-        } else {
-            Log.d(TAG, "ORIENTATION_UNDEFINED");
-        }
+//        setContentView();
+//        initView();
+//        initData();
+//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//            Log.d(TAG, "ORIENTATION_LANDSCAPE");
+//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//            if (getSupportActionBar() != null) {
+//                getSupportActionBar().isShowing();
+//                getSupportActionBar().hide();
+//            }
+//
+//            View decorView = getWindow().getDecorView();
+//            // Hide both the navigation bar and the status bar.
+//            // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
+//            // a general rule, you should design your app to hide the status bar whenever you
+//            // hide the navigation bar.
+//            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                    | View.SYSTEM_UI_FLAG_FULLSCREEN;
+//            decorView.setSystemUiVisibility(uiOptions);
+//        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+//            Log.d(TAG, "ORIENTATION_PORTRAIT");
+//            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//            if (getSupportActionBar() != null) {
+//                getSupportActionBar().show();
+//            }
+//        } else {
+//            Log.d(TAG, "ORIENTATION_UNDEFINED");
+//        }
     }
 
     @Override
@@ -162,5 +175,13 @@ public class VideoActivity extends BaseSimpleActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         Log.i(TAG, "onSaveInstanceState");
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (JZVideoPlayerStandard.backPress()) {
+            return;
+        }
+        super.onBackPressed();
     }
 }
