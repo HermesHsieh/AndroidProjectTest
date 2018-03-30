@@ -1,17 +1,27 @@
 package tw.android.test.activity.video;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.MediaController;
+import android.widget.Spinner;
 import android.widget.VideoView;
 
 import com.example.hermes.test.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
+import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
 import tw.android.test.base.BaseSimpleActivity;
 
@@ -20,7 +30,7 @@ public class VideoActivity extends BaseSimpleActivity {
     public static final String VIDEO_TITLE = "Wowza Demo RTSP Video";
     private final String TAG = getClass().getSimpleName();
 
-    @BindView(R.id.videoView)
+    //    @BindView(R.id.videoView)
     VideoView mVideoView;
 
     int position = 0;
@@ -30,13 +40,33 @@ public class VideoActivity extends BaseSimpleActivity {
     String videoUrl = "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4";
     String videoUrl2 = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov";
     String videoUrl3 = "http://www.wowza.com/_h264/BigBuckBunny_175k.mov";
+    String videoUrl4 = "rtsp://192.168.0.35:8554/SampleVideo.mkv";
+    String videoUrl5 = "rtsp://192.168.0.68:8554/MainconceptLogo_AVC_ES_320x240_420.264";
+
 
     @BindView(R.id.videoPlayer)
     JZVideoPlayerStandard jzVideoPlayer;
 
+    @BindView(R.id.spinner_url)
+    Spinner mSpinnerUrl;
+
+    List<String> mVideoUrlList;
+
+    ArrayAdapter mAdapter;
+
+    int mSelectedPosition = 0;
+
+    private static final String PREFS = "configs";
+    private static final String SELECTED_URL_INDEX = "selected_url_index";
+
+    SharedPreferences sp;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         Log.i(TAG, "onCreate");
+        sp = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        mSelectedPosition = sp.getInt(SELECTED_URL_INDEX, 0);
+
         super.onCreate(savedInstanceState);
     }
 
@@ -80,15 +110,47 @@ public class VideoActivity extends BaseSimpleActivity {
     protected void initView() {
         Log.d(TAG, "initView");
 
-//        jzVideoPlayer.setUp(videoUrl2, JZVideoPlayer.SCREEN_WINDOW_NORMAL, VIDEO_TITLE);
-//        jzVideoPlayer.thumbImageView.setImageResource(R.mipmap.android_developer);
-
 //        jzVideoPlayer.onEvent(JZUserAction.ON_ENTER_FULLSCREEN);
 //        jzVideoPlayer.startWindowFullscreen();
 
         // This method will crash...
-        JZVideoPlayerStandard.startFullscreen(this, JZVideoPlayerStandard.class, videoUrl2, VIDEO_TITLE);
+//        JZVideoPlayerStandard.startFullscreen(this, JZVideoPlayerStandard.class, videoUrl4, VIDEO_TITLE);
 
+        mVideoUrlList = createVideoUrlArray();
+
+        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, mVideoUrlList);
+
+        mSpinnerUrl.setAdapter(mAdapter);
+
+        mSpinnerUrl.setSelection(mSelectedPosition);
+
+        mSpinnerUrl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "onItemSelected position: " + position);
+
+                mSelectedPosition = position;
+
+                sp.edit().putInt(SELECTED_URL_INDEX, position).apply();
+
+                updateVideoPlayerSetup();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+    }
+
+    private void updateVideoPlayerSetup() {
+        if (jzVideoPlayer.isCurrentPlay()) {
+            jzVideoPlayer.release();
+        }
+
+        jzVideoPlayer.setUp(mVideoUrlList.get(mSelectedPosition), JZVideoPlayer.SCREEN_WINDOW_NORMAL, VIDEO_TITLE);
+        jzVideoPlayer.thumbImageView.setImageResource(R.mipmap.android_developer);
     }
 
     @Override
@@ -183,5 +245,15 @@ public class VideoActivity extends BaseSimpleActivity {
             return;
         }
         super.onBackPressed();
+    }
+
+    private List<String> createVideoUrlArray() {
+        List<String> list = new ArrayList<>();
+        list.add("http://clips.vorwaerts-gmbh.de/VfE_html5.mp4");
+        list.add("rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov");
+        list.add("http://www.wowza.com/_h264/BigBuckBunny_175k.mov");
+        list.add("rtsp://192.168.0.35:8554/SampleVideo.mkv");
+        list.add("rtsp://192.168.0.68:8554/MainconceptLogo_AVC_ES_320x240_420.264");
+        return list;
     }
 }
