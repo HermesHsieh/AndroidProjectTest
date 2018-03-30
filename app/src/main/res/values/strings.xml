@@ -36,4 +36,7 @@
     <string name="register_p_pwd">请输入6-20位的登录密码</string>
     <string name="save_to_album">存到相簿</string>
 
+    <string name="open_drawer">openDrawer</string>
+    <string name="close_drawer">closeDrawer</string>
+
 </resources>

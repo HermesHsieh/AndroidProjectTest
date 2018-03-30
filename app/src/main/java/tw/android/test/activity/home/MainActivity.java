@@ -25,6 +25,7 @@ import tw.android.test.activity.databinding.DataBindingActivity;
 import tw.android.test.activity.dialog.DialogActivity;
 import tw.android.test.activity.image.ImageActivity;
 import tw.android.test.activity.inputtextlayout.InputTextLayoutActivity;
+import tw.android.test.activity.launch.LaunchActivity;
 import tw.android.test.activity.login.LoginActivity;
 import tw.android.test.activity.numberpicker.NumberPickerActivity;
 import tw.android.test.activity.percentlayout.PercentLayoutActivity;
@@ -251,6 +252,11 @@ public class MainActivity extends BaseSimpleActivity {
     public void onClickAnkoButton() {
         Intent intent = new Intent(this, AnkoActivity.class);
         startActivity(intent);
+    }
+
+    @OnClick(R.id.launch)
+    public void onClickLaunchButton() {
+        LaunchActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
