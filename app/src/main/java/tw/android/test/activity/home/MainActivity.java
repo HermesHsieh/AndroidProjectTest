@@ -23,6 +23,7 @@ import tw.android.test.activity.baserecyclerviewadapterhelper.BaseRecyclerViewAd
 import tw.android.test.activity.collapsing.CollapsingActivity;
 import tw.android.test.activity.databinding.DataBindingActivity;
 import tw.android.test.activity.dialog.DialogActivity;
+import tw.android.test.activity.dragger.DraggerActivity;
 import tw.android.test.activity.image.ImageActivity;
 import tw.android.test.activity.inputtextlayout.InputTextLayoutActivity;
 import tw.android.test.activity.launch.LaunchActivity;
@@ -257,6 +258,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.launch)
     public void onClickLaunchButton() {
         LaunchActivity.launch(this);
+    }
+
+    @OnClick(R.id.dragger)
+    public void onClickDraggerButton() {
+        DraggerActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
