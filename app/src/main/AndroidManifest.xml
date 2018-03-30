@@ -14,7 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <receiver android:name="tw.android.test.AlarmReceiver" />
         <receiver
             android:name="tw.android.test.PackageEventReceiver"
@@ -85,7 +84,6 @@
         <activity
             android:name="tw.android.test.activity.image.ImageActivity"
             android:parentActivityName="tw.android.test.activity.home.MainActivity"
-            android:theme="@style/DragTheme"
             android:windowSoftInputMode="stateHidden|adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -111,6 +109,11 @@
             android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name="tw.android.test.activity.dragger.DraggerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/DragTheme"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="tw.android.test.activity.swipe.SwipeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/DragTheme"
             android:windowSoftInputMode="stateHidden|adjustPan" />

@@ -46,6 +46,12 @@
                 android:layout_height="wrap_content"
                 android:text="DraggerActivity" />
 
+            <Button
+                android:id="@+id/swipe_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SwipeBackActivity" />
+
             <ImageView
                 android:id="@+id/image_view3"
                 android:layout_width="100dp"

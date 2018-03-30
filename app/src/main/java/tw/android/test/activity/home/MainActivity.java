@@ -33,6 +33,7 @@ import tw.android.test.activity.percentlayout.PercentLayoutActivity;
 import tw.android.test.activity.pickdate.PickDateActivity;
 import tw.android.test.activity.rxjava.RxJavaActivity;
 import tw.android.test.activity.search.SearchActivity;
+import tw.android.test.activity.swipe.SwipeActivity;
 import tw.android.test.activity.theme.ThemeActivity;
 import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
 import tw.android.test.activity.video.VideoActivity;
@@ -263,6 +264,11 @@ public class MainActivity extends BaseSimpleActivity {
     @OnClick(R.id.dragger)
     public void onClickDraggerButton() {
         DraggerActivity.launch(this);
+    }
+
+    @OnClick(R.id.swipe_back)
+    public void onClickSwipeBackButton() {
+        SwipeActivity.launch(this);
     }
 
     public static void launch(Activity activity) {
