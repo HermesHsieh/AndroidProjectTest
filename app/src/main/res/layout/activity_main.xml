@@ -40,7 +40,6 @@
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/sort_like"
-                android:transitionName="android_image"
                 tools:background="#BB33FF23" />
 
             <tw.android.test.ui.view.ImageViewColored
@@ -49,7 +48,6 @@
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/sort_like"
-                android:transitionName="android_image"
                 app:color_filter="@color/yellow_500" />
 
             <ImageView
@@ -67,7 +65,6 @@
                 android:layout_height="270dp"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/android_oreo"
-                android:transitionName="android_image"
                 android:visibility="gone"
                 tools:background="#BB33FF23" />
 
