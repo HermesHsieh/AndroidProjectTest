@@ -23,7 +23,7 @@
 
     <!-- the drawer layout -->
     <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/nav_view_left"
         android:layout_width="360dp"
         android:layout_height="match_parent"
         android:layout_gravity="start">
@@ -33,7 +33,23 @@
             android:layout_height="wrap_content"
             android:background="@color/light_grey_transparent"
             android:gravity="center"
-            android:text="NavigationView"
+            android:text="Left NavigationView"
+            android:textSize="@dimen/large_text" />
+
+    </android.support.design.widget.NavigationView>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_grey_transparent"
+            android:gravity="center"
+            android:text="Right NavigationView"
             android:textSize="@dimen/large_text" />
 
     </android.support.design.widget.NavigationView>
