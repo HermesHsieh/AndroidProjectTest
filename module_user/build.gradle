@@ -1,20 +1,21 @@
-if (isBuildUserModule.toBoolean()) {
-    apply plugin: 'com.android.application'
-} else {
+if (isAddUserModule.toBoolean()) {
     apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
 }
 
 android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
     defaultConfig {
-        if (isBuildUserModule.toBoolean()) {
+        if (!isAddUserModule.toBoolean()) {
             applicationId "com.git4u.interview.module_user"
         }
         minSdkVersion rootProject.ext.minSdkVersion
@@ -29,7 +30,6 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
-
     }
 
     buildTypes {
@@ -41,10 +41,13 @@ android {
 
     sourceSets {
         main {
-            if (isBuildUserModule.toBoolean()) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            if (isAddUserModule.toBoolean()) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    exclude '**/debug/**'
+                }
             } else {
-                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             }
         }
     }
