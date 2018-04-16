@@ -188,7 +188,8 @@ public class MainActivity extends BaseSimpleActivity {
 
     @OnClick(R.id.router)
     public void onClickRouterButton() {
-        ARouter.getInstance().build("/test/activity/router").navigation();
+//        ARouter.getInstance().build("/test/activity/router").navigation();
+        ARouter.getInstance().build("/module/user/login").navigation();
     }
 
     @OnClick(R.id.collapsing)
