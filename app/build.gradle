@@ -156,5 +156,8 @@ dependencies {
     if (isAddUserModule.toBoolean()) {
         compile project(':module_user')
     }
-//    compile project(path: ':module_user', configuration: 'default')
+
+    if (isAddBaseLib.toBoolean()) {
+        compile project(':lib_base')
+    }
 }

@@ -1,11 +1,10 @@
-if (isAddUserModule.toBoolean()) {
+if (isAddBaseLib.toBoolean()) {
     apply plugin: 'com.android.library'
 } else {
     apply plugin: 'com.android.application'
 }
 
 android {
-
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
@@ -15,8 +14,8 @@ android {
     }
 
     defaultConfig {
-        if (!isAddUserModule.toBoolean()) {
-            applicationId "com.git4u.interview.module_user"
+        if (!isAddBaseLib.toBoolean()) {
+            applicationId "com.git4u.interview.lib_base"
         }
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -30,6 +29,7 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+
     }
 
     buildTypes {
@@ -41,7 +41,7 @@ android {
 
     sourceSets {
         main {
-            if (isAddUserModule.toBoolean()) {
+            if (isAddBaseLib.toBoolean()) {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
                     exclude '**/debug/**'
@@ -74,8 +74,4 @@ dependencies {
     // alibaba arouter
     compile "com.alibaba:arouter-api:$rootProject.arouter_api_version"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.arouter_compiler_version"
-
-    if (isAddBaseLib.toBoolean()) {
-        compile project(':lib_base')
-    }
 }
