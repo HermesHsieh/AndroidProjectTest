@@ -96,9 +96,19 @@ public class MainActivity extends BaseSimpleActivity {
 //        return R.layout.activity_main;
     }
 
+    int integer = 0;
+
+    private void addInteger(int integer) {
+        ++integer;
+    }
+
     @Override
     protected void initView() {
         displayHomeButton(false);
+
+        addInteger(integer);
+
+        Toast.makeText(this, "Integer: " + integer, Toast.LENGTH_SHORT).show();
 //        Book book = new Book();
 //        Book book2 = Book.of(2, 4, "Hello");
 //        Book book3 = Book.of(4, 4, "");
