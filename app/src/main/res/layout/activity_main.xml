@@ -17,6 +17,12 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/router"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Router Action" />
+
+            <Button
                 android:id="@+id/theme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

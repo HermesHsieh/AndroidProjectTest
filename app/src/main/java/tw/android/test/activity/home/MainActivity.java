@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.hermes.test.R;
 
 import butterknife.BindView;
@@ -183,6 +184,11 @@ public class MainActivity extends BaseSimpleActivity {
     @Override
     protected void initData() {
 //        currencyInputEditText.setText("1245.623");
+    }
+
+    @OnClick(R.id.router)
+    public void onClickRouterButton() {
+        ARouter.getInstance().build("/test/activity/router").navigation();
     }
 
     @OnClick(R.id.collapsing)
