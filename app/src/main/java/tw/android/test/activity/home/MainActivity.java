@@ -7,6 +7,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -184,6 +185,19 @@ public class MainActivity extends BaseSimpleActivity {
     @Override
     protected void initData() {
 //        currencyInputEditText.setText("1245.623");
+    }
+
+    @OnClick(R.id.toast_default)
+    public void onClickToastDefault() {
+        Toast toast = Toast.makeText(this, "Default toast", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @OnClick(R.id.toast_custom)
+    public void onClickToastCustom() {
+        Toast toast = Toast.makeText(this, "Custom toast", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM, 0, getResources().getDimensionPixelSize(R.dimen.toast_y_offset_default));
+        toast.show();
     }
 
     @OnClick(R.id.router)
