@@ -80,8 +80,16 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name: 'lib_base-debug', ext: 'aar')
+
     compile "com.android.support:appcompat-v7:${rootProject.supportLibVersion}"
     compile "com.android.support:support-v13:${rootProject.supportLibVersion}"
     compile "com.android.support:support-v4:${rootProject.supportLibVersion}"
