@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.text.InputType;
 import android.util.Log;
+import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
 
 import butterknife.OnClick;
 import tw.android.test.base.BaseSimpleActivity;
+import tw.android.test.ui.dialog.RedEnvelopDialog;
 import tw.android.test.ui.dialog.ShowDialog;
 
 /**
@@ -74,5 +76,30 @@ public class DialogActivity extends BaseSimpleActivity {
                         Log.d(TAG, "onInput : " + input);
                     }
                 }).show();
+    }
+
+    RedEnvelopDialog mRedEnvelopDialog;
+
+    @OnClick(R.id.red_envelope)
+    public void onClickRedEnvelope() {
+        mRedEnvelopDialog = RedEnvelopDialog.Builder.getBuilder(this)
+                .setMessage("恭喜您\n得到红包!!")
+                .setBackgroundResource(R.mipmap.red_envelope)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!mRedEnvelopDialog.isOpen()) {
+                            mRedEnvelopDialog.setOpen(true);
+                            mRedEnvelopDialog.setCanceledOnTouchOutside(true);
+                            mRedEnvelopDialog.setCancelable(true);
+                            mRedEnvelopDialog.setBackgroundResource(R.mipmap.red_envelope_open);
+                            mRedEnvelopDialog.setMessage("恭喜您\n得到300PSUN");
+                        } else {
+                            mRedEnvelopDialog.dismiss();
+                        }
+                    }
+                })
+                .build();
+        mRedEnvelopDialog.show();
     }
 }
