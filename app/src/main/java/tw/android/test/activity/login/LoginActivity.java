@@ -35,12 +35,10 @@ public class LoginActivity extends BaseMVPActivity<LoginContract.Presenter> impl
 
     @Override
     protected void initView() {
-
     }
 
     @Override
     protected void initData() {
-
     }
 
     @Override

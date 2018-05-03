@@ -3,7 +3,7 @@
 buildscript {
     ext.gradle_version = '3.0.1'
     ext.kotlin_version = '1.2.10'
-    ext.anko_version='0.10.4'
+    ext.anko_version = '0.10.4'
 
     repositories {
         jcenter()
@@ -29,6 +29,8 @@ allprojects {
             url 'https://maven.google.com/'
             name 'Google'
         }
+//        maven { url "http://192.168.51.15:8081/repository/maven-public/" }
+        maven { url "http://192.168.51.15:8081/artifactory/libs-release-local/" }
     }
 }
 
@@ -39,8 +41,8 @@ task clean(type: Delete) {
 // Define versions in a single place
 ext {
     // Sdk and tools
-    compileSdkVersion = 25
+    compileSdkVersion = 26
     buildToolsVersion = '26.0.2'
     minSdkVersion = 16
-    targetSdkVersion = 25
+    targetSdkVersion = 26
 }

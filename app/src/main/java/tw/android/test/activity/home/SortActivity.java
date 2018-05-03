@@ -28,7 +28,6 @@ public class SortActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
-
     }
 
     @Override
