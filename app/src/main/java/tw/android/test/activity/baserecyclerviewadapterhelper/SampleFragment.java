@@ -1,5 +1,10 @@
 package tw.android.test.activity.baserecyclerviewadapterhelper;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.loadmore.LoadMoreView;
@@ -31,5 +36,22 @@ public class SampleFragment extends BaseRecyclerViewFragment<SamplePresenter, St
     @Override
     protected int getContentView() {
         return R.layout.activity_base_recycler_view_adapter_helper;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mFragment = (ViewGroup) view;
+        mParent = (ViewGroup) mFragment.getParent();
+    }
+
+    protected ViewGroup mParent = null;
+    protected ViewGroup mFragment = null;
+
+    protected void showDataNotFoundView() {
+        if (mFragment != null && mParent != null) {
+            mFragment.setVisibility(View.INVISIBLE);
+            View.inflate(getContext(), R.layout.view_empty, mParent);
+        }
     }
 }
