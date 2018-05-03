@@ -1,5 +1,7 @@
 package com.example.hermes.test;
 
+import android.support.test.espresso.action.ViewActions;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
@@ -12,15 +14,12 @@ import tw.android.test.activity.login.LoginActivity;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.RootMatchers.isDialog;
+import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static tw.android.test.activity.login.LoginActivity.FORGET_PASSWORD_ACTION;
-import static tw.android.test.activity.login.LoginActivity.LOGIN_ACTION;
-import static tw.android.test.activity.login.LoginActivity.REGISTER_ACTION;
 
-/**
- * Created by hermes.hsieh on 2017/11/3.
- */
+
 @RunWith(AndroidJUnit4.class)
 public class LoginActivityTest {
 
@@ -29,20 +28,36 @@ public class LoginActivityTest {
             new ActivityTestRule<>(LoginActivity.class);
 
     @Test
-    public void clickAllActionButton() {
+    public void Error_on_click_login_action_button_show_account_is_empty_if_no_input_account() {
         onView(withId(R.id.login_action)).perform(click());
-        onView(withId(R.id.state_text)).check(matches(withText(LOGIN_ACTION)));
-
-        onView(withId(R.id.register_action)).perform(click());
-        onView(withId(R.id.state_text)).check(matches(withText(REGISTER_ACTION)));
-
-        onView(withId(R.id.forget_password_action)).perform(click());
-        onView(withId(R.id.state_text)).check(matches(withText(FORGET_PASSWORD_ACTION)));
+        onView(withText("請輸入帳號")).check(matches(isDisplayed()));
+        onView(withText("確定"))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()))
+                .perform(click());
     }
 
     @Test
-    public void onClickLoginActionButton() {
-        onView(withId(R.id.login_action)).perform(click());
-        onView(withId(R.id.state_text)).check(matches(withText(LOGIN_ACTION)));
+    public void Error_on_click_login_action_button_show_password_is_empty_if_no_input_password() {
+        onView(ViewMatchers.withId(R.id.account_input)).perform(ViewActions.typeText("hermes"), ViewActions.closeSoftKeyboard());
+        onView(ViewMatchers.withId(R.id.login_action)).perform(click());
+        onView(withText("請輸入密碼")).check(matches(isDisplayed()));
+        onView(withText("確定"))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()))
+                .perform(click());
+    }
+
+    @Test
+    public void Succeed_on_click_login_action_button() {
+        onView(ViewMatchers.withId(R.id.account_input)).perform(ViewActions.typeText("hermes"), ViewActions.closeSoftKeyboard());
+        onView(ViewMatchers.withId(R.id.password_input)).perform(ViewActions.typeText("1234567890"), ViewActions.closeSoftKeyboard());
+        onView(ViewMatchers.withId(R.id.login_action)).perform(click());
+        onView(withText("登入成功")).check(matches(isDisplayed()));
+        onView(withText("確定"))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()))
+                .perform(click());
+        onView(ViewMatchers.withId(R.id.state_text)).check(matches(withText("hermes")));
     }
 }
