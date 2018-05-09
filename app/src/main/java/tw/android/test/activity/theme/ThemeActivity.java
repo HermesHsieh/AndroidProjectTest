@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatSpinner;
+import android.support.v7.widget.Toolbar;
 import android.widget.ArrayAdapter;
 
 import com.example.hermes.test.R;
@@ -18,6 +19,9 @@ import tw.android.test.base.BaseSimpleActivity;
 
 
 public class ThemeActivity extends BaseSimpleActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
     @BindView(R.id.tabs)
     TabLayout tabLayout;
@@ -40,6 +44,7 @@ public class ThemeActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
+
         tabLayout.addTab(tabLayout.newTab().setText("Tab1"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab2"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab3"));
