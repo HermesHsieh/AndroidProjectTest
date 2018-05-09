@@ -82,7 +82,7 @@ android {
 
 ext {
     // App dependencies
-    supportLibVersion = '25.0.1'
+    supportLibVersion = '26.0.2'
     constraintVersion = '1.0.2'
     butterKnifeVersion = '8.8.1'
     lomBokVersion = '1.16.18'
@@ -183,5 +183,4 @@ dependencies {
     compile 'cn.jzvd:jiaozivideoplayer:6.2.9'
 
     implementation(name: 'library-release', ext: 'aar')
-//    implementation 'com.git4u.android.library:lib_base:1.0.4@aar'
 }
