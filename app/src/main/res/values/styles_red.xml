@@ -1,46 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ThemeRed" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="ThemeRed" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/red_700</item>
         <item name="colorPrimaryDark">@color/red_900</item>
         <item name="colorAccent">@color/red_700</item>
+        <item name="actionModeBackground">@color/red_700</item>
+        <item name="itemBackground">@color/red_700</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
     </style>
 
-    <style name="ButtonRedLight" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
+    <style name="ThemeRed.Toolbar">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="colorAccent">@color/grey_300</item>
+    </style>
+
+    <style name="Button.Red">
         <item name="colorAccent">@color/red_700</item>
-        <item name="colorControlHighlight">@color/red_A100</item>
     </style>
 
-    <style name="ButtonRedLight.Trans">
-        <item name="colorButtonNormal">@color/grey_500_trans</item>
+    <style name="Button.Trans.Red">
         <item name="colorAccent">@color/red_700_trans</item>
     </style>
 
-    <style name="ButtonRedDark" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/red_900</item>
-        <item name="colorControlHighlight">@color/red_A100</item>
+    <style name="Button.RedLight">
+        <item name="colorAccent">@color/red_500</item>
     </style>
 
-    <style name="ButtonRedDark.Trans">
-        <item name="colorButtonNormal">@color/grey_500_trans</item>
+    <style name="Button.Trans.RedLight">
+        <item name="colorAccent">@color/red_500_trans</item>
+    </style>
+
+    <style name="Button.RedDark">
+        <item name="colorAccent">@color/red_900</item>
+    </style>
+
+    <style name="Button.Trans.RedDark">
         <item name="colorAccent">@color/red_900_trans</item>
     </style>
 
-    <style name="ButtonWhiteRedLight" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/grey_100</item>
-        <item name="colorControlHighlight">@color/grey_A100</item>
+    <style name="Button.White.RedLight">
         <item name="android:textColorPrimaryInverse">@color/red_500</item>
     </style>
 
-    <style name="ButtonWhiteRedDark" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/grey_300</item>
-        <item name="colorControlHighlight">@color/grey_A100</item>
-        <item name="android:textColorPrimaryInverse">@color/red_500</item>
+    <style name="Button.White.Red">
+        <item name="android:textColorPrimaryInverse">@color/red_700</item>
+    </style>
+
+    <style name="Button.White.RedDark">
+        <item name="android:textColorPrimaryInverse">@color/red_900</item>
     </style>
 
     <style name="TextRedLight" parent="@android:style/TextAppearance">

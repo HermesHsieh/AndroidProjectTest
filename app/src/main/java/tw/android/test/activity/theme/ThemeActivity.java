@@ -6,6 +6,8 @@ import android.support.design.widget.TabLayout;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ArrayAdapter;
 
 import com.example.hermes.test.R;
@@ -44,6 +46,9 @@ public class ThemeActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
+        if (mToolbar != null) {
+            setSupportActionBar(mToolbar);
+        }
 
         tabLayout.addTab(tabLayout.newTab().setText("Tab1"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab2"));
@@ -89,4 +94,11 @@ public class ThemeActivity extends BaseSimpleActivity {
 //                .negativeText("Cancel")
 //                .show();
 //    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        return true;
+    }
 }

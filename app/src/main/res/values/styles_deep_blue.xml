@@ -7,51 +7,45 @@
         <item name="colorAccent">@color/deep_blue_500</item>
     </style>
 
-    <style name="ButtonDeepBlueLight" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/deep_blue_500</item>
-        <item name="colorControlHighlight">@color/deep_blue_A100</item>
+    <style name="ThemeDeepBlue.Toolbar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ButtonDeepBlueLight.Trans">
-        <item name="colorButtonNormal">@color/grey_500_trans</item>
-        <item name="colorAccent">@color/deep_blue_500_trans</item>
-    </style>
-
-    <style name="ButtonDeepBlue" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
+    <style name="Button.DeepBlue">
         <item name="colorAccent">@color/deep_blue_700</item>
-        <item name="colorControlHighlight">@color/deep_blue_A100</item>
     </style>
 
-    <style name="ButtonDeepBlue.Trans">
-        <item name="colorButtonNormal">@color/grey_500_trans</item>
+    <style name="Button.Trans.DeepBlue">
         <item name="colorAccent">@color/deep_blue_700_trans</item>
     </style>
 
-    <style name="ButtonDeepBlueDark" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/deep_blue_900</item>
-        <item name="colorControlHighlight">@color/deep_blue_A100</item>
+    <style name="Button.DeepBlueLight">
+        <item name="colorAccent">@color/deep_blue_500</item>
     </style>
 
-    <style name="ButtonDeepBlueDark.Trans">
-        <item name="colorButtonNormal">@color/grey_500_trans</item>
+    <style name="Button.Trans.DeepBlueLight">
+        <item name="colorAccent">@color/deep_blue_500_trans</item>
+    </style>
+
+    <style name="Button.DeepBlueDark">
+        <item name="colorAccent">@color/deep_blue_900</item>
+    </style>
+
+    <style name="Button.Trans.DeepBlueDark">
         <item name="colorAccent">@color/deep_blue_900_trans</item>
     </style>
 
-    <style name="ButtonWhiteDeepBlueLight" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/grey_100</item>
-        <item name="colorControlHighlight">@color/grey_A100</item>
+    <style name="Button.White.DeepBlueLight">
         <item name="android:textColorPrimaryInverse">@color/deep_blue_500</item>
     </style>
 
-    <style name="ButtonWhiteDeepBlue" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorButtonNormal">@color/grey_500</item>
-        <item name="colorAccent">@color/grey_300</item>
-        <item name="colorControlHighlight">@color/grey_A100</item>
-        <item name="android:textColorPrimaryInverse">@color/deep_blue_500</item>
+    <style name="Button.White.DeepBlue">
+        <item name="android:textColorPrimaryInverse">@color/deep_blue_700</item>
+    </style>
+
+    <style name="Button.White.DeepBlueDark">
+        <item name="android:textColorPrimaryInverse">@color/deep_blue_900</item>
     </style>
 
     <style name="TextDeepBlueLight" parent="@android:style/TextAppearance">

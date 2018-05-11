@@ -38,15 +38,15 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="PrimaryTheme" parent="@style/ThemeDeepBlue" />
+    <style name="PrimaryTheme" parent="@style/ThemeRed" />
 
-    <style name="PrimaryButton" parent="@style/ButtonDeepBlueLight" />
+    <style name="PrimaryButton" parent="@style/Button.Red" />
 
-    <style name="PrimaryButtonTrans" parent="@style/ButtonDeepBlueLight.Trans" />
+    <style name="PrimaryButtonTrans" parent="@style/Button.Trans.Red" />
 
-    <style name="PrimaryButtonDeep" parent="@style/ButtonDeepBlueDark" />
+    <style name="PrimaryButtonDeep" parent="@style/Button.RedDark" />
 
-    <style name="SecondButton" parent="@style/ButtonWhiteDeepBlueLight" />
+    <style name="SecondButton" parent="@style/Button.White.Red" />
 
     <style name="SecondEditText" parent="@style/InputLayoutWhiteLight" />
 
@@ -56,7 +56,7 @@
 
     <style name="SecondProgressBar" parent="@style/ProgressWhite" />
 
-    <style name="PrimaryText" parent="@style/TextDeepBlue">
+    <style name="PrimaryText" parent="@style/TextRed">
         <item name="android:textSize">@dimen/primary_text</item>
     </style>
 
@@ -76,7 +76,7 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryTextLight" parent="@style/TextDeepBlueLight" />
+    <style name="PrimaryTextLight" parent="@style/TextRedLight" />
 
     <style name="PrimaryTextLight.SuperSmall">
         <item name="android:textSize">@dimen/super_small_text</item>
@@ -94,7 +94,7 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryTextDeep" parent="@style/TextDeepBlueDeep" />
+    <style name="PrimaryTextDeep" parent="@style/TextRedDeep" />
 
     <style name="PrimaryTextDeep.SuperSmall">
         <item name="android:textSize">@dimen/super_small_text</item>
@@ -184,7 +184,7 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryInputHintAppear" parent="@style/TextDeepBlue">
+    <style name="PrimaryInputHintAppear" parent="@style/TextRed">
         <item name="android:textSize">@dimen/small_text</item>
     </style>
 
