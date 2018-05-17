@@ -181,6 +181,7 @@ dependencies {
     compile 'com.github.ppamorim:dragger:1.2'
     compile 'com.github.liuguangqiang.swipeback:library:1.0.2@aar'
     compile 'cn.jzvd:jiaozivideoplayer:6.2.9'
+    compile 'com.jude:swipebackhelper:3.1.2'
 
     implementation(name: 'library-release', ext: 'aar')
 }

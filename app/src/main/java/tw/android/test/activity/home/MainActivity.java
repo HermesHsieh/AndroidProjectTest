@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hermes.test.R;
+import com.jude.swipbackhelper.SwipeBackHelper;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -104,6 +105,7 @@ public class MainActivity extends BaseSimpleActivity {
 
     @Override
     protected void initView() {
+        SwipeBackHelper.getCurrentPage(this).setSwipeBackEnable(false);
         displayHomeButton(false);
 
         addInteger(integer);

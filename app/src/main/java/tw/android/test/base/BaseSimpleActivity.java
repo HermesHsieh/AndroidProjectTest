@@ -12,6 +12,7 @@ import android.view.Window;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.example.hermes.test.R;
+import com.jude.swipbackhelper.SwipeBackHelper;
 
 import butterknife.ButterKnife;
 
@@ -34,6 +35,7 @@ public abstract class BaseSimpleActivity extends AppCompatActivity implements Ba
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SwipeBackHelper.onCreate(this);
         setContentView();
         ButterKnife.bind(this);
         mContext = this;
@@ -42,6 +44,12 @@ public abstract class BaseSimpleActivity extends AppCompatActivity implements Ba
         displayHomeButton(true);
 
         progressDialog = newProgressDialog(this);
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        SwipeBackHelper.onPostCreate(this);
     }
 
     public void displayHomeButton(boolean isDisplay) {
@@ -65,6 +73,7 @@ public abstract class BaseSimpleActivity extends AppCompatActivity implements Ba
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        SwipeBackHelper.onDestroy(this);
         dismissLoading();
         mContext = null;
         progressDialog = null;
