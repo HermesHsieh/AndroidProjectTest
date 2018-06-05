@@ -19,12 +19,18 @@
             android:text="ContentView"
             android:textSize="@dimen/large_text" />
 
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/inner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inner Activity" />
+
     </FrameLayout>
 
     <!-- the drawer layout -->
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view_left"
-        android:layout_width="360dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start">
 

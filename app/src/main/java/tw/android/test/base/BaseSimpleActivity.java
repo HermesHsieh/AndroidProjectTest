@@ -2,10 +2,14 @@ package tw.android.test.base;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NavUtils;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.Window;
 
@@ -15,6 +19,7 @@ import com.example.hermes.test.R;
 import com.jude.swipbackhelper.SwipeBackHelper;
 
 import butterknife.ButterKnife;
+import tw.android.test.activity.launch.LaunchActivity;
 
 /**
  * Created by hermes on 2017/6/17.
@@ -63,7 +68,34 @@ public abstract class BaseSimpleActivity extends AppCompatActivity implements Ba
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+//                finish();
+                Intent parentIntent = NavUtils.getParentActivityIntent(this);
+
+                if (parentIntent != null) {
+                    Log.d(LaunchActivity.TAG, "parentIntent: " + parentIntent.toString());
+                    Log.d(LaunchActivity.TAG, "shouldUpRecreateTask: " + NavUtils.shouldUpRecreateTask(this, parentIntent));
+                } else {
+                    Log.d(LaunchActivity.TAG, "parentIntent: null");
+                }
+
+                Log.d(LaunchActivity.TAG, "isTaskRoot: " + isTaskRoot());
+                if ((parentIntent != null && NavUtils.shouldUpRecreateTask(this, parentIntent))
+                        || isTaskRoot()) {
+                    // This activity is NOT part of this app's task, so create a new task
+                    // when navigating up, with a synthesized back stack.
+                    TaskStackBuilder.create(this)
+                            // Add all of this activity's parents to the back stack
+                            .addNextIntentWithParentStack(parentIntent)
+                            // Navigate up to the closest parent
+                            .startActivities();
+                } else {
+                    Log.d(LaunchActivity.TAG, "onBackPressed");
+                    // This activity is part of this app's task, so simply
+                    // navigate up to the logical parent activity.
+                    onBackPressed();
+                }
+
+//                NavUtils.navigateUpFromSameTask(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -4,18 +4,26 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.hermes.test.R;
 
+import tw.android.test.activity.launch.inner.InnerActivity;
+
 
 public class LaunchActivity extends AppCompatActivity {
+
+    public final static String TAG = "NAV_UP";
 
     //    @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
@@ -81,6 +89,11 @@ public class LaunchActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        Button innerButton = findViewById(R.id.inner);
+        innerButton.setOnClickListener(v -> {
+            InnerActivity.launch(this);
+        });
+
 //        Builder.create().setId(12).setName("Peter");
 //
 //        AlertDialog.Builder builder = new AlertDialog.Builder(this)
@@ -123,24 +136,33 @@ public class LaunchActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-//                Intent upIntent = NavUtils.getParentActivityIntent(this);
-//
-//                if ((upIntent != null && NavUtils.shouldUpRecreateTask(this, upIntent))
-//                        || isTaskRoot()) {
-//                    // This activity is NOT part of this app's task, so create a new task
-//                    // when navigating up, with a synthesized back stack.
-//                    TaskStackBuilder.create(this)
-//                            // Add all of this activity's parents to the back stack
-//                            .addNextIntentWithParentStack(upIntent)
-//                            // Navigate up to the closest parent
-//                            .startActivities();
-//                } else {
-//                    // This activity is part of this app's task, so simply
-//                    // navigate up to the logical parent activity.
-//                    onBackPressed();
-//                }
+                Intent parentIntent = NavUtils.getParentActivityIntent(this);
 
-                toggle();
+                if (parentIntent != null) {
+                    Log.d(LaunchActivity.TAG, "parentIntent: " + parentIntent.toString());
+                    Log.d(LaunchActivity.TAG, "shouldUpRecreateTask: " + NavUtils.shouldUpRecreateTask(this, parentIntent));
+                } else {
+                    Log.d(LaunchActivity.TAG, "parentIntent: null");
+                }
+
+                Log.d(LaunchActivity.TAG, "isTaskRoot: " + isTaskRoot());
+                if ((parentIntent != null && NavUtils.shouldUpRecreateTask(this, parentIntent))
+                        || isTaskRoot()) {
+                    // This activity is NOT part of this app's task, so create a new task
+                    // when navigating up, with a synthesized back stack.
+                    TaskStackBuilder.create(this)
+                            // Add all of this activity's parents to the back stack
+                            .addNextIntentWithParentStack(parentIntent)
+                            // Navigate up to the closest parent
+                            .startActivities();
+                } else {
+                    Log.d(LaunchActivity.TAG, "onBackPressed");
+                    // This activity is part of this app's task, so simply
+                    // navigate up to the logical parent activity.
+                    onBackPressed();
+                }
+
+//                NavUtils.navigateUpFromSameTask(this);
 
                 return true;
             default:
