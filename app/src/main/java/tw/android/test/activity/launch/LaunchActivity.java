@@ -87,7 +87,7 @@ public class LaunchActivity extends AppCompatActivity {
             getSupportActionBar().setHomeButtonEnabled(true);
         }
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         Button innerButton = findViewById(R.id.inner);
         innerButton.setOnClickListener(v -> {
@@ -119,7 +119,6 @@ public class LaunchActivity extends AppCompatActivity {
         drawerLayout.setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-//        toggle.onDrawerOpened();
     }
 
     void toggle() {
