@@ -19,6 +19,9 @@
     <color name="grey_A200">#666666</color>
     <color name="grey_A400">#333333</color>
     <color name="grey_A700">#111111</color>
+    <color name="grey_50_trans">#AAFAFAFA</color>
+    <color name="grey_200_trans">#AAEEEEEE</color>
+    <color name="grey_400_trans">#AABDBDBD</color>
     <color name="grey_500_trans">#AA9E9E9E</color>
 
     <color name="red_50">#FFEBEE</color>
