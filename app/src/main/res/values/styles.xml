@@ -40,15 +40,15 @@
         <item name="android:windowAnimationStyle">@null</item>
     </style>
 
-    <style name="PrimaryTheme" parent="@style/ThemeSnow" />
+    <style name="PrimaryTheme" parent="@style/ThemeBlue" />
 
-    <style name="PrimaryButton" parent="@style/Button.Snow" />
+    <style name="PrimaryButton" parent="@style/Button.Blue" />
 
-    <style name="PrimaryButtonTrans" parent="@style/Button.Trans.Snow" />
+    <style name="PrimaryButtonTrans" parent="@style/Button.Trans.Blue" />
 
-    <style name="PrimaryButtonDeep" parent="@style/Button.SnowDark" />
+    <style name="PrimaryButtonDeep" parent="@style/Button.BlueDark" />
 
-    <style name="SecondButton" parent="@style/Button.Snow.Snow" />
+    <style name="SecondButton" parent="@style/Button.White.Blue" />
 
     <style name="SecondEditText" parent="@style/InputLayoutWhiteLight" />
 
@@ -58,7 +58,7 @@
 
     <style name="SecondProgressBar" parent="@style/ProgressWhite" />
 
-    <style name="PrimaryText" parent="@style/TextSnow">
+    <style name="PrimaryText" parent="@style/TextBlue">
         <item name="android:textSize">@dimen/primary_text</item>
     </style>
 
@@ -78,7 +78,7 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryTextLight" parent="@style/TextSnowLight" />
+    <style name="PrimaryTextLight" parent="@style/TextBlueLight" />
 
     <style name="PrimaryTextLight.SuperSmall">
         <item name="android:textSize">@dimen/super_small_text</item>
@@ -96,7 +96,7 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryTextDeep" parent="@style/TextSnowDeep" />
+    <style name="PrimaryTextDeep" parent="@style/TextBlueDeep" />
 
     <style name="PrimaryTextDeep.SuperSmall">
         <item name="android:textSize">@dimen/super_small_text</item>
@@ -168,7 +168,7 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryPriceText" parent="@style/TextSnowDeep" />
+    <style name="PrimaryPriceText" parent="@style/TextBlueDeep" />
 
     <style name="PrimaryPriceText.SuperSmall">
         <item name="android:textSize">@dimen/super_small_text</item>
@@ -186,15 +186,15 @@
         <item name="android:textSize">@dimen/super_large_text</item>
     </style>
 
-    <style name="PrimaryInputHintAppear" parent="@style/TextSnow">
+    <style name="PrimaryInputHintAppear" parent="@style/TextBlue">
         <item name="android:textSize">@dimen/small_text</item>
     </style>
 
-    <style name="PrimaryInputErrorAppear" parent="@style/TextSnowLight">
+    <style name="PrimaryInputErrorAppear" parent="@style/TextBlueLight">
         <item name="android:textSize">@dimen/super_small_text</item>
     </style>
 
-    <style name="PrimaryInputCounterOverFlowAppear" parent="@style/TextSnowLight">
+    <style name="PrimaryInputCounterOverFlowAppear" parent="@style/TextBlueLight">
         <item name="android:textSize">@dimen/super_small_text</item>
     </style>
 

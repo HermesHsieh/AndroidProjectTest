@@ -42,15 +42,15 @@
         <item name="colorAccent">@color/grey_400_trans</item>
     </style>
 
-    <style name="Button.Snow.SnowLight">
+    <style name="Button.White.SnowLight">
         <item name="android:textColorPrimaryInverse">@color/grey_50</item>
     </style>
 
-    <style name="Button.Snow.Snow">
+    <style name="Button.White.Snow">
         <item name="android:textColorPrimaryInverse">@color/grey_200</item>
     </style>
 
-    <style name="Button.Snow.SnowDark">
+    <style name="Button.White.SnowDark">
         <item name="android:textColorPrimaryInverse">@color/grey_400</item>
     </style>
 

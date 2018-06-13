@@ -12,6 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeSnow.Toolbar" />
+        app:theme="@style/ThemeBlue.Toolbar" />
 
 </android.support.design.widget.AppBarLayout>
