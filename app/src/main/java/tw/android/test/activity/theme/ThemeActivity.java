@@ -18,6 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.base.BaseSimpleActivity;
+import tw.android.test.data.User;
 
 
 public class ThemeActivity extends BaseSimpleActivity {
@@ -49,6 +50,10 @@ public class ThemeActivity extends BaseSimpleActivity {
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
         }
+
+        User.Balances balances = new User.Balances();
+        balances.getPoints();
+        balances.getRainbowDiamonds();
 
         tabLayout.addTab(tabLayout.newTab().setText("Tab1"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab2"));

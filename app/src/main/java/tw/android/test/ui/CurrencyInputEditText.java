@@ -21,9 +21,9 @@ public class CurrencyInputEditText extends TextInputEditText {
 
     private final static Integer MAX_FLOAT_NUMBER = 4;
 
-    private final static boolean isEnableClear = false;
+    private final static boolean isEnableClear = true;
 
-    private final static boolean isEnableFormat = false;
+    private final static boolean isEnableFormat = true;
 
     private DecimalFormat dollarFormat;
 
