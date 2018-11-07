@@ -34,6 +34,7 @@ import tw.android.test.activity.percentlayout.PercentLayoutActivity;
 import tw.android.test.activity.pickdate.PickDateActivity;
 import tw.android.test.activity.rxjava.RxJavaActivity;
 import tw.android.test.activity.search.SearchActivity;
+import tw.android.test.activity.socket.SignalR;
 import tw.android.test.activity.swipe.SwipeActivity;
 import tw.android.test.activity.theme.ThemeActivity;
 import tw.android.test.activity.ultimaterecyclerview.UltimaterecyclerviewActivity;
@@ -43,7 +44,11 @@ import tw.android.test.cache.GlobalConstant;
 import tw.android.test.ui.CurrencyInputEditText;
 import tw.android.test.ui.view.ImageViewColored;
 
+import static tw.android.test.activity.socket.SignalR.SUBSCRIBE_TICKERS;
+
 public class MainActivity extends BaseSimpleActivity {
+
+    public final String TAG = this.getClass().getSimpleName();
 
     @BindView(R.id.collapsing)
     Button collapsing;
@@ -171,6 +176,12 @@ public class MainActivity extends BaseSimpleActivity {
         imageView3.setColorFilter(ContextCompat.getColor(this, R.color.pf_mall_button_primary));
 
 //        imageView4.setColorFilter(ContextCompat.getColor(this, R.color.deep_blue_700));
+
+        new Thread(() -> {
+            SignalR.getInstance().stop();
+            SignalR.getInstance().initConnection().setInvokeMessageListener(new InvokeListener("COIN")).start();
+        }
+        ).start();
     }
 
     @Override
@@ -301,4 +312,37 @@ public class MainActivity extends BaseSimpleActivity {
         isColored = !isColored;
     }
 
+    private class InvokeListener implements SignalR.OnInvokeMessageListener {
+
+        private String countryId;
+
+        private InvokeListener(String countryId) {
+            this.countryId = countryId;
+        }
+
+        @Override
+        public void onConnected() {
+            SignalR.getInstance().invoke(SUBSCRIBE_TICKERS, countryId, SignalR.Nation_ID).done(message -> {
+                Log.w(TAG, "First CountryId: " + countryId + ", Message-> " + message);
+            });
+        }
+
+        @Override
+        public void onMessageReceived(String sendMethod, String message) {
+            if (sendMethod.equals(SignalR.SEND_TICKERS)) {
+                Log.w(TAG, "Received CountryId: " + countryId + ", Message-> " + message);
+            }
+        }
+
+        @Override
+        public void onError(String message) {
+            Log.e(TAG, "onError: " + message);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SignalR.getInstance().stop();
+    }
 }
