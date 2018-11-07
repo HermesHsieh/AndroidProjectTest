@@ -184,4 +184,8 @@ dependencies {
     compile 'com.jude:swipebackhelper:3.1.2'
 
     implementation(name: 'library-release', ext: 'aar')
+
+    //signalr
+    implementation files('libs/signalr-client-sdk.jar')
+    implementation(name: 'signalr-client-sdk-android', ext: 'aar')
 }
