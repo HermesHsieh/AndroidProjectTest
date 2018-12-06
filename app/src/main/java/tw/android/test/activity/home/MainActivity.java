@@ -16,6 +16,12 @@ import android.widget.Toast;
 import com.example.hermes.test.R;
 import com.jude.swipbackhelper.SwipeBackHelper;
 
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.handshake.ServerHandshake;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import tw.android.test.LocaleChangedReceiver;
@@ -182,6 +188,8 @@ public class MainActivity extends BaseSimpleActivity {
             SignalR.getInstance().initConnection().setInvokeMessageListener(new InvokeListener("COIN")).start();
         }
         ).start();
+
+//        connectWebSocket();
     }
 
     @Override
@@ -343,6 +351,41 @@ public class MainActivity extends BaseSimpleActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        SignalR.getInstance().stop();
+//        SignalR.getInstance().stop();
+    }
+
+    private WebSocketClient mWebSocketClient;
+
+    private void connectWebSocket() {
+        URI uri;
+        try {
+            uri = new URI("wss://ws.cobinhood.com/v2/ws");
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        mWebSocketClient = new WebSocketClient(uri) {
+            @Override
+            public void onOpen(ServerHandshake serverHandshake) {
+                Log.i("Websocket", "Opened");
+            }
+
+            @Override
+            public void onMessage(String s) {
+                Log.i("Websocket", "onMessage " + s);
+            }
+
+            @Override
+            public void onClose(int i, String s, boolean b) {
+                Log.i("Websocket", "Closed " + s);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.i("Websocket", "Error " + e.getMessage());
+            }
+        };
+        mWebSocketClient.connect();
     }
 }
