@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_content"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:id="@+id/main_content"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:background="@android:color/white">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -30,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:background="@mipmap/android_developer"
                     android:scaleType="centerCrop"
-                    android:transitionName="android_image" />
+                    android:transitionName="android_image"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -46,7 +46,7 @@
                         android:background="@color/aa_yellow"
                         android:gravity="center"
                         android:text="TEXT LEFT"
-                        android:textSize="24dp" />
+                        android:textSize="24dp"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                         android:background="@color/aa_red"
                         android:gravity="center"
                         android:text="TEXT RIGHT"
-                        android:textSize="24dp" />
+                        android:textSize="24dp"/>
                 </LinearLayout>
             </RelativeLayout>
 
@@ -66,14 +66,14 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="horizontal"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_behavior="tw.android.test.activity.collapsing.FooterBehavior">
 
         <Button
@@ -81,13 +81,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Main" />
+            android:text="Main"/>
 
         <Button
             android:id="@+id/bottom_button_right"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="NumberPicker" />
+            android:text="NumberPicker"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
