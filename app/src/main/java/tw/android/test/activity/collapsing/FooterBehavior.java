@@ -2,6 +2,8 @@ package tw.android.test.activity.collapsing;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v13.view.ViewCompat;
 import android.support.v4.view.ViewPropertyAnimatorListener;
@@ -29,17 +31,16 @@ public class FooterBehavior extends CoordinatorLayout.Behavior<View> {
     }
 
     @Override
-    public boolean onStartNestedScroll(final CoordinatorLayout coordinatorLayout, final View child,
-                                       final View directTargetChild, final View target, final int nestedScrollAxes) {
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View child, @NonNull View directTargetChild, @NonNull View target, int axes, int type) {
         // Ensure we react to vertical scrolling
         Log.d("ttttt", "onStartNestedScroll");
-        return nestedScrollAxes == ViewCompat.SCROLL_AXIS_VERTICAL
-                || super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target, nestedScrollAxes);
+        return axes == ViewCompat.SCROLL_AXIS_VERTICAL
+                || super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target, axes, type);
     }
 
     @Override
-    public void onNestedScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
-        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed);
+    public void onNestedScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int type) {
+        super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, type);
         Log.d("ttttt", "onNestedScroll");
         Log.d("ttttt", "dxConsumed : " + dxConsumed + ", dyConsumed : " + dyConsumed + ", dxUnconsumed : " + dxUnconsumed + ", dyUnconsumed : " + dyUnconsumed);
         Log.d("ttttt", "child visible : " + child.getVisibility());
@@ -52,19 +53,19 @@ public class FooterBehavior extends CoordinatorLayout.Behavior<View> {
         }
     }
 
-//    @Override
-//    public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency) {
-//        Log.d("ttttt", "layoutDependsOn");
-//        return dependency instanceof AppBarLayout;
-//    }
-//
-//    @Override
-//    public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
-//        Log.d("ttttt", "onDependentViewChanged");
-//        float translationY = Math.abs(dependency.getTranslationY());
-//        child.setTranslationY(translationY);
-//        return true;
-//    }
+    @Override
+    public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency) {
+        Log.d("ttttt", "layoutDependsOn");
+        return dependency instanceof AppBarLayout;
+    }
+
+    @Override
+    public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
+        Log.d("ttttt", "onDependentViewChanged");
+        float translationY = Math.abs(dependency.getTranslationY());
+        child.setTranslationY(translationY);
+        return true;
+    }
 
     // Same animation that FloatingActionButton.Behavior uses to hide the FAB when the AppBarLayout exits
     private void animateOut(final View view) {
