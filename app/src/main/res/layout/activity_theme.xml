@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:focusable="false">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false">
 
-    <include layout="@layout/view_toolbar" />
+    <include layout="@layout/view_toolbar"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
 
             <VideoView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -31,21 +31,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="TextView"/>
 
                 <TextView
                     style="@style/PrimaryTextLight.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="TextView"/>
 
                 <TextView
                     style="@style/PrimaryTextDeep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="TextView" />
+                    android:text="TextView"/>
 
             </LinearLayout>
 
@@ -59,28 +59,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:text="TextView"/>
 
                 <TextView
                     style="@style/PrimaryBlackText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="TextView" />
+                    android:text="TextView"/>
 
                 <TextView
                     style="@style/TextDisable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:text="Disable" />
+                    android:text="Disable"/>
 
             </LinearLayout>
 
             <EditText
                 android:id="@+id/edit_1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/input_layout_1"
@@ -95,7 +95,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:id="@+id/input_edit_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -115,7 +115,7 @@
                     android:id="@+id/input_edit_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:theme="@style/SecondEditText" />
+                    android:theme="@style/SecondEditText"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -134,7 +134,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:enabled="false"
-                    android:text="DISABLE" />
+                    android:text="DISABLE"/>
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
@@ -147,20 +147,20 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="True" />
+                    android:text="True"/>
 
                 <android.support.v7.widget.SwitchCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="False" />
+                    android:text="False"/>
 
                 <android.support.v7.widget.SwitchCompat
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="Disable" />
+                    android:text="Disable"/>
 
             </LinearLayout>
 
@@ -172,20 +172,20 @@
                 <android.support.v7.widget.AppCompatRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
 
                 <android.support.v7.widget.AppCompatRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:checked="true" />
+                    android:checked="true"/>
 
                 <android.support.v7.widget.AppCompatRadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:enabled="false" />
+                    android:enabled="false"/>
 
             </LinearLayout>
 
@@ -199,20 +199,20 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:text="Check Box" />
+                    android:text="Check Box"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Check Box" />
+                    android:text="Check Box"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:enabled="false"
-                    android:text="Check Box" />
+                    android:text="Check Box"/>
 
             </LinearLayout>
 
@@ -220,7 +220,7 @@
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:progress="33" />
+                android:progress="33"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -231,36 +231,36 @@
                     style="?android:attr/progressBarStyleInverse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
+                    android:layout_gravity="center_vertical"/>
 
                 <ProgressBar
                     style="?android:attr/progressBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
+                    android:layout_gravity="center_vertical"/>
 
                 <ProgressBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
+                    android:layout_gravity="center_vertical"/>
 
                 <ProgressBar
                     style="?android:attr/progressBarStyleLarge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
+                    android:layout_gravity="center_vertical"/>
 
                 <android.support.design.widget.FloatingActionButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:src="@android:drawable/arrow_down_float" />
+                    android:src="@android:drawable/arrow_down_float"/>
 
                 <ProgressBar
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:theme="@style/SecondProgressBar" />
+                    android:theme="@style/SecondProgressBar"/>
             </LinearLayout>
 
             <Button
@@ -268,7 +268,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Enable" />
+                android:text="Enable"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -282,7 +282,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Enable"
-                    android:theme="@style/PrimaryButton" />
+                    android:theme="@style/PrimaryButton"/>
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Colored"
@@ -291,7 +291,7 @@
                     android:layout_weight="1"
                     android:enabled="false"
                     android:text="Disable"
-                    android:theme="@style/PrimaryButton" />
+                    android:theme="@style/PrimaryButton"/>
 
             </LinearLayout>
 
@@ -306,7 +306,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Enable"
-                    android:theme="@style/PrimaryButtonDeep" />
+                    android:theme="@style/PrimaryButtonDeep"/>
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Colored"
@@ -315,7 +315,7 @@
                     android:layout_weight="1"
                     android:enabled="false"
                     android:text="Disable"
-                    android:theme="@style/PrimaryButtonDeep" />
+                    android:theme="@style/PrimaryButtonDeep"/>
 
             </LinearLayout>
 
@@ -330,7 +330,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Enable"
-                    android:theme="@style/SecondButton" />
+                    android:theme="@style/SecondButton"/>
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Colored"
@@ -339,7 +339,7 @@
                     android:layout_weight="1"
                     android:enabled="false"
                     android:text="Disable"
-                    android:theme="@style/SecondButton" />
+                    android:theme="@style/SecondButton"/>
 
             </LinearLayout>
 
@@ -354,7 +354,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Enable"
-                    android:theme="@style/ThirdButton" />
+                    android:theme="@style/ThirdButton"/>
 
             </LinearLayout>
 
@@ -369,7 +369,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Enable"
-                    android:theme="@style/PrimaryButtonTrans" />
+                    android:theme="@style/PrimaryButtonTrans"/>
 
                 <Button
                     style="@style/Widget.AppCompat.Button.Colored"
@@ -378,20 +378,21 @@
                     android:layout_weight="1"
                     android:enabled="false"
                     android:text="Disable"
-                    android:theme="@style/PrimaryButtonTrans" />
+                    android:theme="@style/PrimaryButtonTrans"/>
 
             </LinearLayout>
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:tabMode="scrollable"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_8" />
+                android:layout_marginTop="@dimen/padding_8"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

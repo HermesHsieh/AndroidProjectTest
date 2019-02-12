@@ -55,9 +55,17 @@ public class ThemeActivity extends BaseSimpleActivity {
         balances.getPoints();
         balances.getRainbowDiamonds();
 
-        tabLayout.addTab(tabLayout.newTab().setText("Tab1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab2"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab3"));
+        for (int i = 1; i <= 10; i++) {
+            tabLayout.addTab(tabLayout.newTab().setText("Tab" + i));
+        }
+
+        try {
+            tabLayout.post(() -> {
+                tabLayout.getTabAt(8).select();
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
