@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.hermes.test.R
 import org.jetbrains.anko.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class AnkoActivityUi : AnkoComponent<AnkoActivity> {
 
